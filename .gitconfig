@@ -1,0 +1,21 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = Hào Nguyễn Anh
+	email = hao.nguyen@rapiddweller.com
+	signingkey = 18D9CD4873B73696
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	ui = auto
+[alias]
+	glop = log --pretty=format:%h
+[push]
+	autoSetupRemote = true
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
