@@ -4,8 +4,7 @@
 
 Watch the [video collaboration](https://youtu.be/r_MpUP6aKiQ "Dotfiles in 100 Seconds on YouTube") between [fireship.io](https://fireship.io/ "Build and ship 🔥 your app ⚡ faster") and [eieio.xyz](http://dotfiles.eieio.xyz "Dotfiles from Start to Finish-ish"). And don't forget to [subscribe](https://fireship.page.link/youtube "Fireship YouTube Channel") while you're there!
 
-Then, go ***way*** beyond 100 seconds by taking the full course on Udemy, [***Dotfiles from Start to Finish-ish***](https://www.udemy.com/course/dotfiles-from-start-to-finish-ish/?referralCode=445BE0B541C48FE85276 "Learn Dotfiles from Start to Finish-ish on Udemy"
-) (aka "Dotiles in 15240 Seconds and Growing"). Keep an eye on [Twitter](https://twitter.com/EIEIOxyz "@EIEIOxyz") and [YouTube](https://www.youtube.com/channel/UCcZZOzRKMbql7IEL0midfgQ "EIEIO YouTube Channel") for updates to the course.
+Hao Nguyen Dev Dotfiles
 
 
 ## Steps to bootstrap a new Mac
