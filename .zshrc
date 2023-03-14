@@ -118,6 +118,8 @@ GOPATH=/Users/haonguyen/go
 
 # ChatGPT Key
 source "$HOME/.openai_key.zsh"
+# JAVA
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

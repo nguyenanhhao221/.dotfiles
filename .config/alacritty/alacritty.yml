@@ -115,9 +115,11 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: TerminessTTF Nerd Font
+    # family: League Mono
+    # family: TerminessTTF Nerd Font
+    family: FiraCode Nerd Font
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    # style: Regular
     # Bold font face
     #bold:
     # Font family
@@ -147,14 +149,14 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 17.0
+  size: 15.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
@@ -168,7 +170,7 @@ font:
   #
   #builtin_box_drawing: true
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night)
 #colors:
@@ -387,36 +389,39 @@ draw_bold_text_with_bright_colors: false
 # Live config reload (changes require restart)
 live_config_reload: true
 colors:
+  name: TokyoNight Night
+  author: Folke
   # Default colors
   primary:
-    background: '#000000'
-    foreground: '#ffffff'
-  cursor:
-    text: '#F81CE5'
-    cursor: '#ffffff'
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
 
   # Normal colors
   normal:
-    black: '#000000'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#d0d0d0'
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
 
   # Bright colors
   bright:
-    black: '#808080'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#FFFFFF'
-theme: Hyper
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+theme: Tokyonight_Night
 
 # Shell
 #
