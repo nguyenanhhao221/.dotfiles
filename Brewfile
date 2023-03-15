@@ -17,6 +17,8 @@ brew "benerator"
 brew "bison"
 # Ruby environment tool
 brew "chruby"
+# Console Matrix
+brew "cmatrix"
 # Command-line tool to interact with exercism.io
 brew "exercism"
 # Simple, fast and user-friendly alternative to find
@@ -27,14 +29,24 @@ brew "fzf"
 brew "gdbm"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
+# Tcl/Tk UI for the git revision control system
+brew "git-gui"
 # Library for command-line editing
 brew "readline"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Ruby implementation in pure Java
 brew "jruby"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Portable Foreign Function Interface library
 brew "libffi"
 # YAML Parser
