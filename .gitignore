@@ -3,3 +3,6 @@
 
 # alacritty log ignore
 .config/alacritty/alacritty.yml.*.bak
+
+# raycast ignore
+.config/raycast/
