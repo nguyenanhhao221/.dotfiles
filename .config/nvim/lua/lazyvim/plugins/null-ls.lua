@@ -16,18 +16,18 @@ return {
           --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
           formatting.prettier.with({
             condition = function(utils)
-              return utils.root_has_file("prettier.config.cjs") -- change file extension if you use something else
+              return utils.root_has_file("prettier.config.cjs") or utils.root_has_file("./ui/prettier.config.cjs") -- change file extension if you use something else
             end,
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
-          diagnostics.eslint_d.with({ -- js/ts linter
-            -- only enable eslint if root has .eslintrc.json (not in youtube nvim video)
-            condition = function(utils)
-              -- change file extension if you use something else
-              return utils.root_has_file({ ".eslintrc.json" }) or utils.root_has_file({ ".eslintrc" })
-            end,
-          }),
+          -- diagnostics.eslint.with({ -- js/ts linter
+          --   -- only enable eslint if root has .eslintrc.json (not in youtube nvim video)
+          --   condition = function(utils)
+          --     -- change file extension if you use something else
+          --     return utils.root_has_file({ "./ui/.eslintrc.json" })
+          --   end,
+          -- }),
         },
         -- configure format on save
         on_attach = function(current_client, bufnr)
@@ -59,7 +59,7 @@ return {
       ensure_installed = {
         "prettier", -- ts/js formatter
         "stylua", -- lua formatter
-        "eslint_d", -- ts/js linter
+        "eslint", -- ts/js linter
       },
       -- auto-install configured formatters & linters (with null-ls)
       automatic_installation = true,
