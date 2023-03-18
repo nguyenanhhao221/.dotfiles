@@ -6,3 +6,6 @@
 
 # raycast ignore
 .config/raycast/
+
+# state of lazygit 
+/lazygit/state.yml
