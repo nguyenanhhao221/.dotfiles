@@ -2,7 +2,7 @@ return {
   {
     --Auto closing tag and pairs
     "windwp/nvim-autopairs",
-    event = "InsertEnter",
+    event = "VeryLazy",
     opts = {
       check_ts = true, -- enable treesitter
       ts_config = {
@@ -11,7 +11,7 @@ return {
         java = false, -- don't check treesitter on java
       },
     },
-    config = function()
+    config = function(_, opts)
       -- import nvim-autopairs completion functionality safely
       local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
       if not cmp_autopairs_setup then
@@ -25,6 +25,7 @@ return {
       end
       -- make autopairs and completion work together
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      require("nvim-autopairs").setup(opts)
     end,
   },
 
