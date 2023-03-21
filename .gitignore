@@ -2,7 +2,7 @@
 */.DS_Store
 
 # alacritty log ignore
-.config/alacritty/alacritty.yml.*.bak
+/.config/alacritty/alacritty.yml.*.bak
 
 # raycast ignore
 .config/raycast/
