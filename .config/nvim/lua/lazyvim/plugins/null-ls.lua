@@ -2,6 +2,7 @@ return {
   -- formatting & linting
   {
     "jose-elias-alvarez/null-ls.nvim",
+    enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       local formatting = require("null-ls").builtins.formatting -- to setup formatters
@@ -15,9 +16,9 @@ return {
           --  to disable file types use
           --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
           formatting.prettier.with({
-            condition = function(utils)
-              return utils.root_has_file("prettier.config.cjs") or utils.root_has_file("./ui/prettier.config.cjs") -- change file extension if you use something else
-            end,
+            -- condition = function(utils)
+            --   return utils.root_has_file("prettier.config.cjs") or utils.root_has_file("./ui/prettier.config.cjs") -- change file extension if you use something else
+            -- end,
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
@@ -53,6 +54,8 @@ return {
   }, -- configure formatters & linters
   {
     "jayp0521/mason-null-ls.nvim",
+    dependencies = { "jose-elias-alvarez/null-ls.nvim" },
+    enabled = true,
     event = "VeryLazy", -- bridges gap b/w mason & null-ls
     opts = {
       -- list of formatters & linters for mason to install
