@@ -84,7 +84,7 @@ return {
         -- Code action
         nmap("<leader>ca", ":Lspsaga code_action<CR>", "[c]ode [a]ction")
         -- Go to definition
-        nmap("<leader>gd", ":Lspsaga peek_definition<CR>", "Peek [G]o [D]efinition")
+        nmap("gd", vim.lsp.buf.definition, "Peek [G]o [D]efinition")
         -- Type definition
         nmap("<leader>gt", ":Lspsaga peek_type_definition<CR>", "Peek [T]ype [D]efinition")
 
