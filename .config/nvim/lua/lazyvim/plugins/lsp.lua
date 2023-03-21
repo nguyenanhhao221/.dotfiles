@@ -78,8 +78,6 @@ return {
 
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
         end
-        -- Toggle outline
-        nmap("<leader>o", ":Lspsaga outline<CR>", "Toogle [O]utline")
         -- Hover docs
         -- nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
         nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
