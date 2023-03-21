@@ -2,8 +2,8 @@
 	helper = osxkeychain
 [user]
 	name = Hao Nguyen
-	email = 32004536+nguyenanhhao221@users.noreply.github.com
-	signingkey = F0E21881EF72C420
+	email = hao@haonguyen.tech
+	signingkey = 0B814767BEB1623B
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
