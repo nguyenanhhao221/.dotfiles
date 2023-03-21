@@ -7,5 +7,11 @@
 # raycast ignore
 .config/raycast/
 
+# avoid public expose token
+.config/gh
+.config/planetscale
+.config/qBittorrent
+.config/sanity
+
 # state of lazygit 
 /lazygit/state.yml
