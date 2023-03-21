@@ -170,33 +170,50 @@ return {
       { "onsails/lspkind.nvim" },
     },
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      --lspSaga
-      require("lspsaga").setup({
-        -- keybinds for navigation in lspsaga window
-        scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
-        -- use enter to open file with definition preview
-        definition = {
-          edit = "<CR>",
+    opts = {
+      -- keybinds for navigation in lspsaga window
+      scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+      -- use enter to open file with definition preview
+      definition = {
+        edit = "<CR>",
+      },
+      outline = {
+        win_position = "right",
+        win_with = "",
+        win_width = 30,
+        show_detail = true,
+        auto_preview = false,
+        auto_refresh = true,
+        auto_close = true,
+        custom_sort = nil,
+        keys = {
+          jump = "o",
+          expand_collapse = "u",
+          quit = "q",
         },
-        code_action = {
-          num_shortcut = true,
-          show_server_name = true,
-          extend_gitsigns = false,
-          keys = {
-            -- string | table type
-            quit = "q",
-            exec = "<CR>",
-          },
+      },
+      code_action = {
+        num_shortcut = true,
+        show_server_name = true,
+        extend_gitsigns = false,
+        keys = {
+          -- string | table type
+          quit = "q",
+          exec = "<CR>",
         },
-        lightbulb = {
-          enable = true,
-          enable_in_insert = true,
-          sign = false,
-          sign_priority = 40,
-          virtual_text = true,
-        },
-      })
-    end,
+      },
+      lightbulb = {
+        enable = true,
+        enable_in_insert = true,
+        sign = false,
+        sign_priority = 40,
+        virtual_text = true,
+      },
+      -- after jump from float window there will show beacon to remind you where the cursor is.
+      beacon = {
+        enable = true,
+        frequency = 7,
+      },
+    },
   },
 }
