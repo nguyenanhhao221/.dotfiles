@@ -116,6 +116,7 @@ return {
         nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
 
+        nmap("gr", "<cmd>Telescope lsp_references<cr>", "References")
         -- Lesser used LSP functionality
         nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
         nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
