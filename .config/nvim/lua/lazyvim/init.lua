@@ -22,7 +22,9 @@ vim.o.termguicolors = true
 vim.opt.wrap = false
 
 -- Spell lang
-vim.opt.spelllang = { "en" }
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
