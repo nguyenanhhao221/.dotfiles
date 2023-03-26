@@ -5,7 +5,6 @@ return {
     "nvim-tree/nvim-web-devicons",
     opt = true, -- optional, for file icons
   },
-  -- cmd = { "NvimTreeToggle", "NvimTreeFocus" },
   opts = {
     sort_by = "case_sensitive",
     view = {
