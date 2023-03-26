@@ -92,6 +92,7 @@ return {
   --Treesitter context for sticky scroll
   {
     "nvim-treesitter/nvim-treesitter-context",
+    dependencies = "nvim-treesitter",
     event = "VeryLazy",
     config = function()
       require("treesitter-context").setup()
