@@ -38,7 +38,7 @@ return {
       servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- tsserver = {},
         -- rust_analyzer = {},
         lua_ls = {
