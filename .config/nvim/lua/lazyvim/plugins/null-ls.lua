@@ -15,11 +15,6 @@ return {
         sources = {
           --  to disable file types use
           --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-          formatting.prettier.with({
-            -- condition = function(utils)
-            --   return utils.root_has_file("prettier.config.cjs") or utils.root_has_file("./ui/prettier.config.cjs") -- change file extension if you use something else
-            -- end,
-          }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
           -- diagnostics.eslint.with({ -- js/ts linter
@@ -60,9 +55,9 @@ return {
     opts = {
       -- list of formatters & linters for mason to install
       ensure_installed = {
-        "prettier", -- ts/js formatter
+        -- "prettier", -- ts/js formatter
         "stylua", -- lua formatter
-        "eslint", -- ts/js linter
+        -- "eslint", -- ts/js linter
       },
       -- auto-install configured formatters & linters (with null-ls)
       automatic_installation = true,
