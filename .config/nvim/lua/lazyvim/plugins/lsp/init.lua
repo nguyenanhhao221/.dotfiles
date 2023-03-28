@@ -188,7 +188,7 @@ return {
       { "nvim-treesitter/nvim-treesitter" },
       { "onsails/lspkind.nvim" },
     },
-    event = "BufRead",
+    event = "LspAttach",
     opts = {
       -- keybinds for navigation in lspsaga window
       scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
