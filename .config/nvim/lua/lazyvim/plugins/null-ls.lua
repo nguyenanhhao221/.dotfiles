@@ -14,7 +14,7 @@ return {
         -- setup formatters & linters
         sources = {
           --  to disable file types use
-          --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+          formatting.prettierd,
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
           -- diagnostics.eslint.with({ -- js/ts linter
