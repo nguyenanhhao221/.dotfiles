@@ -12,6 +12,14 @@
 .config/planetscale
 .config/qBittorrent
 .config/sanity
+.config/containers
+.config/simple-update-notifier
+.config/fish
+.config/exercism
+.config/efm-langserver
+.config/configstore
+.config/silicon
 
 # state of lazygit 
 /lazygit/state.yml
+
