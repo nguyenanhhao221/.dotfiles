@@ -41,9 +41,6 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
---Show git graph
-vim.keymap.set("n", "<leader>gp", ":Flog<CR>", { desc = "Show [g]it gra[p]h" }) -- close current split window
-
 --Disable the Q button
 vim.keymap.set("n", "Q", "<nop>")
 
