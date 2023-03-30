@@ -14,7 +14,9 @@ return {
         -- setup formatters & linters
         sources = {
           --  to disable file types use
-          formatting.prettierd,
+          formatting.prettierd.with({
+            disabled_filetypes = { "yml", "yaml" },
+          }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
           -- diagnostics.eslint.with({ -- js/ts linter
