@@ -94,8 +94,6 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = "nvim-treesitter",
     event = "VeryLazy",
-    config = function()
-      require("treesitter-context").setup()
-    end,
+    config = true,
   },
 }
