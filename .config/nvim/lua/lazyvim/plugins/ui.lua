@@ -144,7 +144,6 @@ return {
         evaluate_single = true,
         header = logo,
         items = {
-          new_section("Files Explorer",   "NvimTreeToggle",       "NvimTree"),
           new_section("Find file",    "Telescope find_files", "Telescope"),
           new_section("Recent files", "Telescope oldfiles",   "Telescope"),
           new_section("Grep text",    "Telescope live_grep",  "Telescope"),
