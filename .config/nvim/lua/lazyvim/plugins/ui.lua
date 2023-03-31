@@ -250,7 +250,7 @@ return {
       require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = "tokyonight",
+          theme = "kanagawa",
           component_separators = "|",
           section_separators = "",
           path = 1,
@@ -268,9 +268,9 @@ return {
             {
               "diff",
               symbols = {
-                added = "+",
-                modified = "~",
-                removed = "-",
+                added = "  ",
+                modified = "  ",
+                removed = "  ",
               },
             },
             {
@@ -306,16 +306,17 @@ return {
               cond = require("lazy.status").has_updates,
               color = fg("Special"),
             },
-            { "filetype", icon_only = false, separator = "", padding = { left = 1, right = 0 } },
+            { "filetype", icon_only = false, separator = "", padding = { left = 1, right = 1 } },
           },
           lualine_y = {
             { "progress", separator = " ", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
-            function()
-              return " " .. os.date("%R")
-            end,
+            -- function()
+            --   return " " .. os.date("%R")
+            -- end,
+            "encoding",
           },
         },
       })
