@@ -3,8 +3,8 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
+    -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "tokyonight",
     config = function()
       -- load the colorscheme here
@@ -15,8 +15,8 @@ return {
   --Kanagawa Themes
   {
     "rebelot/kanagawa.nvim",
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
-    -- priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
     config = function()
       -- load the colorscheme here
@@ -120,15 +120,26 @@ return {
       invert_tabline = false,
       invert_intend_guides = false,
       inverse = true, -- invert background for search, diffs, statuslines and errors
-      contrast = "", -- can be "hard", "soft" or empty string
+      contrast = "hard", -- can be "hard", "soft" or empty string
       palette_overrides = {},
       overrides = {},
       dim_inactive = false,
-      transparent_mode = false,
+      transparent_mode = true,
     },
     config = function()
       -- load the colorscheme here
       vim.cmd([[colorscheme gruvbox]])
+    end,
+  },
+  --Gruvbox material
+  {
+    "sainnhe/gruvbox-material",
+    lazy = true,
+    name = "gruvbox_material",
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme gruvbox_material]])
+      vim.g.gruvbox_material.background = "hard"
     end,
   },
 }
