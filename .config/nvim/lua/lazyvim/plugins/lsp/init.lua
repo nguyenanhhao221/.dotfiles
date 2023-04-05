@@ -9,7 +9,13 @@ return {
       "williamboman/mason-lspconfig.nvim",
       -- Additional lua configuration, makes nvim stuff amazing
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+      {
+        "folke/neodev.nvim",
+        opts = {
+          experimental = { pathStrict = true },
+          library = { plugins = { "nvim-dap-ui" }, types = true },
+        },
+      },
       -- Typescript enhance for lsp
       "jose-elias-alvarez/typescript.nvim",
       -- Add vscode like icon
