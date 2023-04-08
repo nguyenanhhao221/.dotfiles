@@ -61,7 +61,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.98
+  opacity: 1.0
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -175,37 +175,35 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#1d1f21'
-    foreground: '#c5c8c6'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '#1d1f21'
-    cursor: '#ffffff'
+    background: '0x0d1117'
+    foreground: '0xb3b1ad'
 
   # Normal colors
   normal:
-    black: '#1d1f21'
-    red: '#cc6666'
-    green: '#b5bd68'
-    yellow: '#e6c547'
-    blue: '#81a2be'
-    magenta: '#b294bb'
-    cyan: '#70c0ba'
-    white: '#373b41'
+    black: '0x484f58'
+    red: '0xff7b72'
+    green: '0x3fb950'
+    yellow: '0xd29922'
+    blue: '0x58a6ff'
+    magenta: '0xbc8cff'
+    cyan: '0x39c5cf'
+    white: '0xb3b1ad'
 
   # Bright colors
   bright:
-    black: '#666666'
-    red: '#ff3334'
-    green: '#9ec400'
-    yellow: '#f0c674'
-    blue: '#81a2be'
-    magenta: '#b77ee0'
-    cyan: '#54ced6'
-    white: '#282a2e'
-  transparent_background_colors: true
-theme: Tomorrow-Night
+    black: '0x6e7681'
+    red: '0xffa198'
+    green: '0x56d364'
+    yellow: '0xe3b341'
+    blue: '0x79c0ff'
+    magenta: '0xd2a8ff'
+    cyan: '0x39c5cf'
+    white: '0xb3b1ad'
+
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xffa198' }
+theme: github_dark_default
 
 # Colors (Tomorrow Night)
 #colors:
