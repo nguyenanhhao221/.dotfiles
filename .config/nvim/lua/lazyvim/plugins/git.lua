@@ -36,7 +36,19 @@ return {
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
-    keys = { "<leader>gs", "<cmd>Git", desc = "git status" },
+    keys = {
+      { "<leader>gs", "<cmd>Git", desc = "git status" },
+      {
+        "ga",
+        "<cmd> diffget //2<CR>",
+        desc = "git get left",
+      },
+      {
+        "gl",
+        "<cmd> diffget //3<CR>",
+        desc = "git get right",
+      },
+    },
     cmd = { "Git" },
     config = function()
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
