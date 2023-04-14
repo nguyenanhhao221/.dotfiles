@@ -24,6 +24,8 @@ vim.opt.wrap = false
 -- Spell lang
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
+vim.opt.spelloptions = "camel"
+vim.opt.spellcapcheck = ""
 
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
