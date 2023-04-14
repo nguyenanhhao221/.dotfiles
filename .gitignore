@@ -25,3 +25,4 @@
 # state of lazygit 
 /lazygit/state.yml
 
+.config/htop/htoprc
