@@ -47,12 +47,12 @@ return {
       { "<leader>gs", "<cmd>Git", desc = "git status" },
       {
         "ga",
-        "<cmd> diffget //2<CR>",
+        "<cmd>diffget //2<CR>",
         desc = "git get left",
       },
       {
         "gl",
-        "<cmd> diffget //3<CR>",
+        "<cmd>diffget //3<CR>",
         desc = "git get right",
       },
     },
