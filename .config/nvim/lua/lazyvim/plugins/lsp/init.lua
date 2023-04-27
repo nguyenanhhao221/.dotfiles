@@ -58,6 +58,9 @@ return {
             },
           },
         },
+        efm = {
+          filetypes = { "python", "cpp", "lua" },
+        },
         html = {},
         cssls = {},
         tailwindcss = {},
