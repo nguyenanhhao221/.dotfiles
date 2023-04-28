@@ -19,6 +19,11 @@ return {
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
+          formatting.isort,
+          -- diagnostics.pylint.with({
+          --   prefer_local = "venv/bin",
+          -- }),
+          -- diagnostics.flake8,
           -- diagnostics.eslint.with({ -- js/ts linter
           --   -- only enable eslint if root has .eslintrc.json (not in youtube nvim video)
           --   condition = function(utils)
