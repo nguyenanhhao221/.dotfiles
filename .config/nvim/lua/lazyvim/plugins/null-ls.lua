@@ -19,7 +19,8 @@ return {
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
-          formatting.isort,
+          formatting.isort, -- python formatter
+
           -- diagnostics.pylint.with({
           --   prefer_local = "venv/bin",
           -- }),
