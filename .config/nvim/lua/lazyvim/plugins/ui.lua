@@ -247,6 +247,7 @@ return {
           return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
         end
       end
+      local icons = require("lazyvim.config").icons
       require("lualine").setup({
         options = {
           icons_enabled = true,
@@ -263,14 +264,20 @@ return {
           lualine_c = {
             {
               "diagnostics",
+              symbols = {
+                error = icons.diagnostics.Error,
+                warn = icons.diagnostics.Warn,
+                info = icons.diagnostics.Info,
+                hint = icons.diagnostics.Hint,
+              },
             },
             { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             {
               "diff",
               symbols = {
-                added = "  ",
-                modified = "  ",
-                removed = "  ",
+                added = icons.git.added,
+                modified = icons.git.modified,
+                removed = icons.git.removed,
               },
             },
             {
