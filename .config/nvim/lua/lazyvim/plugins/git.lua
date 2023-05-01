@@ -1,5 +1,5 @@
 return {
-  -- Toogle Term to be used with lazygit
+  -- Toggle Term to be used with lazygit
   {
     "akinsho/toggleterm.nvim",
     version = "*",
