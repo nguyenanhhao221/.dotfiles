@@ -135,6 +135,8 @@ chruby ruby-3.1.3
 
 ### Fix for making Docker plugin work
 autoload -U compinit && compinit
+# fzf options
+export FZF_DEFAULT_OPTS="--layout=default"
 
 # https://starship.rs/
 # starship prompts
