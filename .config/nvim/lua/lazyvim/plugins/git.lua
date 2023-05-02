@@ -42,7 +42,6 @@ return {
   -- Git related plugins
   {
     "tpope/vim-fugitive",
-    event = "VeryLazy",
     keys = {
       { "<leader>gs", "<cmd>Git", desc = "git status" },
       {
@@ -61,16 +60,16 @@ return {
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
     end,
   },
-  { "tpope/vim-rhubarb", event = "VeryLazy" },
+  { "tpope/vim-rhubarb", lazy = true },
   -- Intergrate with gh cli, review PR without leaving terminal
   {
     "ldelossa/gh.nvim",
     dependencies = { { "ldelossa/litee.nvim" } },
+    lazy = true,
     config = function()
       require("litee.lib").setup()
       require("litee.gh").setup({})
     end,
-    event = "VeryLazy",
   },
   -- Octos for github
   {
@@ -81,9 +80,7 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("octo").setup()
-    end,
+    config = true,
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -133,7 +130,7 @@ return {
   },
   {
     "petertriho/nvim-scrollbar",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("scrollbar.handlers.gitsigns").setup()
       require("scrollbar").setup()

@@ -43,6 +43,7 @@ return {
           ["<leader>da"] = { name = "+adapters" },
         },
       },
+      event = { "VeryLazy" },
     },
 
     -- mason.nvim integration

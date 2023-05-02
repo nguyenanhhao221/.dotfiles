@@ -59,7 +59,8 @@ return {
     "jayp0521/mason-null-ls.nvim",
     dependencies = { "jose-elias-alvarez/null-ls.nvim" },
     enabled = true,
-    event = "VeryLazy", -- bridges gap b/w mason & null-ls
+    lazy = true,
+    -- event = "VeryLazy", -- bridges gap b/w mason & null-ls
     opts = {
       -- list of formatters & linters for mason to install
       ensure_installed = {

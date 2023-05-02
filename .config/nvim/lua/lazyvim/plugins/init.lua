@@ -2,7 +2,8 @@ return {
   {
     --Auto closing tag and pairs
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
+    event = "InsertEnter",
+    lazy = true,
     opts = {
       check_ts = true, -- enable treesitter
       ts_config = {
@@ -34,7 +35,7 @@ return {
   --Harpoon to navigate files by ThePrimeagen
   {
     "theprimeagen/harpoon",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
