@@ -35,6 +35,8 @@ M.on_attach = function(client, bufnr)
   nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
 
   nmap("gr", "<cmd>Telescope lsp_references<cr>", "References")
+
+  nmap("<leader>uf", require("lazyvim.plugins.lsp.format").toggle, "Toggle format on Save")
   -- Lesser used LSP functionality
   nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
   nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
