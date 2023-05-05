@@ -133,7 +133,7 @@ return {
     ---@param opts PluginLspOpts
     config = function(_, opts)
       local Util = require("lazyvim.util")
-      --setup autoformat
+      --setup auto format
       require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
       -- setup formatting and keymaps
       Util.on_attach(function(client, buffer)
@@ -168,7 +168,7 @@ return {
         require("lspconfig")[server].setup(server_opts)
       end
 
-      -- get all the servers that are available thourgh mason-lspconfig
+      -- get all the servers that are available though mason-lspconfig
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
       local all_mslp_servers = {}
       if have_mason then
