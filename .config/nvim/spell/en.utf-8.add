@@ -92,3 +92,7 @@ googleData
 Mongo
 javascript
 aiohttp
+cmp
+lsp
+lazyvim
+keymaps
