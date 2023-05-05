@@ -132,6 +132,14 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
+      local Util = require("lazyvim.util")
+      --setup autoformat
+      require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
+      -- setup formatting and keymaps
+      Util.on_attach(function(client, buffer)
+        require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
+        require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
+      end)
       -- LSP settings.
       --  This function gets run when an LSP connects to a particular buffer.
       local on_attach = function(client, bufnr)
