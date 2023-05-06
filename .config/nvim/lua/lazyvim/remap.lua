@@ -27,9 +27,6 @@ vim.keymap.set("n", "<leader>-", "<C-x>") -- decrement
 -- Save file
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", ":w<CR>", { desc = "[s]ave all files", noremap = true })
 
--- Format Command Trigger
-vim.keymap.set({ "n", "i", "v" }, "<C-f>", ":Format<CR>", { desc = "[f]ormat with lsp", noremap = true })
---
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "[s]plit window [v]ertically" }) --
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "[s]plit window [h]orizontally" }) -- split window horizontally
