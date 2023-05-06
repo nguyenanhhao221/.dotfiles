@@ -70,6 +70,7 @@ return {
       },
     },
     -- Add each config for each language here
+    require("lazyvim.plugins.dap.golang"),
     require("lazyvim.plugins.dap.nlua"),
   },
 
