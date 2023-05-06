@@ -96,3 +96,6 @@ cmp
 lsp
 lazyvim
 keymaps
+struct
+nlua
+dap
