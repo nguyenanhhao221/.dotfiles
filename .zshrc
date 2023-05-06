@@ -120,7 +120,7 @@ export PNPM_HOME="/Users/haonguyen/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-GOPATH=/Users/haonguyen/go
+# GOPATH=/Users/haonguyen/go
 
 # ChatGPT Key
 source "$HOME/.openai_key.zsh"
@@ -131,7 +131,8 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.1.3
+# Activate ruby version when needed
+# chruby ruby-3.1.3
 
 ### Fix for making Docker plugin work
 autoload -U compinit && compinit
