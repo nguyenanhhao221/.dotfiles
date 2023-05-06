@@ -54,7 +54,7 @@ return {
       ---@type lspconfig.options
       servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         jsonls = {},
         pylsp = {
           -- For debugging
