@@ -118,7 +118,8 @@ font:
     # family: League Mono 
     # family: TerminessTTF Nerd Font
     family: FiraCode Nerd Font
-    # family: "SF Mono Nerd Font"
+    # family: "SFMono Nerd Font"
+    # family: "GoMono Nerd Font"
     # The `style` can be specified to pick a specific face.
     # style: Regular
     # Bold font face
