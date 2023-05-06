@@ -35,7 +35,7 @@ return {
   --Harpoon to navigate files by ThePrimeagen
   {
     "theprimeagen/harpoon",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
