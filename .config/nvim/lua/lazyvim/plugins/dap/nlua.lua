@@ -17,6 +17,5 @@ return {
         name = "Attach to running Neovim instance",
       },
     }
-    require("osv").setup()
   end,
 }
