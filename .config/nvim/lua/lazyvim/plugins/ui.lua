@@ -237,7 +237,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-    config = function()
+    opts = function()
       -- Set lualine as statusline
       -- See `:help lualine.txt`
       local function fg(name)
@@ -248,7 +248,7 @@ return {
         end
       end
       local icons = require("lazyvim.config").icons
-      require("lualine").setup({
+      return {
         options = {
           icons_enabled = true,
           -- theme = "kanagawa",
@@ -311,7 +311,7 @@ return {
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
-              color = fg("Special"),
+              -- color = fg("Special"),
             },
             { "filetype", icon_only = false, separator = "", padding = { left = 1, right = 1 } },
           },
@@ -326,7 +326,7 @@ return {
             "encoding",
           },
         },
-      })
+      }
     end,
   },
 }
