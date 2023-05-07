@@ -99,3 +99,4 @@ keymaps
 struct
 nlua
 dap
+json
