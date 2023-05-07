@@ -48,7 +48,7 @@ format = "via [Rust $version](red bold)"
 symbol = "? "
 
 [golang]
-format = "via [Go $version](red bold)"
+format = "via [ $version](blue bold)"
 
 [php]
 format = "via [PHP $version](147 bold) "
