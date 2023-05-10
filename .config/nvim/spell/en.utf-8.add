@@ -100,3 +100,6 @@ struct
 nlua
 dap
 json
+viewport
+blueprintjs
+isDowloadFolderEixst
