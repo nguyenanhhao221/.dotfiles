@@ -55,6 +55,7 @@ return {
       servers = {
         -- clangd = {},
         gopls = {},
+        golangci_lint_ls = {},
         jsonls = {},
         pylsp = {
           -- For debugging
