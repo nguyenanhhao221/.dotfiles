@@ -12,8 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load everything with the config inside the plugins directory
-require("lazy").setup("lazyvim.plugins", {
-  defaults = {
-    version = "*", -- enable this to try installing the latest stable versions of plugins
-  },
-})
+require("lazy").setup("lazyvim.plugins")
