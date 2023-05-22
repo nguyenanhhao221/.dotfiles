@@ -29,6 +29,10 @@ return {
           tailwind = true, -- Enable tailwind colors
         },
       },
+      {
+        "b0o/SchemaStore.nvim",
+        version = false, -- last release is way too old
+      },
     },
     ---@class PluginLspOpts
     opts = {
@@ -63,7 +67,21 @@ return {
         -- clangd = {},
         gopls = {},
         golangci_lint_ls = {},
-        jsonls = {},
+        jsonls = {
+          -- lazy-load schemastore when needed
+          on_new_config = function(new_config)
+            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+          end,
+          settings = {
+            json = {
+              format = {
+                enable = true,
+              },
+              validate = { enable = true },
+            },
+          },
+        },
         pylsp = {
           -- For debugging
           -- cmd = { os.getenv("HOME") .. "/.config/nvim/venv/bin/pylsp", "--log-file=/tmp/pylsp.log", "-v" },
