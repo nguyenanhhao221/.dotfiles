@@ -25,7 +25,7 @@ return {
       },
       "windwp/nvim-autopairs",
     },
-    ---@param opts TSConfig
+    ---@type TSConfig
     opts = {
       -- A list of parser names, or "all" (the four listed parsers should always be installed)
       ensure_installed = {
@@ -85,6 +85,7 @@ return {
       indent = { enable = true, disable = { "python" } },
       autotag = { enable = true },
     },
+    ---@param opts TSConfig
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
