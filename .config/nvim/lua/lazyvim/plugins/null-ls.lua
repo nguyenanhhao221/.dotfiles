@@ -13,7 +13,7 @@ return {
         sources = {
           --  to disable file types use
           formatting.prettierd.with({
-            disabled_filetypes = { "yml", "yaml", "python", "less", "json" },
+            disabled_filetypes = { "yml", "yaml", "python", "less", "json", "jsonc" },
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
