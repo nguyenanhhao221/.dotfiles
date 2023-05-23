@@ -37,8 +37,8 @@ return {
     "theprimeagen/harpoon",
     -- stylua: ignore
     keys = {
-      { "<leader>a", function() require("harpoon.mark").add_file() end, desc = "Next todo comment" },
-      { "<leader>e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Next todo comment" },
+      { "<leader>a", function() require("harpoon.mark").add_file() end, desc = "Add file to Harpoon" },
+      { "<leader>e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle Harpoon menu" },
       { "<leader>]", function() require("harpoon.ui").nav_file(1) end},
       { "<leader>[", function() require("harpoon.ui").nav_file(2) end},
       { "<leader>>", function() require("harpoon.ui").nav_file(3) end},
