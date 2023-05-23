@@ -35,27 +35,16 @@ return {
   --Harpoon to navigate files by ThePrimeagen
   {
     "theprimeagen/harpoon",
-    event = "VeryLazy",
-    config = function()
-      local mark = require("harpoon.mark")
-      local ui = require("harpoon.ui")
-
-      vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[a]dd file to harpoon" })
-      vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
-
-      vim.keymap.set("n", "<leader>]", function()
-        ui.nav_file(1)
-      end)
-      vim.keymap.set("n", "<leader>[", function()
-        ui.nav_file(2)
-      end)
-      vim.keymap.set("n", "<leader>>", function()
-        ui.nav_file(3)
-      end)
-      vim.keymap.set("n", "<leader><", function()
-        ui.nav_file(4)
-      end)
-    end,
+    -- stylua: ignore
+    keys = {
+      { "<leader>a", function() require("harpoon.mark").add_file() end, desc = "Next todo comment" },
+      { "<leader>e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Next todo comment" },
+      { "<leader>]", function() require("harpoon.ui").nav_file(1) end},
+      { "<leader>[", function() require("harpoon.ui").nav_file(2) end},
+      { "<leader>>", function() require("harpoon.ui").nav_file(3) end},
+      { "<leader><", function() require("harpoon.ui").nav_file(4) end}
+    },
+    config = true,
   },
 
   --Undotree
