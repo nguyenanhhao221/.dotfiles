@@ -167,6 +167,12 @@ return {
         require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
+      -- Change the Diagnostic symbols in the sign column (gutter)
+      local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
       local servers = opts.servers
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.tbl_deep_extend(
