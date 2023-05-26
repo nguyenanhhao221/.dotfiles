@@ -11,8 +11,8 @@ M.on_attach = function(client, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
   -- Hover docs
-  -- nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
-  nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
+  nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
+  -- nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
   -- Code action
   nmap("<leader>ca", ":Lspsaga code_action<CR>", "[c]ode [a]ction")
   -- Go to definition
