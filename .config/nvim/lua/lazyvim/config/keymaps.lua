@@ -25,7 +25,9 @@ vim.keymap.set("n", "<leader>+", "<C-a>") -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
 -- Save file
-vim.keymap.set({ "n", "i", "v" }, "<C-s>", ":w<CR>", { desc = "[s]ave all files", noremap = true })
+vim.keymap.set({ "n", "i", "v", "s" }, "<C-s>", ":w<cr>", { desc = "[s]ave files", noremap = true })
+-- quit
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "[s]plit window [v]ertically" }) --
