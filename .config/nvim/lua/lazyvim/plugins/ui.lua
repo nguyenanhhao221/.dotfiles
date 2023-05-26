@@ -238,6 +238,7 @@ return {
   -- https://github.com/nvim-lualine/lualine.nvim
   {
     "nvim-lualine/lualine.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     opts = function()
@@ -331,5 +332,27 @@ return {
         },
       }
     end,
+  },
+  {
+    "tamton-aquib/staline.nvim",
+    event = "VeryLazy",
+    opts = {
+      sections = {
+        left = { "  ", "mode", " ", "branch", " ", "lsp" },
+        mid = {},
+        right = { "file_name", "line_column" },
+      },
+      mode_colors = {
+        i = "#d4be98",
+        n = "#84a598",
+        c = "#8fbf7f",
+        v = "#fc802d",
+      },
+      defaults = {
+        true_colors = true,
+        line_column = " [%l/%L] :%c  ",
+        branch_symbol = " ",
+      },
+    },
   },
 }
