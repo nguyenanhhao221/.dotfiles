@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 -- Set highlight on search
 vim.o.hlsearch = false
 vim.opt.incsearch = true
--- Always have atleast 8 line below when scroll
+-- Always have at least 8 line below when scroll
 vim.opt.scrolloff = 8
 --Fast update time, the time vim will wait to execute after you press the key
 vim.opt.updatetime = 100
