@@ -112,6 +112,12 @@ return {
       },
     },
   },
+  -- surround
+  {
+    "echasnovski/mini.surround",
+    event = "VeryLazy",
+    opts = {},
+  },
   -- auto pairs
   {
     "echasnovski/mini.pairs",
