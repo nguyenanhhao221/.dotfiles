@@ -2,11 +2,15 @@ return {
   --DAP, Related config and settings for debugging
   {
     "mxsdev/nvim-dap-vscode-js",
+    event = "VeryLazy",
     dependencies = {
       {
         "microsoft/vscode-js-debug",
         lazy = true,
         build = { "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" },
+      },
+      {
+        "mfussenegger/nvim-dap",
       },
     },
     opts = {

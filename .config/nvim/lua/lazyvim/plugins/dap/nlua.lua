@@ -1,5 +1,7 @@
 return {
   "jbyuki/one-small-step-for-vimkind",
+  lazy = true,
+  event = "VeryLazy",
     -- stylua: ignore
   keys = {
     { "<leader>daL", function() require("osv").launch({ port = 8086 }) end, desc = "Adapter Lua Server" },

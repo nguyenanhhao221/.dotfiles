@@ -1,5 +1,9 @@
 return {
   "leoluz/nvim-dap-go",
+  event = "VeryLazy",
+  dependencies = {
+    "mfussenegger/nvim-dap",
+  },
   config = function()
     local dap = require("dap")
     dap.configurations.go = {

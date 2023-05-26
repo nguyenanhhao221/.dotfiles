@@ -1,5 +1,7 @@
-require("lazyvim.remap")
-require("lazyvim.lazy")
+--Set <Space> as leader key
+--Must happen before any plugin is loaded
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -29,23 +31,3 @@ vim.opt.spellcapcheck = ""
 
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = { ".swcrc" },
-  callback = function()
-    vim.api.nvim_buf_set_option(0, "filetype", "jsonc")
-  end,
-})
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et

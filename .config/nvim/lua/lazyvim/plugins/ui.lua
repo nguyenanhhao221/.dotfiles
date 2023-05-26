@@ -1,15 +1,14 @@
 return {
   {
     "folke/noice.nvim",
-    enabled = false,
     event = "VeryLazy",
+    enabled = false,
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
       -- OPTIONAL:
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
       -- used for highlighting the cmdline and lsp docs. Make sure to install the parsers for vim, regex, lua, bash, markdown and markdown_inline
       "nvim-treesitter",
     },
@@ -234,6 +233,7 @@ return {
       },
     },
   },
+  -- StatusLine
   -- lualine
   -- https://github.com/nvim-lualine/lualine.nvim
   {
@@ -336,6 +336,7 @@ return {
   {
     "tamton-aquib/staline.nvim",
     event = "VeryLazy",
+    enabled = true,
     opts = {
       sections = {
         left = { "  ", "mode", " ", "branch", " ", "lsp" },
