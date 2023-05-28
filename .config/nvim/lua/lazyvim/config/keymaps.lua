@@ -2,6 +2,10 @@
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
+
+--Copy the whole function or object
+vim.keymap.set("n", "YY", "va{Vy", { desc = "Yank whole function" })
+
 --Move up and down and auto center the cursor
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -21,8 +25,8 @@ vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 vim.keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>") -- increment
-vim.keymap.set("n", "<leader>-", "<C-x>") -- decrement
+vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "increment number" }) -- increment
+vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "decrements number" }) -- decrements
 
 -- Save file
 vim.keymap.set({ "n", "i", "v", "s" }, "<C-s>", ":w<cr>", { desc = "[s]ave files", noremap = true })
@@ -31,7 +35,7 @@ vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "[s]plit window [v]ertically" }) --
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "[s]plit window [h]orizontally" }) -- split window horizontally
+vim.keymap.set("n", "<leader>sj", "<C-w>s", { desc = "[s]plit window horizontally" }) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "make [s]plit windows [e]qual" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>", { desc = "close current split window" }) -- close current split window
 
@@ -46,6 +50,8 @@ vim.keymap.set("n", "Q", "<nop>")
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+--Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
+vim.keymap.set("n", "<leader>x", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
 -- Trouble Keymap
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true })
