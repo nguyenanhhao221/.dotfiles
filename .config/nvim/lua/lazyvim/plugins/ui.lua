@@ -122,7 +122,7 @@ return {
   -- dashboard
   {
     "echasnovski/mini.starter",
-    enabled = false,
+    enabled = true,
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = "VimEnter",
     opts = function()
@@ -150,6 +150,7 @@ return {
           new_section("Find file",    "Telescope find_files", "Telescope"),
           new_section("Recent files", "Telescope oldfiles",   "Telescope"),
           new_section("Grep text",    "Telescope live_grep",  "Telescope"),
+          new_section("Status git",    "Telescope git_status",  "Telescope"),
           new_section("init.lua",     "e $MYVIMRC",           "Config"),
           new_section("Lazy",         "Lazy",                 "Config"),
           new_section("New file",     "ene | startinsert",    "Built-in"),
@@ -334,26 +335,27 @@ return {
       }
     end,
   },
+  -- staline
   {
     "tamton-aquib/staline.nvim",
     event = "VeryLazy",
     enabled = true,
     opts = {
       sections = {
-        left = { "  ", "mode", " ", "branch", " ", "lsp" },
+        left = { "branch", " ", "lsp" },
         mid = {},
         right = { "file_name", "line_column" },
       },
       mode_colors = {
-        i = "#d4be98",
-        n = "#84a598",
-        c = "#8fbf7f",
-        v = "#fc802d",
+        i = "#76787d",
+        n = "#76787d",
+        c = "#76787d",
+        v = "#76787d",
       },
       defaults = {
         true_colors = true,
         line_column = " [%l/%L] :%c  ",
-        branch_symbol = " ",
+        branch_symbol = " ",
       },
     },
   },
