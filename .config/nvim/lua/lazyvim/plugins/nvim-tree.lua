@@ -1,7 +1,7 @@
 --Nvim-Tree file explorer
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     opt = true, -- optional, for file icons
@@ -11,6 +11,7 @@ return {
     view = {
       width = 30,
       side = "right",
+      relativenumber = true,
     },
     renderer = {
       group_empty = true,
