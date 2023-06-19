@@ -82,6 +82,7 @@ return {
             },
           },
         },
+        dockerls = {},
         pylsp = {
           -- For debugging
           -- cmd = { os.getenv("HOME") .. "/.config/nvim/venv/bin/pylsp", "--log-file=/tmp/pylsp.log", "-v" },
