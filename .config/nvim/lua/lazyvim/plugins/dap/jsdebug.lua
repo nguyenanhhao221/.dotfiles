@@ -9,9 +9,6 @@ return {
         lazy = true,
         build = { "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" },
       },
-      {
-        "mfussenegger/nvim-dap",
-      },
     },
     opts = {
       -- Path to vscode-js-debug installation.
