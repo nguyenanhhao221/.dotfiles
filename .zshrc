@@ -65,14 +65,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-autocomplete docker docker-compose poetry)
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-source $ZSH/oh-my-zsh.sh
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-autocomplete docker docker-compose poetry minikube kubectl)
 
 # User configuration
 
@@ -102,6 +101,7 @@ fi
 
 # lazygit aliases
 alias lg="lazygit"
+alias ld="lazydocker"
 # open neovim aliases
 alias v="nvim"
 
@@ -115,6 +115,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # pnpm
 export PNPM_HOME="/Users/haonguyen/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -150,3 +151,5 @@ if [ -f '/Users/haonguyen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haong
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/haonguyen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haonguyen/google-cloud-sdk/completion.zsh.inc'; fi
+
+source $ZSH/oh-my-zsh.sh
