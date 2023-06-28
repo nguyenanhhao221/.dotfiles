@@ -4,7 +4,10 @@ gui:
       - underline
     selectedRangeBgColor:
       - underline
+    nerdFontsVersion: "3"
 git:
   paging:
     colorArg: never
     pager: delta --dark --paging=never
+services:
+  'gitlab.dwellerlab.com': 'gitlab:gitlab.dwellerlab.com'
