@@ -136,11 +136,4 @@ return {
       require("scrollbar").setup()
     end,
   },
-  -- Git graph
-  {
-    "rbong/vim-flog",
-    cmd = "Flog",
-    dependencies = "tpope/vim-fugitive",
-    keys = { "<leader>gp", ":Flog<CR>", desc = "Show [g]it gra[p]h" },
-  },
 }
