@@ -152,4 +152,7 @@ if [ -f '/Users/haonguyen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/haong
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/haonguyen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/haonguyen/google-cloud-sdk/completion.zsh.inc'; fi
 
+# Launch Google Chrome Dev in debug mode, to debug JS,TS
+alias gcdb="/Applications/Google\ Chrome\ Dev.app/Contents/MacOS/Google\ Chrome\ Dev --remote-debugging-port=9222"
+
 source $ZSH/oh-my-zsh.sh
