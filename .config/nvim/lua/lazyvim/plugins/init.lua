@@ -90,18 +90,22 @@ return {
   { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
 
   --Which key when press
-  -- Lua
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
+    opts = {
+      plugins = { spelling = true },
+      defaults = {
+        mode = { "n", "v" },
+        ["<leader>q"] = { name = "+quit" },
+      },
+    },
+    config = function(_, opts)
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.defaults)
     end,
   },
   --Markdown preview

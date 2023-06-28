@@ -236,6 +236,15 @@ return {
     end,
   },
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>c"] = { name = "+mason" },
+      },
+    },
+  },
+  {
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },

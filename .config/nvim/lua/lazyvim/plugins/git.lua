@@ -1,4 +1,14 @@
 return {
+  {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>g"] = { name = "+git" },
+        ["<leader>l"] = { name = "+lazygit" },
+      },
+    },
+    optional = true,
+  },
   -- Toggle Term to be used with lazygit
   {
     "akinsho/toggleterm.nvim",

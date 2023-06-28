@@ -1,5 +1,14 @@
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>o"] = { name = "+outline" },
+      },
+    },
+  },
+  {
     "simrat39/symbols-outline.nvim",
     keys = {
       { "<leader>ol", "<Cmd>SymbolsOutline<CR>", desc = "Toggle Outline" },

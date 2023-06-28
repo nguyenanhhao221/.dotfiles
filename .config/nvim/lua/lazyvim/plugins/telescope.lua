@@ -3,6 +3,19 @@ local Util = require("lazyvim.util")
 -- Telescope
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>f"] = { name = "+find" },
+        ["<leader>s"] = { name = "+search" },
+        ["<leader>h"] = { name = "+help" },
+        ["<leader>K"] = { name = "+keymap" },
+        ["<leader>u"] = { name = "+utils" },
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.1",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-github.nvim", "telescope-fzf-native.nvim" },
