@@ -23,6 +23,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.dap.golang" },
     { import = "lazyvim.plugins.dap.nlua" },
+    { import = "lazyvim.plugins.dap.python" },
     { import = "lazyvim.plugins.dap.jsdebug" },
   },
   defaults = {
