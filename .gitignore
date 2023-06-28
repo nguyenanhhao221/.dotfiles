@@ -28,3 +28,4 @@
 .config/htop/htoprc
 .config/gcloud
 .zshrc.backup
+.config/nvim/spell
