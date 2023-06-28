@@ -13,7 +13,7 @@ return {
         "folke/neodev.nvim",
         opts = {
           experimental = { pathStrict = true },
-          library = { plugins = { "nvim-dap-ui" }, types = true },
+          library = { plugins = { "nvim-dap-ui", "neotest" }, types = true },
         },
       },
       -- Typescript enhance for lsp

@@ -134,7 +134,7 @@ return {
     "nvim-lua/plenary.nvim",
     event = "VeryLazy",
     config = function()
-      vim.api.nvim_set_keymap("n", "<leader>t", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
+      vim.api.nvim_set_keymap("n", "<leader>tp", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
     end,
   },
 }
