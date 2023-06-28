@@ -40,10 +40,11 @@ vim.keymap.set("n", "<leader>sj", "<C-w>s", { desc = "[s]plit window horizontall
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "make [s]plit windows [e]qual" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>", { desc = "close current split window" }) -- close current split window
 
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+-- Disable for now
+-- vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+-- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+-- vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
+-- vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 --Disable the Q button
 vim.keymap.set("n", "Q", "<nop>")
