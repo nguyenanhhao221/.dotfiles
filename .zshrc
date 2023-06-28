@@ -101,7 +101,7 @@ fi
 
 # lazygit aliases
 alias lg="lazygit"
-alias ld="lazydocker"
+alias lzd="lazydocker"
 # open neovim aliases
 alias v="nvim"
 
