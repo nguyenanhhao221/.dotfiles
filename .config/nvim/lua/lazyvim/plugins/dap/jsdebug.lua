@@ -13,7 +13,7 @@ return {
     opts = {
       -- Path to vscode-js-debug installation.
       debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-      -- which adapters to register in nvim-dap},
+      -- which adapters to register in nvim-dap,
       adapters = {
         "chrome",
         "pwa-node",
