@@ -45,14 +45,10 @@ M.on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
 
-  -- typescript specific keymaps (e.g. rename file and update imports)
-  if client.name == "tsserver" then
-    -- rename file and update imports
-    nmap("<leader>rf", ":TypescriptRenameFile<CR>", "[R]ename [F]ile Typescript")
-    -- organize imports (not in youtube nvim video)
-    nmap("<leader>oi", ":TypescriptOrganizeImports<CR>", "[O]rganize [I]mport Typescript")
-    -- remove unused variables (not in youtube nvim video)
-    nmap("<leader>ru", ":TypescriptRemoveUnused<CR>", "[R]emove unused [T]ypescript")
+  if vim.lsp.inlay_hint then
+    nmap("<leader>uh", function()
+      vim.lsp.inlay_hint(0, nil)
+    end, "Toggle Inlay Hints")
   end
 end
 

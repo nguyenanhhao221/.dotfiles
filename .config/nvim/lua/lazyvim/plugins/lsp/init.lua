@@ -16,8 +16,6 @@ return {
           library = { plugins = { "nvim-dap-ui", "neotest" }, types = true },
         },
       },
-      -- Typescript enhance for lsp
-      "jose-elias-alvarez/typescript.nvim",
       -- Add vscode like icon
       "onsails/lspkind.nvim",
       --Enhance lsp UI
@@ -50,6 +48,12 @@ return {
         },
         severity_sort = true,
       },
+      -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
+      -- Be aware that you also will need to properly configure your LSP server to
+      -- provide the inlay hints.
+      inlay_hints = {
+        enabled = true,
+      },
       -- add any global capabilities here
       capabilities = {},
       -- Automatically format on save
@@ -65,7 +69,32 @@ return {
       ---@type lspconfig.options
       servers = {
         -- clangd = {},
-        gopls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              gofumpt = true,
+              codelenses = {
+                gc_details = false,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
+              },
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+            },
+          },
+        },
         golangci_lint_ls = {},
         jsonls = {
           -- lazy-load schemastore when needed
@@ -92,7 +121,7 @@ return {
               configurationSources = { "flake8" },
               plugins = {
                 flake8 = {
-                  enabled = true,
+                  enabled = false,
                 },
                 pycodestyle = {
                   enabled = false,
@@ -122,6 +151,9 @@ return {
               telemetry = { enable = false },
               diagnostics = {
                 globals = { "vim" },
+              },
+              hint = {
+                enable = true,
               },
             },
           },
@@ -170,11 +202,26 @@ return {
       end)
 
       -- Change the Diagnostic symbols in the sign column (gutter)
-      local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+      local signs = require("lazyvim.config").icons.diagnostics
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
+
+      if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
+        opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
+          or function(diagnostic)
+            local icons = require("lazyvim.config").icons.diagnostics
+            for d, icon in pairs(icons) do
+              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                return icon
+              end
+            end
+          end
+      end
+
+      vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
+
       local servers = opts.servers
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.tbl_deep_extend(
@@ -226,13 +273,6 @@ return {
         mlsp.setup({ ensure_installed = ensure_installed })
         mlsp.setup_handlers({ setup })
       end
-
-      -- configure typescript server with plugin
-      require("typescript").setup({
-        server = {
-          capabilities = capabilities,
-        },
-      })
     end,
   },
   {
@@ -334,5 +374,6 @@ return {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
     opts = true,
+    enabled = true,
   },
 }
