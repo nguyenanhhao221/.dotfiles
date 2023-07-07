@@ -75,6 +75,7 @@ return {
   {
     "ldelossa/gh.nvim",
     dependencies = { { "ldelossa/litee.nvim" } },
+    enabled = false,
     event = "VeryLazy",
     config = function()
       require("litee.lib").setup()

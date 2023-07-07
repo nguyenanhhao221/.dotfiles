@@ -43,9 +43,11 @@ return {
     opts = {
       -- list of formatters & linters for mason to install
       ensure_installed = {
-        -- "prettier", -- ts/js formatter
+        "prettierd", -- ts/js formatter
         "stylua", -- lua formatter
         -- "eslint", -- ts/js linter
+        "isort",
+        "black",
       },
       -- auto-install configured formatters & linters (with null-ls)
       automatic_installation = true,
