@@ -24,6 +24,7 @@ return {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "[G]o [D]efinition" },
       { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
