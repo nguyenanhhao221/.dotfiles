@@ -122,8 +122,8 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # GO LANG
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # ChatGPT Key
 source "$HOME/.openai_key.zsh"
