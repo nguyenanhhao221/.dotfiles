@@ -86,10 +86,13 @@ return {
     keys = {
     -- stylua: ignore
       {
-        "-", function() require("oil").open() end, desc = "Next todo comment",
+        "-", function() require("oil").open() end, desc = "Open Oil File explorer",
       },
     },
     opts = {
+      -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
+      -- Set to false if you still want to use netrw.
+      default_file_explorer = true,
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
