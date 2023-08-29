@@ -44,6 +44,7 @@ return {
       { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
       { "<leader>ht", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
       { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+      { "<leader>e", "<cmd>Telescope harpoon marks<cr>", desc = "Toogle Harpoon Menu" },
       { "<leader>KM", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
       { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
       { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
@@ -108,6 +109,8 @@ return {
     config = function(_, opts)
       --- Enable telescope fzf native, if installed
       pcall(require("telescope").load_extension, "fzf")
+      -- Load harpoon extension
+      pcall(require("telescope").load_extension, "harpoon")
       -- Load neoclip extension
       pcall(require("telescope").load_extension, "neoclip")
       -- [[ Configure Telescope ]]
