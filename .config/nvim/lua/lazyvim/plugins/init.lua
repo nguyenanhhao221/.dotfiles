@@ -38,6 +38,7 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>a", function() require("harpoon.mark").add_file() end, desc = "Add file to Harpoon" },
+      { "<leader>e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle Harpoon menu" },
       { "<leader>]", function() require("harpoon.ui").nav_file(1) end , desc = "Harpoon 1"},
       { "<leader>[", function() require("harpoon.ui").nav_file(2) end,desc="Harpoon 2"},
       { "<leader>>", function() require("harpoon.ui").nav_file(3) end , desc="Harpoon 3"},
