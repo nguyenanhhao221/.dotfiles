@@ -17,7 +17,13 @@ return {
           }),
           formatting.stylua, -- lua formatter
           formatting.black, -- python formatter
-          formatting.isort, -- python formatter
+          -- formatting.isort, -- python formatter
+          diagnostics.mypy.with({
+            extra_args = function()
+              local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_DEFAULT_ENV") or "/usr"
+              return { "--python-executable", virtual .. "/bin/python3" }
+            end,
+          }), -- python mypy
 
           -- diagnostics.pylint.with({
           --   prefer_local = "venv/bin",
