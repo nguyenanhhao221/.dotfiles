@@ -21,6 +21,7 @@ require("lazy").setup({
     -- Add each config for each language here
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.vue" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.golang" },
     { import = "lazyvim.plugins.dap.golang" },
