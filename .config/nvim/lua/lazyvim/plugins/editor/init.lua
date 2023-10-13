@@ -85,8 +85,13 @@ return {
     cmd = { "Oil" },
     keys = {
     -- stylua: ignore
+      {"-", function() require("oil").open() end, desc = "Open Oil File explorer"},
       {
-        "-", function() require("oil").open() end, desc = "Open Oil File explorer",
+        "<leader>pv",
+        function()
+          require("oil").open()
+        end,
+        desc = "Open Oil File explorer",
       },
     },
     opts = {
