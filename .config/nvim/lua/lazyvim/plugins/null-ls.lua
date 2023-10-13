@@ -1,7 +1,7 @@
 return {
   -- formatting & linting
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
