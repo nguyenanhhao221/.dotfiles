@@ -113,35 +113,7 @@ return {
           },
         },
         dockerls = {},
-        -- pylsp = {
-        --   -- For debugging
-        --   -- cmd = { os.getenv("HOME") .. "/.config/nvim/venv/bin/pylsp", "--log-file=/tmp/pylsp.log", "-v" },
-        --   settings = {
-        --     pylsp = {
-        --       configurationSources = { "flake8" },
-        --       plugins = {
-        --         flake8 = {
-        --           enabled = false,
-        --         },
-        --         pycodestyle = {
-        --           enabled = false,
-        --         },
-        --         mccabe = {
-        --           enabled = false,
-        --         },
-        --         pyflakes = {
-        --           enabled = false,
-        --         },
-        --         pylint = {
-        --           enabled = true,
-        --           executable = "venv/bin",
-        --         },
-        --       },
-        --     },
-        --   },
-        -- },
-
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -301,7 +273,10 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
-        -- "flake8",
+        "pyright", -- LSP for python
+        "ruff-lsp", -- linter for python (includes flake8, pep8, etc.)
+        "debugpy", -- debugger
+        "taplo", -- LSP for toml (for pyproject.toml files)
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
