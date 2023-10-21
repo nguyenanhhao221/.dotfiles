@@ -2,22 +2,22 @@ return {
   -- formatting & linting
   {
     "nvimtools/none-ls.nvim",
-    enabled = false,
+    enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local formatting = require("null-ls").builtins.formatting -- to setup formatters
+      -- local formatting = require("null-ls").builtins.formatting -- to setup formatters
       local diagnostics = require("null-ls").builtins.diagnostics -- to setup linters
       -- configure null_ls
       require("null-ls").setup({
         -- setup formatters & linters
         sources = {
           --  to disable file types use
-          formatting.prettierd.with({
-            disabled_filetypes = { "yml", "yaml", "python", "less", "json", "jsonc" },
-          }),
-          formatting.stylua, -- lua formatter
-          formatting.isort, -- python formatter
-          formatting.black, -- python formatter
+          -- formatting.prettierd.with({
+          --   disabled_filetypes = { "yml", "yaml", "python", "less", "json", "jsonc" },
+          -- }),
+          -- formatting.stylua, -- lua formatter
+          -- formatting.isort, -- python formatter
+          -- formatting.black, -- python formatter
           diagnostics.mypy.with({
             -- extra_args = function()
             --   local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_DEFAULT_ENV") or "/usr"
