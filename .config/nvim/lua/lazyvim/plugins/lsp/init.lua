@@ -30,6 +30,7 @@ return {
       {
         "b0o/SchemaStore.nvim",
         version = false, -- last release is way too old
+        lazy = true,
       },
     },
     ---@class PluginLspOpts
@@ -112,35 +113,34 @@ return {
           },
         },
         dockerls = {},
-        yamlls = {},
-        pylsp = {
-          -- For debugging
-          -- cmd = { os.getenv("HOME") .. "/.config/nvim/venv/bin/pylsp", "--log-file=/tmp/pylsp.log", "-v" },
-          settings = {
-            pylsp = {
-              configurationSources = { "flake8" },
-              plugins = {
-                flake8 = {
-                  enabled = false,
-                },
-                pycodestyle = {
-                  enabled = false,
-                },
-                mccabe = {
-                  enabled = false,
-                },
-                pyflakes = {
-                  enabled = false,
-                },
-                pylint = {
-                  enabled = true,
-                  executable = "venv/bin",
-                },
-              },
-            },
-          },
-        },
-        pyright = {},
+        -- pylsp = {
+        --   -- For debugging
+        --   -- cmd = { os.getenv("HOME") .. "/.config/nvim/venv/bin/pylsp", "--log-file=/tmp/pylsp.log", "-v" },
+        --   settings = {
+        --     pylsp = {
+        --       configurationSources = { "flake8" },
+        --       plugins = {
+        --         flake8 = {
+        --           enabled = false,
+        --         },
+        --         pycodestyle = {
+        --           enabled = false,
+        --         },
+        --         mccabe = {
+        --           enabled = false,
+        --         },
+        --         pyflakes = {
+        --           enabled = false,
+        --         },
+        --         pylint = {
+        --           enabled = true,
+        --           executable = "venv/bin",
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
+
         -- rust_analyzer = {},
         lua_ls = {
           settings = {
