@@ -14,7 +14,7 @@ M.on_attach = function(client, bufnr)
   nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
   -- nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
   -- Code action
-  nmap("<leader>ca", ":Lspsaga code_action<CR>", "[c]ode [a]ction")
+  nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
   -- Go to definition
   nmap("<leader>gd", ":Lspsaga peek_definition<CR>", "Peek [G]o [D]efinition")
   -- nmap("gd", "<cmd>Telescope lsp_definitions<cr>", "[G]o [D]efinition")
