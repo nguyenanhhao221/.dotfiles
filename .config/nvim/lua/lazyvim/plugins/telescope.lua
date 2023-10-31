@@ -125,6 +125,7 @@ return {
   {
     "AckslD/nvim-neoclip.lua",
     event = "VeryLazy",
+    enabled = false,
     dependencies = {
       -- you'll need at least one of these
       { "nvim-telescope/telescope.nvim" },
