@@ -356,7 +356,8 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    event = "VeryLazy",
+    tag = "legacy",
+    event = "LspAttach",
     opts = true,
     enabled = true,
   },
