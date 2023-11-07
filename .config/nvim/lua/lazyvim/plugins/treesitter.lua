@@ -4,6 +4,7 @@ return {
     -- Highlight, edit, and navigate code "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     build = ":TSUpdate",
     -- Additional text objects via treesitter
     dependencies = {
@@ -22,6 +23,12 @@ return {
             })
           require("nvim-ts-autotag").setup()
         end,
+      },
+      --Treesitter context for sticky scroll
+      {
+        "nvim-treesitter/nvim-treesitter-context",
+        dependencies = "nvim-treesitter",
+        config = true,
       },
     },
     ---@type TSConfig
@@ -91,12 +98,5 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
-  },
-  --Treesitter context for sticky scroll
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = "nvim-treesitter",
-    event = "VeryLazy",
-    config = true,
   },
 }
