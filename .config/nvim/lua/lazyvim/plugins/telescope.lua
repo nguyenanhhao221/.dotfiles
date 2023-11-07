@@ -17,8 +17,21 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-github.nvim", "telescope-fzf-native.nvim" },
+    version = false, -- telescope did only one release, so use HEAD for now
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-github.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        enabled = vim.fn.executable("make") == 1,
+        config = function()
+          Util.on_load("telescope.nvim", function()
+            require("telescope").load_extension("fzf")
+          end)
+        end,
+      },
+    },
     cmd = "Telescope",
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
@@ -34,6 +47,7 @@ return {
       -- git
       { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
       { "<leader>gS", "<cmd>Telescope git_status<CR>", desc = "status" },
+      { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "git branches" },
       -- search
       { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
@@ -114,13 +128,6 @@ return {
       -- See `:help telescope` and `:help telescope.setup()`
       require("telescope").setup(opts)
     end,
-  },
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    event = "VeryLazy",
-    build = "make",
-    cond = vim.fn.executable("make") == 1,
   },
   {
     "AckslD/nvim-neoclip.lua",
