@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- import any extras modules here
-    --{ import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     -- Add each config for each language here
@@ -25,6 +24,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.golang" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
+    -- { import = "lazyvim.plugins.extras.lang.xml" },
+    { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.dap.golang" },
     { import = "lazyvim.plugins.dap.nlua" },
     { import = "lazyvim.plugins.dap.python" },
