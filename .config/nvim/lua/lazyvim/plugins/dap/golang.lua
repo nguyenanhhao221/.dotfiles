@@ -20,6 +20,13 @@ return {
         request = "launch",
         program = "${file}",
       },
+      {
+        name = "Launch Package",
+        type = "go",
+        request = "launch",
+        mode = "auto",
+        program = "${fileDirname}",
+      },
     }
     require("dap-go").setup()
   end,
