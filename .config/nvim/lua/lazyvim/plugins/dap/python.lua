@@ -1,25 +1,29 @@
 return {
   -- Debug Python
   {
-    "mfussenegger/nvim-dap-python",
-    event = "VeryLazy",
+    "mfussenegger/nvim-dap",
+    optional = true,
     dependencies = {
-      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python",
+      -- stylua: ignore
+      keys = {
+        { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
+        { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
+      },
+      config = function()
+        local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+        local dap = require("dap")
+        -- dap.configurations.python = {
+        --   {
+        --     name = "Python: Module",
+        --     type = "python",
+        --     module = "datamimic",
+        --     request = "launch",
+        --     justMyCode = true,
+        --   },
+        -- }
+        require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+      end,
     },
-    config = function()
-      local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
-      local dap = require("dap")
-      dap.configurations.python = {
-        {
-          -- Must be "go" or it will be ignored by the plugin
-          name = "Python: Module",
-          type = "python",
-          module = "benerator",
-          request = "launch",
-          justMyCode = true,
-        },
-      }
-      require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
-    end,
   },
 }
