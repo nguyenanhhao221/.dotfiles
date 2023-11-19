@@ -31,3 +31,6 @@ vim.opt.spellcapcheck = ""
 
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+
+-- Make cursor fat even in insert mode
+vim.opt.guicursor = ""
