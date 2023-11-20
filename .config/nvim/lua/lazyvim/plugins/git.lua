@@ -52,6 +52,10 @@ return {
   -- Git related plugins
   {
     "tpope/vim-fugitive",
+    dependencies = {
+      "tpope/vim-rhubarb",
+      "harrisoncramer/gitlab.nvim",
+    },
     keys = {
       { "<leader>gs", "<cmd>Git", desc = "git status" },
       {
@@ -70,7 +74,10 @@ return {
       vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
     end,
   },
-  { "tpope/vim-rhubarb", lazy = true },
+  {
+    "tpope/vim-rhubarb",
+    lazy = true,
+  },
   -- Intergrate with gh cli, review PR without leaving terminal
   {
     "ldelossa/gh.nvim",
@@ -94,8 +101,25 @@ return {
     config = true,
   },
   {
+    "harrisoncramer/gitlab.nvim",
+    lazy = true,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
+      enabled = true,
+    },
+    build = function()
+      require("gitlab.server").build(true)
+    end, -- Builds the Go binary
+    config = function()
+      require("gitlab").setup()
+    end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre, BufNewFile" },
+    event = { "BufReadPre" },
     dependencies = { "nvim-scrollbar" },
     opts = {
       signs = {
