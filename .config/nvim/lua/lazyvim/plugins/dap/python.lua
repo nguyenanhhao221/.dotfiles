@@ -23,6 +23,7 @@ return {
         --   },
         -- }
         require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+        require("dap.ext.vscode").load_launchjs(nil)
       end,
     },
   },
