@@ -32,10 +32,7 @@ M.on_attach = function(client, bufnr)
   -- jump to next diagnostic in buffer
   nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
   nmap("<leader>rn", ":Lspsaga rename<CR>", "[R]e[n]ame")
-  nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
   nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
-
-  nmap("gr", "<cmd>Telescope lsp_references<cr>", "References")
 
   nmap("<leader>uf", require("lazyvim.plugins.lsp.format").toggle, "Toggle format on Save")
   -- Lesser used LSP functionality
