@@ -27,11 +27,13 @@ return {
         },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
-          return { timeout_ms = 500, lsp_fallback = true }
+          return { timeout_ms = 500, lsp_fallback = true, async = true }
         end
       end,
     },
