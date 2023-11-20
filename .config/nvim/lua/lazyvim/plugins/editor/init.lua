@@ -132,13 +132,13 @@ return {
   -- surround
   {
     "echasnovski/mini.surround",
-    event = "VeryLazy",
+    event = "BufReadPost",
     opts = {},
   },
   -- auto pairs
   {
     "echasnovski/mini.pairs",
-    event = "VeryLazy",
+    event = "BufReadPost",
     opts = {},
   },
 }
