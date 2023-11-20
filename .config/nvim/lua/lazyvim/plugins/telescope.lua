@@ -38,6 +38,8 @@ return {
       { "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "[G]o [D]efinition" },
+      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+      { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Lsp Implementations" },
       { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -124,8 +126,13 @@ return {
       pcall(require("telescope").load_extension, "fzf")
       -- Load neoclip extension
       pcall(require("telescope").load_extension, "neoclip")
+      -- Load telescope dap extension
+      pcall(require("telescope").load_extension, "dap")
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+
+      -- Load telescope git signs
+      pcall(require("telescope").load_extension, "git_signs")
       require("telescope").setup(opts)
     end,
   },
@@ -142,5 +149,18 @@ return {
     opts = {
       enable_persistent_history = true,
     },
+  },
+  {
+    "radyz/telescope-gitsigns",
+    lazy = true,
+    dependencies = {
+      "lewis6991/gitsigns.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    lazy = true,
   },
 }
