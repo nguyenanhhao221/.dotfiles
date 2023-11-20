@@ -29,3 +29,4 @@
 .config/gcloud
 .zshrc.backup
 .config/nvim/spell
+.config/sanity
