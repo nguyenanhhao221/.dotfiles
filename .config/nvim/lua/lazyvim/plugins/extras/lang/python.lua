@@ -44,6 +44,7 @@ return {
     dependencies = {
       "nvim-neotest/neotest-python",
     },
+    lazy = true,
     opts = function(_, opts)
       table.insert(
         opts.adapters,
@@ -54,7 +55,7 @@ return {
             justMyCode = false,
             console = "integratedTerminal",
           },
-          args = { "--log-level", "DEBUG" },
+          args = { "--log-level", "DEBUG", "-s" },
           runner = "pytest",
         })
       )
