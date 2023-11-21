@@ -179,12 +179,11 @@ return {
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
-      local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
 
-      if opts.inlay_hints.enabled and inlay_hint then
+      if opts.inlay_hints.enabled then
         Util.on_attach(function(client, buffer)
           if client.server_capabilities.inlayHintProvider then
-            inlay_hint(buffer, true)
+            vim.lsp.inlay_hint.enable(nil, true)
           end
         end)
       end
