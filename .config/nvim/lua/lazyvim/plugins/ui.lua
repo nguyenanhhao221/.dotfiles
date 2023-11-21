@@ -355,23 +355,61 @@ return {
     "tamton-aquib/staline.nvim",
     event = "VeryLazy",
     enabled = true,
-    opts = {
-      sections = {
-        left = { "branch", " ", "lsp" },
-        mid = {},
-        right = { "file_name", "line_column" },
-      },
-      mode_colors = {
-        i = "#76787d",
-        n = "#76787d",
-        c = "#76787d",
-        v = "#76787d",
-      },
-      defaults = {
-        true_colors = true,
-        line_column = " [%l/%L] :%c  ",
-        branch_symbol = " ",
-      },
-    },
+    opts = function()
+      local git_icons = require("lazyvim.config").icons.git
+      local git_status = function(type, prefix)
+        local status = vim.b.gitsigns_status_dict
+        if not status then
+          return nil
+        end
+        if not status[type] or status[type] == 0 then
+          return nil
+        end
+        return prefix .. status[type]
+      end
+      return {
+        sections = {
+          left = {
+            "branch",
+            " ",
+            "file_name",
+            " ",
+            {
+              "GitSignsAdd",
+              function()
+                return git_status("added", git_icons.added) or ""
+              end,
+            },
+            " ",
+            {
+              "GitSignsChange",
+              function()
+                return git_status("changed", git_icons.modified) or ""
+              end,
+            },
+            " ",
+            {
+              "GitSignsDelete",
+              function()
+                return git_status("removed", git_icons.removed) or ""
+              end,
+            },
+          },
+          mid = { "lsp" },
+          right = { "lsp_name", "line_column" },
+        },
+        mode_colors = {
+          i = "#76787d",
+          n = "#76787d",
+          c = "#76787d",
+          v = "#76787d",
+        },
+        defaults = {
+          true_colors = true,
+          line_column = " [%l/%L] :%c  ",
+          branch_symbol = " ",
+        },
+      }
+    end,
   },
 }
