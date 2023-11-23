@@ -54,12 +54,12 @@ vim.keymap.set("n", "Q", "<nop>")
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-if vim.lsp.inlay_hint or vim.lsp.buf.inlay_hint then
-  vim.keymap.set("n", "<leader>il", function()
-    vim.lsp.inlay_hint(0, nil)
-    Util.info("Toggle Inlay Hints")
-  end, { desc = "Toggle Inlay Hints", silent = false })
-end
+vim.keymap.set("n", "<leader>il", function()
+  local is_enabled = vim.lsp.inlay_hint.is_enabled(0)
+  print("is_enabled", is_enabled)
+  vim.lsp.inlay_hint.enable(0, not is_enabled)
+  Util.info("Toggle Inlay Hints")
+end, { desc = "Toggle Inlay Hints", silent = false })
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
 vim.keymap.set("n", "<leader>x", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
 -- Trouble Keymap
