@@ -17,7 +17,6 @@ return {
       },
     },
     opts = {
-      notify_on_error = false,
       formatters_by_ft = {
         lua = { "stylua" },
         -- Conform will run multiple formatters sequentially
