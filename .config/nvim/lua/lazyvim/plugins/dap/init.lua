@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy",
+    event = "LspAttach",
     dependencies = {
       -- fancy UI for the debugger
       {
