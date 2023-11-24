@@ -250,17 +250,15 @@ return {
       },
     },
   },
-  -- StatusLine
-  -- lualine
   -- https://github.com/nvim-lualine/lualine.nvim
+  -- Set lualine as statusline
+  -- See `:help lualine.txt`
   {
     "nvim-lualine/lualine.nvim",
     enabled = false,
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
-      -- Set lualine as statusline
-      -- See `:help lualine.txt`
       local function fg(name)
         return function()
           ---@type {foreground?:number}?
@@ -268,11 +266,12 @@ return {
           return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
         end
       end
+
       local icons = require("lazyvim.config").icons
+
       return {
         options = {
           icons_enabled = true,
-          -- theme = "kanagawa",
           component_separators = "|",
           section_separators = "",
           path = 1,
@@ -280,8 +279,10 @@ return {
           globalstatus = true,
         },
         sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
+          lualine_a = { { "mode", color = { fg = "#76787d" } } },
+          lualine_b = {
+            { "branch", color = { fg = "#76787d" }, icon = { "", align = "right", color = { fg = "#76787d" } } },
+          },
           lualine_c = {
             {
               "diagnostics",
@@ -300,14 +301,6 @@ return {
                 modified = icons.git.modified,
                 removed = icons.git.removed,
               },
-            },
-            {
-              function()
-                return require("nvim-navic").get_location()
-              end,
-              cond = function()
-                return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-              end,
             },
           },
           lualine_x = {
@@ -370,10 +363,15 @@ return {
       return {
         sections = {
           left = {
+            "cool_symbol",
+            " ",
             "branch",
             " ",
             "file_name",
             " ",
+          },
+          mid = { "lsp" },
+          right = {
             {
               "GitSignsAdd",
               function()
@@ -394,9 +392,8 @@ return {
                 return git_status("removed", git_icons.removed) or ""
               end,
             },
+            "line_column",
           },
-          mid = { "lsp" },
-          right = { "lsp_name", "line_column" },
         },
         mode_colors = {
           i = "#76787d",
@@ -407,6 +404,7 @@ return {
         defaults = {
           true_colors = true,
           line_column = " [%l/%L] :%c  ",
+          cool_symbol = " ",
           branch_symbol = " ",
         },
       }
