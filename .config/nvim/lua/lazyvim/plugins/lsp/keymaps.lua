@@ -42,12 +42,6 @@ M.on_attach = function(client, bufnr)
   nmap("<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
-
-  if vim.lsp.inlay_hint then
-    nmap("<leader>uh", function()
-      vim.lsp.inlay_hint(0, nil)
-    end, "Toggle Inlay Hints")
-  end
 end
 
 return M
