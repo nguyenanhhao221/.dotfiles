@@ -83,11 +83,12 @@ return {
   -- Git related plugins
   {
     "tpope/vim-fugitive",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "tpope/vim-rhubarb",
     },
     keys = {
-      { "<leader>gs", "<cmd>Git", desc = "git status" },
+      { "<leader>gs", "<cmd>vertical Git<CR>", desc = "git status" },
       {
         "ga",
         "<cmd>diffget //2<CR>",
@@ -101,7 +102,7 @@ return {
     },
     cmd = { "Git" },
     config = function()
-      vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
+      vim.keymap.set("n", "<leader>gs", "<cmd>vertical Git<CR>", { desc = "[g]it [s]tatus" })
     end,
   },
   {
