@@ -109,20 +109,6 @@ function M.setup(opts)
     M.load("autocmds")
     M.load("keymaps")
   end
-
-  require("lazy.core.util").try(function()
-    if type(M.colorscheme) == "function" then
-      M.colorscheme()
-    else
-      vim.cmd.colorscheme(M.colorscheme)
-    end
-  end, {
-    msg = "Could not load your colorscheme",
-    on_error = function(msg)
-      require("lazy.core.util").error(msg)
-      vim.cmd.colorscheme("habamax")
-    end,
-  })
 end
 
 ---@param range? string
