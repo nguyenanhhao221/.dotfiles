@@ -19,6 +19,9 @@ local defaults = {
   },
   -- icons used by other plugins
   icons = {
+    logo = {
+      neovim = "",
+    },
     dap = {
       Stopped = { " ", "DiagnosticWarn", "DapStoppedLine" },
       Breakpoint = "🟥",
