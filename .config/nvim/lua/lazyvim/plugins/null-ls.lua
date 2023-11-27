@@ -3,6 +3,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     enabled = true,
+    dependencies = { "jayp0521/mason-null-ls.nvim" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       -- local formatting = require("null-ls").builtins.formatting -- to setup formatters
