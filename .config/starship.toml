@@ -53,6 +53,9 @@ symbol = "? "
 [golang]
 format = "via [ $version](blue bold)"
 
+[python]
+symbol = "Python "
+
 [php]
 format = "via [PHP $version](147 bold) "
 
