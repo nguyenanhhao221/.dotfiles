@@ -30,8 +30,6 @@ return {
     end,
   },
 
-  { "nvim-treesitter/playground", lazy = true },
-
   --Harpoon to navigate files by ThePrimeagen
   {
     "theprimeagen/harpoon",
