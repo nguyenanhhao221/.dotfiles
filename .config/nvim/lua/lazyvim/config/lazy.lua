@@ -65,3 +65,5 @@ require("lazy").setup({
 -- Extra import here
 require("lazyvim.config.keymaps")
 require("lazyvim.config.autocmds")
+-- Some global function that require to debug and develop lua
+require("lazyvim.globals")
