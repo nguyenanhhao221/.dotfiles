@@ -15,6 +15,12 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     vim.api.nvim_buf_set_option(0, "filetype", "jsonc")
   end,
 })
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "T0_prestart.yaml" },
+  callback = function()
+    vim.api.nvim_buf_set_option(0, "filetype", "yaml.ansible")
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { ".env", ".envrc" },
