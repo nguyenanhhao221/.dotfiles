@@ -30,3 +30,4 @@
 .zshrc.backup
 .config/nvim/spell
 .config/sanity
+.config/neofetch
