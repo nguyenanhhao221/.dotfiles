@@ -2,7 +2,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     opts = {
       -- Event to trigger linters
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
@@ -21,6 +21,24 @@ return {
         --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
         --   end,
         -- },
+        -- Custom mypy, use with virtual environment
+        mypy = {
+          cmd = function()
+            local possibleLocaltions = { "./venv", "./.venv" }
+            for _, value in pairs(possibleLocaltions) do
+              local local_mypy = vim.fn.fnamemodify(value .. "/bin/mypy", ":p")
+              if local_mypy == nil then
+                break
+              end
+
+              local stat = vim.uv.fs_stat(local_mypy)
+              if stat then
+                return local_mypy
+              end
+              return "mypy"
+            end
+          end,
+        },
       },
     },
     config = function(_, opts)

@@ -2,7 +2,7 @@ return {
   -- formatting & linting
   {
     "nvimtools/none-ls.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { "jayp0521/mason-null-ls.nvim" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
