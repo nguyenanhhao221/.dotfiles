@@ -54,11 +54,7 @@ return {
       vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
     end,
   },
-  {
-    "SmiteshP/nvim-navic",
-    lazy = true,
-    dependencies = "neovim/nvim-lspconfig",
-  },
+
   --Use `gc` to comment
   {
     "numToStr/Comment.nvim",
@@ -128,10 +124,14 @@ return {
       })
     end,
   },
-  -- {
-  --   dir = "/Users/haonguyen/Code/Lua/stackmap.nvim",
-  --   enabled = false,
-  -- },
+  {
+    dir = "/Users/haonguyen/Code/Lua/stackmap.nvim",
+    enabled = true,
+  },
+  {
+    dir = "/Users/haonguyen/Code/Lua/ConsoleTurbo.nvim",
+    enabled = true,
+  },
   {
     "nvim-lua/plenary.nvim",
     event = "VeryLazy",

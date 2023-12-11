@@ -124,8 +124,6 @@ return {
     config = function(_, opts)
       --- Enable telescope fzf native, if installed
       pcall(require("telescope").load_extension, "fzf")
-      -- Load neoclip extension
-      pcall(require("telescope").load_extension, "neoclip")
       -- Load telescope dap extension
       pcall(require("telescope").load_extension, "dap")
       -- [[ Configure Telescope ]]
@@ -135,20 +133,6 @@ return {
       pcall(require("telescope").load_extension, "git_signs")
       require("telescope").setup(opts)
     end,
-  },
-  {
-    "AckslD/nvim-neoclip.lua",
-    event = "VeryLazy",
-    enabled = false,
-    dependencies = {
-      -- you'll need at least one of these
-      { "nvim-telescope/telescope.nvim" },
-      -- persistent history between sessions
-      { "kkharji/sqlite.lua" },
-    },
-    opts = {
-      enable_persistent_history = true,
-    },
   },
   {
     "radyz/telescope-gitsigns",

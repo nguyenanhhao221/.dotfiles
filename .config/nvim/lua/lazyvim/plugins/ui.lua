@@ -1,112 +1,4 @@
 return {
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      -- used for highlighting the cmdline and lsp docs. Make sure to install the parsers for vim, regex, lua, bash, markdown and markdown_inline
-      "nvim-treesitter",
-    },
-    opts = {
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      presets = {
-        bottom_search = false,
-        command_palette = false,
-        long_message_to_split = true,
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-      },
-    },
-    keys = {
-      {
-        "<S-Enter>",
-        function()
-          require("noice").redirect(vim.fn.getcmdline())
-        end,
-        mode = "c",
-        desc = "Redirect Cmdline",
-      },
-      {
-        "<leader>snl",
-        function()
-          require("noice").cmd("last")
-        end,
-        desc = "Noice Last Message",
-      },
-      {
-        "<leader>snh",
-        function()
-          require("noice").cmd("history")
-        end,
-        desc = "Noice History",
-      },
-      {
-        "<leader>sna",
-        function()
-          require("noice").cmd("all")
-        end,
-        desc = "Noice All",
-      },
-      {
-        "<c-f>",
-        function()
-          if not require("noice.lsp").scroll(4) then
-            return "<c-f>"
-          end
-        end,
-        silent = true,
-        expr = true,
-        desc = "Scroll forward",
-        mode = { "i", "n", "s" },
-      },
-      {
-        "<c-b>",
-        function()
-          if not require("noice.lsp").scroll(-4) then
-            return "<c-b>"
-          end
-        end,
-        silent = true,
-        expr = true,
-        desc = "Scroll backward",
-        mode = { "i", "n", "s" },
-      },
-    },
-  },
-
-  {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>un",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
-        end,
-        desc = "Delete all Notifications",
-      },
-    },
-    opts = {
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
-  },
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -215,32 +107,6 @@ return {
       })
       require("mini.indentscope").setup(opts)
     end,
-  },
-  -- bufferline
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    keys = {
-      { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-      { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            text_align = "right",
-            separator = true,
-          },
-        },
-        color_icons = true,
-      },
-    },
   },
   -- https://github.com/nvim-lualine/lualine.nvim
   -- Set lualine as statusline
@@ -388,7 +254,7 @@ return {
           },
         },
         mode_colors = {
-          i = "#76787d",
+          -- i = "#76787d",
           n = "#76787d",
           c = "#76787d",
           v = "#76787d",
