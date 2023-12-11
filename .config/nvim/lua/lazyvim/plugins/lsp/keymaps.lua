@@ -11,27 +11,20 @@ M.on_attach = function(client, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
   -- Hover docs
-  nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
-  -- nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
+  nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
   -- Code action
   nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
-  -- Go to definition
-  nmap("<leader>gd", ":Lspsaga peek_definition<CR>", "Peek [G]o [D]efinition")
-  -- nmap("gd", "<cmd>Telescope lsp_definitions<cr>", "[G]o [D]efinition")
   -- Type definition
-  nmap("<leader>gt", ":Lspsaga peek_type_definition<CR>", "Peek [T]ype [D]efinition")
+  nmap("<leader>gt", vim.lsp.buf.type_definition, "Peek [T]ype [D]efinition")
 
-  --lsp finder toogle
-  nmap("<leader>lf", ":Lspsaga lsp_finder<CR>", "[l]sp [f]inder")
   -- show  diagnostics for line
-  nmap("<leader>D", ":Lspsaga show_line_diagnostics<CR>", "Show Line diagnostics")
-  -- show diagnostics for cursor
-  nmap("<leader>d", ":Lspsaga show_cursor_diagnostics<CR>", "Show cursor diagnostics")
+  nmap("<leader>D", vim.diagnostic.open_float, "Show Line diagnostics")
+  --
   -- jump to previous diagnostic in buffer
-  nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic in buffer")
+  nmap("[d", vim.diagnostic.goto_prev, "jump to previous diagnostic in buffer")
   -- jump to next diagnostic in buffer
-  nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
-  nmap("<leader>rn", ":Lspsaga rename<CR>", "[R]e[n]ame")
+  nmap("]d", vim.diagnostic.goto_next, "jump to next diagnostic in buffer")
+  nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
   nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
 
   nmap("<leader>uf", require("lazyvim.plugins.lsp.format").toggle, "Toggle format on Save")
