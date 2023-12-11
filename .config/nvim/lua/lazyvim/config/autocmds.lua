@@ -12,13 +12,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { ".swcrc" },
   callback = function()
-    vim.api.nvim_buf_set_option(0, "filetype", "jsonc")
+    vim.api.nvim_set_option_value("filetype", "jsonc", { buf = 0 })
   end,
 })
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "T0_prestart.yaml" },
   callback = function()
-    vim.api.nvim_buf_set_option(0, "filetype", "yaml.ansible")
+    vim.api.nvim_set_option_value("filetype", "yaml.ansible", { buf = 0 })
   end,
 })
 
