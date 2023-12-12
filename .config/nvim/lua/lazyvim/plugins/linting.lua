@@ -38,6 +38,17 @@ return {
               return "mypy"
             end
           end,
+          stdin = false,
+          ignore_exitcode = true,
+          args = {
+            "--show-column-numbers",
+            "--show-error-end",
+            "--hide-error-codes",
+            "--hide-error-context",
+            "--no-color-output",
+            "--no-error-summary",
+            "--no-pretty",
+          },
         },
       },
     },
