@@ -218,10 +218,11 @@ return {
         end
         return prefix .. status[type]
       end
+      vim.cmd([[hi NeovimLogo guifg=#69A33E]])
       return {
         sections = {
           left = {
-            "cool_symbol",
+            { "NeovimLogo", "cool_symbol" },
             " ",
             "branch",
             " ",
