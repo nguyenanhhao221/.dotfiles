@@ -35,5 +35,13 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     })
   end,
 })
+
+-- Handle annoying case where accidentally uppercase W
+vim.api.nvim_create_user_command("Wq", ":wq", { desc = "Save and quit" })
+vim.api.nvim_create_user_command("WQ", ":wq", { desc = "Save and quit" })
+vim.api.nvim_create_user_command("Wqa", ":wqa", { desc = "Save all and quit" })
+vim.api.nvim_create_user_command("WQa", ":wqa", { desc = "Save all and quit" })
+vim.api.nvim_create_user_command("WQA", ":wqa", { desc = "Save all and quit" })
+--
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
