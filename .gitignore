@@ -31,3 +31,5 @@
 .config/nvim/spell
 .config/sanity
 .config/neofetch
+.config/.gitlab.nvim
+.config/glab-cli
