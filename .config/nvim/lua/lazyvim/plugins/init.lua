@@ -102,15 +102,6 @@ return {
       wk.register(opts.defaults)
     end,
   },
-  --Markdown preview
-  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
-  {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
   --A pretty list for showing diagnostics, references, telescope results, quickfix and location lists to help you solve all the trouble your code is causing.
   {
     "folke/trouble.nvim",
