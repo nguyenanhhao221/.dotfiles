@@ -96,7 +96,7 @@ return {
         desc = "git get left",
       },
       {
-        "gl",
+        "gk",
         "<cmd>diffget //3<CR>",
         desc = "git get right",
       },
