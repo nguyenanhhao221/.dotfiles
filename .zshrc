@@ -104,6 +104,8 @@ alias lg="lazygit"
 alias lzd="lazydocker"
 # open neovim aliases
 alias v="nvim"
+# use pnpm to replace npm
+alias npm="pnpm"
 
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
