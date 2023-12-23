@@ -7,7 +7,16 @@ return {
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     build = ":TSUpdate",
     -- Additional text objects via treesitter
+    keys = {
+      { "<leader>tp", "<cmd>InspectTree<CR>", desc = "Treesitter Playground Toggle" },
+    },
     dependencies = {
+      -- {
+      --   "nvim-treesitter/playground",
+      --   keys = {
+      --     { "<leader>tp", "<cmd>TSPlaygroundToggle<CR>", desc = "Treesitter Playground Toggle" },
+      --   },
+      -- },
       "nvim-treesitter/nvim-treesitter-textobjects",
       {
         "windwp/nvim-ts-autotag",
