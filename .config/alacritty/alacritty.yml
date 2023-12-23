@@ -98,7 +98,7 @@ window:
   #   - OnlyRight
   #   - Both
   #   - None (default)
-  #option_as_alt: None
+  # option_as_alt: Both
   #scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -230,9 +230,14 @@ draw_bold_text_with_bright_colors: true
 #
 # Allowed values are CellForeground/CellBackground, which reference the
 # affected cell, or hexadecimal colors like #ff00ff.
-#cursor:
+cursor:
 #  text: CellBackground
 #  cursor: CellForeground
+  style:
+    shape: Block
+    blinking: On
+  # blink_interval: 500
+#
 # Vi mode cursor colors
 #
 # Colors for the cursor when the vi mode is active.
