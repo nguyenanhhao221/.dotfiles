@@ -37,8 +37,8 @@ return {
     },
     config = function(_, opts)
       -- load the colorscheme here
-      vim.cmd([[colorscheme kanagawa]])
       require("kanagawa").setup(opts)
+      vim.cmd([[colorscheme kanagawa]])
     end,
   },
   --Rose pine
@@ -96,8 +96,8 @@ return {
       },
     },
     config = function(_, opts)
-      vim.cmd([[colorscheme rose-pine]])
       require("rose-pine").setup(opts)
+      vim.cmd([[colorscheme rose-pine]])
     end,
   },
   --Gruvbox
