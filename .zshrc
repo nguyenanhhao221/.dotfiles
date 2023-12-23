@@ -139,6 +139,10 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # Activate ruby version when needed
 # chruby ruby-3.1.3
 
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 ### Fix for making Docker plugin work
 autoload -U compinit && compinit
 # fzf options
