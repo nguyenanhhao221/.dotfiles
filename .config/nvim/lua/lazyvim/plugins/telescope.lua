@@ -38,9 +38,10 @@ return {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "[G]o [D]efinition" },
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-      { "gi", "<cmd>Telescope lsp_implementations<cr>", desc = "Lsp Implementations" },
+      { "gd",function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "[G]o [D]efinition" },
+      { "gr",function() require("telescope.builtin").lsp_references({ reuse_win = true }) end, desc = "References" },
+      { "gi",function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Lsp Implementations" },
+      { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
       { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
