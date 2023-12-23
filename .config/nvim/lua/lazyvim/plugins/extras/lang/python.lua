@@ -45,24 +45,26 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "nvim-neotest/neotest-python",
+      { "nvim-neotest/neotest-python" },
     },
     lazy = true,
-    opts = function(_, opts)
-      table.insert(
-        opts.adapters,
-        require("neotest-python")({
-          -- Extra arguments for nvim-dap configuration
-          -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+    opts = {
+      adapters = {
+        ["neotest-python"] = {
+          -- Here you can specify the settings for the adapter, i.e.
+          -- runner = "pytest",
+          -- python = ".venv/bin/python",
           dap = {
-            justMyCode = false,
+            justMyCode = true,
             console = "integratedTerminal",
           },
           args = { "--log-level", "DEBUG", "-s" },
+          -- extra_args = { "--log-level", "DEBUG", "-s" },
           runner = "pytest",
-        })
-      )
-    end,
+          pytest_discover_instances = true,
+        },
+      },
+    },
   },
   -- select virtual environments
   -- - makes pyright and debugpy aware of the selected virtual environment
