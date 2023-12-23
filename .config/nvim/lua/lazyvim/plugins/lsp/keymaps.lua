@@ -14,8 +14,6 @@ M.on_attach = function(client, bufnr)
   nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
   -- Code action
   nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
-  -- Type definition
-  nmap("<leader>gt", vim.lsp.buf.type_definition, "Peek [T]ype [D]efinition")
 
   -- show  diagnostics for line
   nmap("<leader>D", vim.diagnostic.open_float, "Show Line diagnostics")
