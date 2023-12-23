@@ -34,6 +34,7 @@ return {
       },
     },
     cmd = "Telescope",
+    -- stylua: ignore
     keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
