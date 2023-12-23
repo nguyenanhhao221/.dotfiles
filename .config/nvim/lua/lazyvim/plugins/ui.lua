@@ -127,8 +127,11 @@ return {
 
       local icons = require("lazyvim.config").icons
 
+      local auto_theme_custom = require("lualine.themes.auto")
+      auto_theme_custom.normal.c.bg = "none"
       return {
         options = {
+          theme = auto_theme_custom,
           icons_enabled = true,
           component_separators = "|",
           section_separators = "",
@@ -137,9 +140,9 @@ return {
           globalstatus = true,
         },
         sections = {
-          lualine_a = { { "mode", color = { fg = "#76787d" } } },
+          lualine_a = {},
           lualine_b = {
-            { "branch", color = { fg = "#76787d" }, icon = { "", align = "right", color = { fg = "#76787d" } } },
+            { "branch" },
           },
           lualine_c = {
             {
