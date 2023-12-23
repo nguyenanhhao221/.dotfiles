@@ -35,7 +35,7 @@ return {
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
-          return { timeout_ms = 500, lsp_fallback = true, async = true }
+          return { timeout_ms = 500, lsp_fallback = false, async = true }
         end
       end,
     },
