@@ -129,6 +129,7 @@ return {
       pcall(require("telescope").load_extension, "fzf")
       -- Load telescope dap extension
       pcall(require("telescope").load_extension, "dap")
+      pcall(require("telescope").load_extension, "gh")
       pcall(require("telescope").load_extension, "ui-select")
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
