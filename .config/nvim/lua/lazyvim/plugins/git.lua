@@ -228,4 +228,13 @@ return {
       require("scrollbar").setup()
     end,
   },
+  {
+    "ThePrimeagen/git-worktree.nvim",
+    lazy = true,
+    opts = {},
+    config = function(_, opts)
+      require("git-worktree").setup(opts)
+      require("telescope").load_extension("git_worktree")
+    end,
+  },
 }
