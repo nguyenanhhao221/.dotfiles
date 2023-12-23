@@ -118,11 +118,12 @@ return {
   {
     dir = "/Users/haonguyen/Code/Lua/stackmap.nvim",
     enabled = true,
+    event = "VeryLazy",
   },
-  {
-    dir = "/Users/haonguyen/Code/Lua/ConsoleTurbo.nvim",
-    enabled = true,
-  },
+  -- {
+  --   dir = "/Users/haonguyen/Code/Lua/ConsoleTurbo.nvim",
+  --   enabled = true,
+  -- },
   {
     "nvim-lua/plenary.nvim",
     event = "VeryLazy",
