@@ -18,6 +18,8 @@ return {
       },
       -- Add vscode like icon
       "onsails/lspkind.nvim",
+      --Enhance lsp UI
+      "glepnir/lspsaga.nvim",
       --Color preview
       {
         "NvChad/nvim-colorizer.lua",
@@ -295,7 +297,63 @@ return {
       end
     end,
   },
-
+  {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" },
+      { "onsails/lspkind.nvim" },
+    },
+    event = "LspAttach",
+    opts = {
+      -- keybinds for navigation in lspsaga window
+      scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+      -- use enter to open file with definition preview
+      definition = {
+        edit = "<CR>",
+      },
+      outline = {
+        win_position = "right",
+        win_with = "",
+        win_width = 30,
+        show_detail = true,
+        auto_preview = false,
+        auto_refresh = true,
+        auto_close = true,
+        custom_sort = nil,
+        keys = {
+          jump = "o",
+          expand_collapse = "u",
+          quit = "q",
+        },
+      },
+      code_action = {
+        enable = false,
+        num_shortcut = true,
+        show_server_name = true,
+        extend_gitsigns = false,
+        keys = {
+          -- string | table type
+          quit = "q",
+          exec = "<CR>",
+        },
+      },
+      lightbulb = {
+        enable = false,
+        enable_in_insert = true,
+        sign = false,
+        sign_priority = 40,
+        virtual_text = true,
+      },
+      -- after jump from float window there will show beacon to remind you where the cursor is.
+      beacon = {
+        enable = false,
+        frequency = 7,
+      },
+    },
+  },
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
