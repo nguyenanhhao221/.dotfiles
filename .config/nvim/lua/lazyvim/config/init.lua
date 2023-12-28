@@ -34,6 +34,7 @@ local defaults = {
       added = " ",
       modified = " ",
       removed = " ",
+      branch = " ",
     },
     kinds = {
       Array = " ",
@@ -71,6 +72,11 @@ local defaults = {
       Unit = " ",
       Value = " ",
       Variable = " ",
+    },
+    others = {
+      modified_file = "● ",
+      read_only = " ",
+      lsp = " ",
     },
   },
 }

@@ -1,3 +1,5 @@
+local icons = require("lazyvim.config.init").icons
+
 return {
   -- indent guides for Neovim
   {
@@ -110,166 +112,98 @@ return {
   },
   -- https://github.com/nvim-lualine/lualine.nvim
   -- Set lualine as statusline
+  -- Using my own configuration "mini_lualine"
   -- See `:help lualine.txt`
   {
     "nvim-lualine/lualine.nvim",
-    enabled = false,
+    enabled = true,
+    init = function()
+      vim.g.lualine_laststatus = vim.o.laststatus
+      if vim.fn.argc(-1) > 0 then
+        -- set an empty statusline till lualine loads
+        vim.o.statusline = " "
+      else
+        -- hide the statusline on the starter page
+        vim.o.laststatus = 0
+      end
+    end,
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = function()
-      local function fg(name)
-        return function()
-          ---@type {foreground?:number}?
-          local hl = vim.api.nvim_get_hl_by_name(name, true)
-          return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-        end
+    config = function(_, opts)
+      local lualine = require("lualine")
+      local has_mini_lualine, mini_lualine_config = pcall(require, "haonguyen.mini_lualine")
+      if not has_mini_lualine then
+        return lualine.setup(opts)
       end
-
-      local icons = require("lazyvim.config").icons
-
-      local auto_theme_custom = require("lualine.themes.auto")
-      auto_theme_custom.normal.c.bg = "none"
-      return {
-        options = {
-          theme = auto_theme_custom,
-          icons_enabled = true,
-          component_separators = "|",
-          section_separators = "",
-          path = 1,
-          disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-          globalstatus = true,
-        },
-        sections = {
-          lualine_a = {},
-          lualine_b = {
-            { "branch" },
-          },
-          lualine_c = {
-            {
-              "diagnostics",
-              symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
-              },
-            },
-            { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-            {
-              "diff",
-              symbols = {
-                added = icons.git.added,
-                modified = icons.git.modified,
-                removed = icons.git.removed,
-              },
-            },
-          },
-          lualine_x = {
-            {
-              function()
-                return require("noice").api.status.command.get()
-              end,
-              cond = function()
-                return package.loaded["noice"] and require("noice").api.status.command.has()
-              end,
-              color = fg("Statement"),
-            },
-            {
-              function()
-                return require("noice").api.status.mode.get()
-              end,
-              cond = function()
-                return package.loaded["noice"] and require("noice").api.status.mode.has()
-              end,
-              color = fg("Constant"),
-            },
-            {
-              require("lazy.status").updates,
-              cond = require("lazy.status").has_updates,
-              -- color = fg("Special"),
-            },
-            { "filetype", icon_only = false, separator = "", padding = { left = 1, right = 1 } },
-          },
-          lualine_y = {
-            { "progress", separator = " ", padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
-          },
-          lualine_z = {
-            -- function()
-            --   return " " .. os.date("%R")
-            -- end,
-            "encoding",
-          },
-        },
-      }
+      lualine.setup(mini_lualine_config)
     end,
   },
   -- staline
   {
     "tamton-aquib/staline.nvim",
     event = "VeryLazy",
-    enabled = true,
-    opts = function()
-      local git_icons = require("lazyvim.config").icons.git
-      local git_status = function(type, prefix)
-        local status = vim.b.gitsigns_status_dict
-        if not status then
-          return nil
-        end
-        if not status[type] or status[type] == 0 then
-          return nil
-        end
-        return prefix .. status[type]
-      end
-      vim.cmd([[hi NeovimLogo guifg=#69A33E]])
-      return {
-        sections = {
-          left = {
-            { "NeovimLogo", "cool_symbol" },
-            " ",
-            "branch",
-            " ",
-            "file_name",
-            " ",
-          },
-          mid = { "lsp" },
-          right = {
-            {
-              "GitSignsAdd",
-              function()
-                return git_status("added", git_icons.added) or ""
-              end,
-            },
-            " ",
-            {
-              "GitSignsChange",
-              function()
-                return git_status("changed", git_icons.modified) or ""
-              end,
-            },
-            " ",
-            {
-              "GitSignsDelete",
-              function()
-                return git_status("removed", git_icons.removed) or ""
-              end,
-            },
-            "line_column",
-          },
-        },
-        mode_colors = {
-          -- i = "#76787d",
-          n = "#76787d",
-          c = "#76787d",
-          v = "#76787d",
-        },
-        defaults = {
-          true_colors = true,
-          line_column = " [%l/%L] :%c  ",
-          cool_symbol = " ",
-          branch_symbol = " ",
-        },
-      }
-    end,
+    dependencies = { "lewis6991/gitsigns.nvim" },
   },
+  enabled = false,
+  opts = function()
+    local git_status = function(type, prefix)
+      local status = vim.b.gitsigns_status_dict
+      if not status then
+        return nil
+      end
+      if not status[type] or status[type] == 0 then
+        return nil
+      end
+      return prefix .. status[type]
+    end
+    vim.cmd([[hi NeovimLogo guifg=#69A33E]])
+    return {
+      sections = {
+        left = {
+          { "NeovimLogo", "cool_symbol" },
+          " ",
+          "branch",
+          " ",
+          "file_name",
+          " ",
+        },
+        mid = { "lsp" },
+        right = {
+          {
+            "GitSignsAdd",
+            function()
+              return git_status("added", icons.git.added) or ""
+            end,
+          },
+          " ",
+          {
+            "GitSignsChange",
+            function()
+              return git_status("changed", icons.git.modified) or ""
+            end,
+          },
+          " ",
+          {
+            "GitSignsDelete",
+            function()
+              return git_status("removed", icons.git.removed) or ""
+            end,
+          },
+          "line_column",
+        },
+      },
+      mode_colors = {
+        i = "#76787d",
+        n = "#76787d",
+        c = "#76787d",
+        v = "#76787d",
+      },
+      defaults = {
+        true_colors = true,
+        line_column = " [%l/%l] :%c  ",
+        cool_symbol = " ",
+        branch_symbol = " ",
+      },
+    }
+  end,
 }
