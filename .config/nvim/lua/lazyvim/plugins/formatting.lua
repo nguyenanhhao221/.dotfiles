@@ -31,6 +31,7 @@ return {
         typescript = { { "prettierd", "prettier" } },
         vue = { { "prettierd", "prettier" } },
         typescriptreact = { { "prettierd", "prettier" } },
+        go = { "goimports", "gofmt" },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
