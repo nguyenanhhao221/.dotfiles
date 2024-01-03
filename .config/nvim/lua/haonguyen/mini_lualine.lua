@@ -3,17 +3,6 @@
 --    https://github.com/Tibor5/minim_lualine/blob/master/lua/minim.lua
 
 -- ~  --------------------------------------------------------------------------------  ~ --
-local custom_theme
-local has_catppuccin, catppuccin = pcall(require, "catppuccin")
-
--- Use catppuccin as lualine theme
-if has_catppuccin then
-  custom_theme = catppuccin
-  -- Config to make the status line background transparent
-  custom_theme.options.transparent_background = true
-else
-  custom_theme = "auto"
-end
 
 local icons = require("lazyvim.config.init").icons
 -- ~  --------------------------------------------------------------------------------  ~ --

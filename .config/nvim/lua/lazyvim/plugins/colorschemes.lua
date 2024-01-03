@@ -14,26 +14,20 @@ return {
   --Kanagawa Themes
   {
     "rebelot/kanagawa.nvim",
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
-    -- priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
     opts = {
-      compile = true, -- enable compiling the colorscheme
+      compile = false, -- enable compiling the colorscheme
       undercurl = true, -- enable undercurls
       commentStyle = { italic = true },
       functionStyle = {},
       keywordStyle = { italic = true },
       statementStyle = { bold = true },
       typeStyle = {},
-      transparent = false, -- do not set background color
+      transparent = true, -- do not set background color
       dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-      terminalColors = true, -- define vim.g.terminal_color_{0,17}
-      theme = "wave", -- Load "wave" theme when 'background' option is not set
-      background = {
-        -- map the value of 'background' option to a theme
-        dark = "wave", -- try "dragon" !
-        light = "lotus",
-      },
+      terminalColors = false, -- define vim.g.terminal_color_{0,17}
     },
     config = function(_, opts)
       -- load the colorscheme here
@@ -129,8 +123,8 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
+    -- priority = 1000,
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       background = { -- :h background
@@ -139,6 +133,7 @@ return {
       },
       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
       transparent_background = true,
+      term_colors = true,
     },
 
     config = function(_, opts)
