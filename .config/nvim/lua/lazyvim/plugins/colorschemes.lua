@@ -137,7 +137,8 @@ return {
         light = "latte",
         dark = "mocha",
       },
-      show_end_of_buffer = true, -- show the '~' characters after the end of buffers
+      show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+      transparent_background = true,
     },
 
     config = function(_, opts)
