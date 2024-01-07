@@ -177,7 +177,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre" },
-    dependencies = { "nvim-scrollbar" },
+    -- dependencies = { "nvim-scrollbar" },
     opts = {
       signs = {
         add = { text = "▎" },
@@ -223,6 +223,7 @@ return {
   {
     "petertriho/nvim-scrollbar",
     lazy = true,
+    enabled = false,
     config = function()
       require("scrollbar.handlers.gitsigns").setup()
       require("scrollbar").setup()
