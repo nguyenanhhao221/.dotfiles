@@ -17,11 +17,15 @@ local condition = {
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
 }
+
+local auto_theme_custom = require("lualine.themes.auto")
+auto_theme_custom.normal.c.bg = "none"
 -- ~  --------------------------------------------------------------------------------  ~ --
 
 -- ~  Config
 local config = {
   options = {
+    theme = auto_theme_custom,
     component_separators = "",
     section_separators = "",
     always_divide_middle = false,
