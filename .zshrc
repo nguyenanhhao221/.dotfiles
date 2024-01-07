@@ -119,8 +119,11 @@ export NVM_DIR="$HOME/.nvm"
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 # pnpm
-# export PNPM_HOME="/Users/haonguyen/Library/pnpm"
-# export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="/Users/haonguyen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # GO LANG
