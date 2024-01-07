@@ -20,13 +20,6 @@ return {
       "onsails/lspkind.nvim",
       --Enhance lsp UI
       "glepnir/lspsaga.nvim",
-      --Color preview
-      {
-        "NvChad/nvim-colorizer.lua",
-        opts = {
-          tailwind = true, -- Enable tailwind colors
-        },
-      },
       {
         "b0o/SchemaStore.nvim",
         version = false, -- last release is way too old
