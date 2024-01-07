@@ -143,67 +143,67 @@ return {
     "tamton-aquib/staline.nvim",
     event = "VeryLazy",
     dependencies = { "lewis6991/gitsigns.nvim" },
+    enabled = false,
+    opts = function()
+      local git_status = function(type, prefix)
+        local status = vim.b.gitsigns_status_dict
+        if not status then
+          return nil
+        end
+        if not status[type] or status[type] == 0 then
+          return nil
+        end
+        return prefix .. status[type]
+      end
+      vim.cmd([[hi NeovimLogo guifg=#69A33E]])
+      return {
+        sections = {
+          left = {
+            { "NeovimLogo", "cool_symbol" },
+            " ",
+            "branch",
+            " ",
+            "file_name",
+            " ",
+          },
+          mid = { "lsp" },
+          right = {
+            {
+              "GitSignsAdd",
+              function()
+                return git_status("added", icons.git.added) or ""
+              end,
+            },
+            " ",
+            {
+              "GitSignsChange",
+              function()
+                return git_status("changed", icons.git.modified) or ""
+              end,
+            },
+            " ",
+            {
+              "GitSignsDelete",
+              function()
+                return git_status("removed", icons.git.removed) or ""
+              end,
+            },
+            "line_column",
+          },
+        },
+        mode_colors = {
+          i = "#76787d",
+          n = "#76787d",
+          c = "#76787d",
+          v = "#76787d",
+        },
+        defaults = {
+          true_colors = true,
+          line_column = " [%l/%l] :%c  ",
+          cool_symbol = " ",
+          branch_symbol = " ",
+        },
+      }
+    end,
   },
-  enabled = false,
-  opts = function()
-    local git_status = function(type, prefix)
-      local status = vim.b.gitsigns_status_dict
-      if not status then
-        return nil
-      end
-      if not status[type] or status[type] == 0 then
-        return nil
-      end
-      return prefix .. status[type]
-    end
-    vim.cmd([[hi NeovimLogo guifg=#69A33E]])
-    return {
-      sections = {
-        left = {
-          { "NeovimLogo", "cool_symbol" },
-          " ",
-          "branch",
-          " ",
-          "file_name",
-          " ",
-        },
-        mid = { "lsp" },
-        right = {
-          {
-            "GitSignsAdd",
-            function()
-              return git_status("added", icons.git.added) or ""
-            end,
-          },
-          " ",
-          {
-            "GitSignsChange",
-            function()
-              return git_status("changed", icons.git.modified) or ""
-            end,
-          },
-          " ",
-          {
-            "GitSignsDelete",
-            function()
-              return git_status("removed", icons.git.removed) or ""
-            end,
-          },
-          "line_column",
-        },
-      },
-      mode_colors = {
-        i = "#76787d",
-        n = "#76787d",
-        c = "#76787d",
-        v = "#76787d",
-      },
-      defaults = {
-        true_colors = true,
-        line_column = " [%l/%l] :%c  ",
-        cool_symbol = " ",
-        branch_symbol = " ",
-      },
-    }
-  end,
 }
