@@ -149,4 +149,12 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  --Color preview
+  {
+    "NvChad/nvim-colorizer.lua",
+    cmd = "ColorizerToggle",
+    opts = {
+      tailwind = true, -- Enable tailwind colors
+    },
+  },
 }
