@@ -9,8 +9,8 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-import:
- - /Users/haonguyen/.dotfiles/.config/alacritty/alacritty-theme/themes/kanagawa_wave.yaml
+# import:
+#  - /Users/haonguyen/.dotfiles/.config/alacritty/themes/themes/ayu_dark.toml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -154,7 +154,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 13.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
