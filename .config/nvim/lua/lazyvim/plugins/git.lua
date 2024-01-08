@@ -103,7 +103,7 @@ return {
     },
     cmd = { "Git" },
     config = function()
-      vim.keymap.set("n", "<leader>gs", "<cmd>vertical Git<CR>", { desc = "[g]it [s]tatus" })
+      vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "[g]it [s]tatus" })
     end,
   },
   {
