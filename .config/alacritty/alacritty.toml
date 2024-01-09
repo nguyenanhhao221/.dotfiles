@@ -8,17 +8,18 @@ draw_bold_text_with_bright_colors = true
 TERM = "xterm-256color"
 
 [font]
-size = 12.0
+size = 13.0
 
 [font.glyph_offset]
-y = 9
+y = 5
 
 [font.normal]
-family = "JetBrainsMono NFM"
+# family = "JetBrainsMono NFM"
+family = "GeistMono Nerd Font"
 
 [font.offset]
 x = 0
-y = 10
+y = 8
 
 [window]
 decorations = "buttonless"
