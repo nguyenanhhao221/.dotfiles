@@ -120,7 +120,14 @@ return {
       inverse = true, -- invert background for search, diffs, statuslines and errors
       contrast = "", -- can be "hard", "soft" or empty string
       palette_overrides = {},
-      overrides = {},
+      overrides = {
+        TelescopeSelection = {
+          bg = "#665c54",
+        },
+        TelescopeMatching = {
+          fg = "#fe8019",
+        },
+      },
       dim_inactive = false,
       transparent_mode = true,
     },
