@@ -127,6 +127,10 @@ return {
         TelescopeMatching = {
           fg = "#fe8019",
         },
+
+        MiniIndentscopeSymbol = {
+          fg = "#fe8019",
+        },
       },
       dim_inactive = false,
       transparent_mode = true,
