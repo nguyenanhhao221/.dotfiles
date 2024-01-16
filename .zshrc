@@ -141,7 +141,14 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # Activate ruby version when needed
 # chruby ruby-3.1.3
 
-
+# For cs50 library to learn C
+export C_INCLUDE_PATH=/usr/local/include
+export LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib
+export DYLD_LIBRARY_PATH=/usr/local/lib
+export CC="clang"
+export CFLAGS="-ferror-limit=1 -gdwarf-4 -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-gnu-folding-constant -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-variable -Wshadow"
+export LDLIBS="-lcs50 -lm"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true

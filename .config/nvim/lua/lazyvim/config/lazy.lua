@@ -27,6 +27,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.nlua" },
     -- { import = "lazyvim.plugins.extras.lang.xml" },
     -- { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = "lazyvim.plugins.extras.lang.c" },
     { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.dap.golang" },
     { import = "lazyvim.plugins.dap.nlua" },
