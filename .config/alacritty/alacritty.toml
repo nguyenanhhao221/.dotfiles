@@ -1,6 +1,4 @@
-import = [
-    "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
-]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -8,14 +6,15 @@ draw_bold_text_with_bright_colors = true
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 12.0
 
 [font.glyph_offset]
 y = 5
 
 [font.normal]
-# family = "JetBrainsMono NFM"
-family = "GeistMono Nerd Font"
+family = "JetBrainsMono NFM"
+# family = "GoMono Nerd Font Mono"
+# family = "GeistMono Nerd Font"
 
 [font.offset]
 x = 0
