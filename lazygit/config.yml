@@ -2,9 +2,10 @@ gui:
   theme:
     selectedLineBgColor:
       - underline
-    selectedRangeBgColor:
-      - underline
+    # selectedRangeBgColor:
+    #   - underline
   nerdFontsVersion: "3"
+
 git:
   paging:
     colorArg: always
