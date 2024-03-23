@@ -17,7 +17,9 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    version = false, -- telescope did only one release, so use HEAD for now
+    -- tag = "0.1.x",
+    -- telescope did only one release, so use HEAD for now
+    -- version = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-github.nvim",
