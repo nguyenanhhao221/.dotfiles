@@ -261,6 +261,7 @@ return {
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+    build = ":MasonUpdate",
     opts = {
       ensure_installed = {
         "stylua",
@@ -269,6 +270,7 @@ return {
         "ruff-lsp", -- linter for python (includes flake8, pep8, etc.)
         "debugpy", -- debugger
         "taplo", -- LSP for toml (for pyproject.toml files)
+        "codelldb",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
