@@ -4,7 +4,7 @@ gui:
       - underline
     selectedRangeBgColor:
       - underline
-    nerdFontsVersion: "3"
+  nerdFontsVersion: "3"
 git:
   paging:
     colorArg: never
