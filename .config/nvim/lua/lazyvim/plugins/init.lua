@@ -94,7 +94,7 @@ return {
     },
   },
   -- Detect tabstop and shiftwidth automatically
-  { "tpope/vim-sleuth", event = "VeryLazy" },
+  { "tpope/vim-sleuth", event = "VeryLazy", enabled = false },
   --Navigate between window easier, work with tmux and nvim
   {
     "christoomey/vim-tmux-navigator",
