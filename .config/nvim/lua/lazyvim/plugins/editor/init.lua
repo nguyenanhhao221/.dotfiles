@@ -14,6 +14,7 @@ return {
       { "<leader>ol", "<Cmd>SymbolsOutline<CR>", desc = "Toggle Outline" },
     },
     cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+    enabled = false,
     opts = {
       highlight_hovered_item = true,
       show_guides = true,
