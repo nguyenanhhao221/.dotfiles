@@ -32,5 +32,9 @@ vim.opt.spellcapcheck = ""
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
+-- options to stop weird indent on newline
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+
 -- Make cursor fat even in insert mode
 -- vim.opt.guicursor = ""
