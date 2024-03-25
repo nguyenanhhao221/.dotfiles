@@ -40,7 +40,9 @@ return {
       { "<leader>1", function() require("harpoon.ui").nav_file(1) end , desc = "Harpoon 1"},
       { "<leader>2", function() require("harpoon.ui").nav_file(2) end,desc="Harpoon 2"},
       { "<leader>3", function() require("harpoon.ui").nav_file(3) end , desc="Harpoon 3"},
-      { "<leader>4", function() require("harpoon.ui").nav_file(4) end , desc="Harpoon 4"}
+      { "<leader>4", function() require("harpoon.ui").nav_file(4) end , desc="Harpoon 4"},
+      { "<leader>hn", function() require("harpoon.ui").nav_next() end , desc="Harpoon Nav Next"},
+      { "<leader>hp", function() require("harpoon.ui").nav_prev() end , desc="Harpoon Nav Previous"}
     },
     config = true,
   },
