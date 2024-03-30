@@ -14,8 +14,8 @@ return {
   --Kanagawa Themes
   {
     "rebelot/kanagawa.nvim",
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
-    -- priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
     opts = {
       compile = false, -- enable compiling the colorscheme
@@ -97,8 +97,8 @@ return {
   --Gruvbox
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000,
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
+    -- priority = 1000,
     name = "gruvbox",
     opts = {
       terminal_colors = true, -- add neovim terminal colors
