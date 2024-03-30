@@ -31,6 +31,7 @@ return {
   },
 
   --Harpoon to navigate files by ThePrimeagen
+  --TODO: Try new branch for harpoon 2.0
   {
     "theprimeagen/harpoon",
     -- stylua: ignore
