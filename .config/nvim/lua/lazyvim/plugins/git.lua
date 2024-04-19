@@ -90,6 +90,7 @@ return {
     keys = {
       { "<leader>gs", "<cmd>Git<CR>", desc = "git status" },
       { "<leader>gC", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
+      { "<leader>gP", "<cmd>Git push<CR>", desc = "git push", silent = false },
       {
         "ga",
         "<cmd>diffget //2<CR>",
