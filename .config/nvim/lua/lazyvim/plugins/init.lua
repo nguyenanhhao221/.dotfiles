@@ -152,7 +152,7 @@ return {
   },
   {
     dir = "/Users/haonguyen/Code/Lua/stackmap.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
   },
   -- {
