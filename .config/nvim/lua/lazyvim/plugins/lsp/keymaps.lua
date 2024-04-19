@@ -17,15 +17,24 @@ M.on_attach = function(_, bufnr)
   nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
 
   --lsp finder toogle
-  nmap("<leader>lf", ":Lspsaga lsp_finder<CR>", "[l]sp [f]inder")
+  -- nmap("<leader>lf", ":Lspsaga lsp_finder<CR>", "[l]sp [f]inder")
   -- show  diagnostics for line
-  nmap("<leader>D", ":Lspsaga show_line_diagnostics<CR>", "Show Line diagnostics")
+  -- nmap("<leader>D", ":Lspsaga show_line_diagnostics<CR>", "Show Line diagnostics")
+  nmap("<leader>D", function()
+    vim.diagnostic.open_float({ scope = "line" })
+  end, "Show Line diagnostics")
   -- show diagnostics for cursor
-  nmap("<leader>d", ":Lspsaga show_cursor_diagnostics<CR>", "Show cursor diagnostics")
+  nmap("<leader>d", function()
+    vim.diagnostic.open_float({ scope = "cursor" })
+  end, "Show cursor diagnostics")
+	-- stylua: ignore
+  -- nmap("<leader>d",vim.diagnostic.open_float({scope = "cursor"}),"Show cursor diagnostics")
   -- jump to previous diagnostic in buffer
-  nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic in buffer")
+  -- nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic in buffer")
+  nmap("[d", vim.diagnostic.goto_prev, "jump to previous diagnostic in buffer")
   -- jump to next diagnostic in buffer
-  nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
+  -- nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
+  nmap("]d", vim.diagnostic.goto_next, "jump to next diagnostic in buffer")
   nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
   nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
 
