@@ -174,7 +174,7 @@ return {
       if opts.inlay_hints.enabled then
         Util.on_attach(function(client, buffer)
           if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(nil, false)
+            vim.lsp.inlay_hint.enable(nil, true)
           end
         end)
       end
