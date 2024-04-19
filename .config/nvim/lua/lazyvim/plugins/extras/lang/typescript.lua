@@ -18,50 +18,47 @@ return {
   --       ---@type lspconfig.options.tsserver
   --       tsserver = {
   --         keys = {
-  --           { "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>", desc = "Organize Imports" },
-  --           { "<leader>rf", "<cmd>TypescriptRenameFile<CR>", desc = "Rename File" },
-  --           { "<leader>ru", "<cmd>TypescriptRemoveUnused<CR>", desc = "[R]emove unused [T]ypescript" },
+  --           {
+  --             "<leader>co",
+  --             function()
+  --               vim.lsp.buf.code_action({
+  --                 apply = true,
+  --                 context = {
+  --                   only = { "source.organizeImports.ts" },
+  --                   diagnostics = {},
+  --                 },
+  --               })
+  --             end,
+  --             desc = "Organize Imports",
+  --           },
+  --           {
+  --             "<leader>cR",
+  --             function()
+  --               vim.lsp.buf.code_action({
+  --                 apply = true,
+  --                 context = {
+  --                   only = { "source.removeUnused.ts" },
+  --                   diagnostics = {},
+  --                 },
+  --               })
+  --             end,
+  --             desc = "Remove Unused Imports",
+  --           },
   --         },
+  --         ---@diagnostic disable-next-line: missing-fields
   --         settings = {
-  --           javascript = {
-  --             inlayHints = {
-  --               includeInlayEnumMemberValueHints = true,
-  --               includeInlayFunctionLikeReturnTypeHints = true,
-  --               includeInlayFunctionParameterTypeHints = true,
-  --               includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-  --               includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-  --               includeInlayPropertyDeclarationTypeHints = true,
-  --               includeInlayVariableTypeHints = true,
-  --             },
-  --           },
-  --           typescript = {
-  --             inlayHints = {
-  --               includeInlayEnumMemberValueHints = true,
-  --               includeInlayFunctionLikeReturnTypeHints = true,
-  --               includeInlayFunctionParameterTypeHints = true,
-  --               includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-  --               includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-  --               includeInlayPropertyDeclarationTypeHints = true,
-  --               includeInlayVariableTypeHints = true,
-  --             },
-  --           },
   --           completions = {
   --             completeFunctionCalls = true,
   --           },
   --         },
   --       },
   --     },
-  --     setup = {
-  --       tsserver = function(_, opts)
-  --         require("typescript").setup({ server = opts })
-  --         return true
-  --       end,
-  --     },
   --   },
   -- },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    enabled = true,
     ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
     opts = {
       settings = {
