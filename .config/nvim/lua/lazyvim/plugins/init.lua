@@ -62,6 +62,7 @@ return {
   {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
+    enabled = false,
     config = true,
   },
   -- TODO comments
