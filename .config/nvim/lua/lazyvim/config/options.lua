@@ -29,7 +29,8 @@ vim.opt.spell = true
 vim.opt.spelloptions = "camel"
 vim.opt.spellcapcheck = ""
 
-vim.opt.cursorline = true -- Enable highlighting of the current line
+vim.opt.cursorline = true -- Highlighting of the current line
+vim.opt.cursorlineopt = "number" -- Only highlight the column number on the left instead of the whole line
 vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- options to stop weird indent on newline
