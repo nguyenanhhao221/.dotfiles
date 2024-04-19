@@ -1,7 +1,7 @@
 local M = {}
 
 -- Set up keymaps for LSP
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
   -- Remap for lsp related
   local nmap = function(keys, func, desc)
     if desc then
