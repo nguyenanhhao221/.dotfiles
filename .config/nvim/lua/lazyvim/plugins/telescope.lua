@@ -22,7 +22,6 @@ return {
     -- version = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-github.nvim",
       { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -133,7 +132,7 @@ return {
       pcall(require("telescope").load_extension, "fzf")
       -- Load telescope dap extension
       pcall(require("telescope").load_extension, "dap")
-      pcall(require("telescope").load_extension, "gh")
+      -- pcall(require("telescope").load_extension, "gh")
       pcall(require("telescope").load_extension, "ui-select")
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
