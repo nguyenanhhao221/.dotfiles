@@ -8,11 +8,11 @@ return {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       linters_by_ft = {
         python = { "mypy" },
-        javascript = { "eslint" },
-        typescript = { "eslint" },
-        vue = { "eslint" },
-        typescriptreact = { "eslint" },
-        javascriptreact = { "eslint" },
+        -- javascript = { "eslint" },
+        -- typescript = { "eslint" },
+        -- vue = { "eslint" },
+        -- typescriptreact = { "eslint" },
+        -- javascriptreact = { "eslint" },
       },
       -- LazyVim extension to easily override linter options
       -- or add custom linters.
