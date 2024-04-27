@@ -114,6 +114,8 @@ return {
               telemetry = { enable = false },
               diagnostics = {
                 globals = { "vim" },
+                -- ignore Lua_LS's noisy `missing-fields` warnings
+                disable = { "missing-fields" },
               },
               hint = {
                 enable = true,
