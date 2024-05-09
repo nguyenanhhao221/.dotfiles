@@ -84,7 +84,11 @@ status_c({
 status_c({
   "filename",
   cond = condition.is_buf_empty,
-  path = 0,
+  path = 1, -- 0: Just the filename
+  -- 1: Relative path
+  -- 2: Absolute path
+  -- 3: Absolute path, with tilde as the home directory
+  -- 4: Filename and parent dir, with tilde as the home directory
   symbols = {
     modified = icons.others.modified_file,
     readonly = icons.others.read_only,
