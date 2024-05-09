@@ -6,9 +6,15 @@ return {
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "tokyonight",
-    config = function()
+    opts = {
+      style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+      transparent = false, -- Enable this to disable setting the background color
+      terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+    },
+    config = function(_, opts)
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight-night]])
+      require("tokyonight").setup(opts)
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
   --Kanagawa Themes
