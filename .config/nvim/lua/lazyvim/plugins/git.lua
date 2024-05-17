@@ -18,7 +18,11 @@ return {
       { "<leader>lg", "<cmd>lua Lazygit_toggle()<CR>", desc = "Toggle Lazy Git" },
       { "<leader>ld", "<cmd>lua Lazydocker_toggle()<CR>", desc = "Toggle Lazy Docker" },
     },
-    config = function()
+    opts = {
+      shade_terminals = false,
+    },
+    config = function(_, opts)
+      require("toggleterm").setup(opts)
       local Terminal = require("toggleterm.terminal").Terminal
       local lazygit = Terminal:new({
         cmd = "lazygit",
