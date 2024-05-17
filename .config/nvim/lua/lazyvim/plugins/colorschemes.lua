@@ -10,6 +10,13 @@ return {
       style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
       transparent = false, -- Enable this to disable setting the background color
       terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+      ---@param highlights Highlights
+      ---@param colors ColorScheme
+      on_highlights = function(highlights, colors)
+        highlights.TelescopeSelection = {
+          bg = colors.bg_highlight,
+        }
+      end,
     },
     config = function(_, opts)
       -- load the colorscheme here
@@ -124,7 +131,7 @@ return {
       invert_tabline = false,
       invert_intend_guides = false,
       inverse = true, -- invert background for search, diffs, statuslines and errors
-      contrast = "", -- can be "hard", "soft" or empty string
+      contrast = "hard", -- can be "hard", "soft" or empty string
       palette_overrides = {},
       overrides = {
         TelescopeSelection = {
@@ -133,13 +140,16 @@ return {
         TelescopeMatching = {
           fg = "#fe8019",
         },
-
         MiniIndentscopeSymbol = {
           fg = "#fe8019",
         },
+        -- For Hard Contrast only
+        SignColumn = {
+          bg = "#1d2021",
+        },
       },
       dim_inactive = false,
-      transparent_mode = true,
+      transparent_mode = false,
     },
     config = function(_, opts)
       require("gruvbox").setup(opts)
@@ -151,11 +161,12 @@ return {
   {
     "sainnhe/gruvbox-material",
     lazy = true,
-    name = "gruvbox-material",
-    config = function(_, opts)
-      require("gruvbox-material").setup(opts)
-      -- load the colorscheme here
-      vim.cmd([[colorscheme gruvbox-material]])
+    -- priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_material_enable_italic = true
+      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   -- catppuccin
@@ -188,10 +199,14 @@ return {
     -- priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require("github-theme").setup({
-        -- ...
+        options = {
+          -- Compiled file's destination location
+          styles = { -- Style to be applied to different syntax groups
+            comments = "italic", -- Value is any valid attr-list value `:help attr-list`
+          },
+        },
       })
-
-      vim.cmd("colorscheme github_dark")
+      vim.cmd("colorscheme github_dark_default")
     end,
   },
 }
