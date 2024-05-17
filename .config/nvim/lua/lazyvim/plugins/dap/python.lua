@@ -17,7 +17,7 @@ return {
         --   {
         --     name = "Python: Module",
         --     type = "python",
-        --     module = "datamimic",
+        --     module = "main",
         --     request = "launch",
         --     justMyCode = true,
         --   },
