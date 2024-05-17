@@ -55,9 +55,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<leader>il", function()
-  local is_enabled = vim.lsp.inlay_hint.is_enabled(0)
-  print("is_enabled", is_enabled)
-  vim.lsp.inlay_hint.enable(0, not is_enabled)
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
   Util.info("Toggle Inlay Hints")
 end, { desc = "Toggle Inlay Hints", silent = false })
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
