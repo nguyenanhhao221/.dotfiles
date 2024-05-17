@@ -41,17 +41,17 @@ return {
           "black",
         },
         -- Use a sub-list to run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        vue = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        vue = { "prettier" },
+        typescriptreact = { "prettier" },
         go = { "goimports", "gofmt" },
         c = { "clang_format" },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
-          return { timeout_ms = 500, lsp_fallback = false, async = true }
+          return { timeout_ms = 500, lsp_fallback = false }
         end
       end,
     },
