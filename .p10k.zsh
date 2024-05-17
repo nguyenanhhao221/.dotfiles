@@ -1,0 +1,1 @@
+/Users/haonguyen/.p10k.zsh
