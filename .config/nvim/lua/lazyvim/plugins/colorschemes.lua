@@ -110,6 +110,7 @@ return {
   --Gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    -- dir = "/Users/haonguyen/Code/gruvbox.nvim", -- Pass in the path to your cloned repository
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000,
     name = "gruvbox",
@@ -137,14 +138,29 @@ return {
         TelescopeSelection = {
           bg = "#665c54",
         },
-        TelescopeMatching = {
-          fg = "#fe8019",
-        },
-        MiniIndentscopeSymbol = {
-          fg = "#fe8019",
-        },
-        -- For Hard Contrast only
+        TelescopeMatching = { link = "GruvboxOrange" },
         SignColumn = {
+          bg = "#1d2021",
+        },
+        GruvboxRedSign = {
+          bg = "#1d2021",
+        },
+        GruvboxGreenSign = {
+          bg = "#1d2021",
+        },
+        GruvboxYellowSign = {
+          bg = "#1d2021",
+        },
+        GruvboxBlueSign = {
+          bg = "#1d2021",
+        },
+        GruvboxPurpleSign = {
+          bg = "#1d2021",
+        },
+        GruvboxAquaSign = {
+          bg = "#1d2021",
+        },
+        GruvboxOrangeSign = {
           bg = "#1d2021",
         },
       },
