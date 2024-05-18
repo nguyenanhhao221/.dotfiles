@@ -1,96 +1,128 @@
+tap "epk/epk"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "microsoft/mssql-release"
 tap "mongodb/brew"
 tap "planetscale/tap"
-# Run your GitHub Actions locally 🚀
+tap "quaric/zadark"
+tap "weaveworks/tap"
 brew "act"
-# Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
-# General-purpose data compression with high compression ratio
-brew "xz"
-# Tool for realistic test data generation
-brew "benerator"
-# Parser generator
+brew "bash-completion"
+brew "bat"
 brew "bison"
-# Ruby environment tool
+brew "xz"
+brew "python@3.12"
 brew "chruby"
-# Console Matrix
+brew "clang-format"
+brew "cmake"
 brew "cmatrix"
-# Command-line tool to interact with exercism.io
+brew "dive"
+brew "folly"
+brew "fizz"
+brew "wangle"
+brew "fbthrift"
+brew "fb303"
+brew "edencommon"
 brew "exercism"
-# Simple, fast and user-friendly alternative to find
 brew "fd"
-# Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU database manager
 brew "gdbm"
-# GitHub command-line tool
 brew "gh"
-# Distributed revision control system
 brew "git"
-# Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
-# Tcl/Tk UI for the git revision control system
 brew "git-gui"
-# Library for command-line editing
-brew "readline"
-# GNU Pretty Good Privacy (PGP) package
+brew "glab"
 brew "gnupg"
-# Ruby implementation in pure Java
+brew "goose"
+brew "helm"
+brew "htop"
 brew "jruby"
-# Lazier way to manage everything docker
 brew "lazydocker"
-# Simple terminal UI for git commands
 brew "lazygit"
-# Portable Foreign Function Interface library
 brew "libffi"
-# YAML Parser
+brew "libmagic"
 brew "libyaml"
-# Powerful, lightweight programming language
+brew "lpeg"
 brew "lua"
-# Package manager for the Lua programming language
+brew "luajit", args: ["HEAD"]
 brew "luarocks"
-# Platform built on V8 to build network applications
-brew "node@16"
-# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "minikube"
 brew "mongosh"
-# Atlas CLI enables you to manage your MongoDB Atlas
-brew "mongodb-atlas-cli"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
-# 📦🚀 Fast, disk space efficient package manager
+brew "neofetch"
+brew "neovim"
+brew "openssl@1.1"
+brew "pdm"
+brew "pinentry-mac"
 brew "pnpm"
-# Object-relational database system
 brew "postgresql@14"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
-# Persistent key-value database, with built-in net interface
-brew "redis"
-# Search tool like grep and The Silver Searcher
+brew "railway"
+brew "rbenv"
 brew "ripgrep"
-# Powerful, clean, object-oriented scripting language
 brew "ruby"
-# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
-brew "stow"
-# Terminal multiplexer
+brew "rustup-init"
+brew "silicon"
+brew "sqlc"
+brew "starship"
 brew "tmux"
-# Internet file retriever
+brew "tree"
+brew "unixodbc"
+brew "watchman"
 brew "wget"
-# JavaScript package manager
 brew "yarn"
-# The PlanetScale CLI
+brew "yt-dlp"
+brew "zsh-completions"
+brew "microsoft/mssql-release/msodbcsql"
+brew "microsoft/mssql-release/mssql-tools"
 brew "planetscale/tap/pscale"
-# Developer targeted fonts with a high number of glyphs
+brew "quaric/zadark/zadark"
+brew "weaveworks/tap/eksctl"
+cask "alacritty"
 cask "font-fira-code-nerd-font"
+cask "font-geist-mono-nerd-font"
+cask "font-go-mono-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-sf-mono-nerd-font"
 cask "font-terminus"
-# Open-source keystroke visualizer
+cask "gpg-suite-no-mail"
 cask "keycastr"
+cask "monitorcontrol"
+vscode "bradlc.vscode-tailwindcss"
+vscode "chakrounanas.turbo-console-log"
+vscode "christian-kohler.npm-intellisense"
+vscode "csstools.postcss"
+vscode "davidanson.vscode-markdownlint"
+vscode "dbaeumer.vscode-eslint"
+vscode "donjayamanne.githistory"
+vscode "ecmel.vscode-html-css"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-close-tag"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.github-vscode-theme"
+vscode "golang.go"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.debugpy"
+vscode "ms-python.mypy-type-checker"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.live-server"
+vscode "pkief.material-icon-theme"
+vscode "prisma.prisma"
+vscode "rangav.vscode-thunder-client"
+vscode "redhat.vscode-yaml"
+vscode "ritwickdey.liveserver"
+vscode "svelte.svelte-vscode"
+vscode "tamasfe.even-better-toml"
+vscode "vitest.explorer"
+vscode "vscodevim.vim"
+vscode "vue.volar"
+vscode "yoavbls.pretty-ts-errors"
