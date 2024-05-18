@@ -13,7 +13,7 @@ vim.opt.updatetime = 100
 --Set relative line number
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = "yes:2"
 
 --Enable break indent
 vim.o.breakindent = true
