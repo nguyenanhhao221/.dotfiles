@@ -116,7 +116,7 @@ status_c({
 
 status_c({
   "diagnostics",
-  sources = { "nvim_lsp", "nvim_diagnostic" },
+  sources = { "nvim_lsp" },
   symbols = {
     error = icons.diagnostics.error,
     warn = icons.diagnostics.warn,
