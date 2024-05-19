@@ -1,3 +1,4 @@
+local icons = require("lazyvim.config.init").icons
 return {
   {
     "folke/which-key.nvim",
@@ -191,7 +192,6 @@ return {
         delete = { text = "" },
         topdelete = { text = "" },
         changedelete = { text = "▎" },
-        untracked = { text = "▎" },
       },
       attach_to_untracked = true,
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
