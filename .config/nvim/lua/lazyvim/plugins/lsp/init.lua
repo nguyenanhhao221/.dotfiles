@@ -26,17 +26,17 @@ return {
     },
     ---@class PluginLspOpts
     opts = {
-      -- options for vim.diagnostic.config()
+      ---@class vim.diagnostic.Opts
       diagnostics = {
         underline = true,
         update_in_insert = true,
         virtual_text = {
           spacing = 4,
           source = "if_many",
-          prefix = "●",
+          -- prefix = "●",
           -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
           -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-          -- prefix = "icons",
+          prefix = "icons",
         },
         severity_sort = true,
       },
@@ -174,9 +174,9 @@ return {
       end
 
       if opts.inlay_hints.enabled then
-        Util.on_attach(function(client, buffer)
+        Util.on_attach(function(client)
           if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
           end
         end)
       end
