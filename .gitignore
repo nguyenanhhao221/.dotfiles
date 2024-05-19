@@ -33,3 +33,4 @@
 .config/neofetch
 .config/.gitlab.nvim
 .config/glab-cli
+.config/alacritty/themes
