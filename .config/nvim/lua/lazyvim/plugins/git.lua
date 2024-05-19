@@ -92,8 +92,8 @@ return {
       "tpope/vim-rhubarb",
     },
     keys = {
-      { "<leader>gs", "<cmd>Git<CR>", desc = "git status" },
-      { "<leader>gC", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
+      { "<leader>gs", "<cmd>0Git<CR>", desc = "git status" },
+      { "<leader>cc", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
       { "<leader>gP", "<cmd>Git push<CR>", desc = "git push", silent = false },
       {
         "ga",
