@@ -29,6 +29,7 @@ decorations = "buttonless"
 dynamic_title = true
 opacity = 1.0
 title = "Alacritty"
+startup_mode = "SimpleFullscreen"
 
 [window.padding]
 x = 5
