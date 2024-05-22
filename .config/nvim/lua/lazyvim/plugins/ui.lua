@@ -98,6 +98,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     enabled = true,
     opts = {
+      draw = {
+        animation = function()
+          return 0
+        end,
+      },
       symbol = "│",
       options = { try_as_border = true },
     },
