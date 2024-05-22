@@ -3,6 +3,7 @@
 return {
   {
     "folke/tokyonight.nvim",
+    enabled = false,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "tokyonight",
@@ -27,6 +28,7 @@ return {
   --Kanagawa Themes
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
@@ -51,6 +53,7 @@ return {
   --Rose pine
   {
     "rose-pine/neovim",
+    enabled = false,
     lazy = true,
     name = "rose-pine",
     opts = {
@@ -176,6 +179,7 @@ return {
   --Gruvbox material
   {
     "sainnhe/gruvbox-material",
+    enabled = false,
     lazy = true,
     -- priority = 1000,
     config = function()
@@ -188,6 +192,7 @@ return {
   -- catppuccin
   {
     "catppuccin/nvim",
+    enabled = false,
     name = "catppuccin",
     lazy = true,
     -- priority = 1000,
@@ -211,6 +216,7 @@ return {
   -- Or with configuration
   {
     "projekt0n/github-nvim-theme",
+    enabled = false,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
