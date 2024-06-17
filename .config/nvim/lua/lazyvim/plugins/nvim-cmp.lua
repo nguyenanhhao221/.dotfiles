@@ -32,7 +32,6 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
   },
   config = function()
     -- nvim-cmp setup
@@ -80,7 +79,6 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "nvim_lsp_signature_help" },
         { name = "path" },
         { name = "cmp-git" },
         { name = "luasnip", option = { use_show_condition = false } },

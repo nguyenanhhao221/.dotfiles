@@ -89,9 +89,9 @@ return {
   {
     "tpope/vim-fugitive",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "tpope/vim-rhubarb",
-    },
+    -- dependencies = {
+    --   "tpope/vim-rhubarb",
+    -- },
     keys = {
       { "<leader>gs", "<cmd>0Git<CR>", desc = "git status" },
       { "<leader>cc", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
@@ -114,6 +114,7 @@ return {
   },
   {
     "tpope/vim-rhubarb",
+    enabled = false,
     lazy = true,
   },
   -- Intergrate with gh cli, review PR without leaving terminal
@@ -153,7 +154,7 @@ return {
     build = function()
       require("gitlab.server").build(true)
     end, -- Builds the Go binary
-    dir = "/Users/haonguyen/Code/neovim-projects/gitlab-nvim", -- Pass in the path to your cloned repository
+    -- dir = "/Users/haonguyen/Code/neovim-projects/gitlab-nvim", -- Pass in the path to your cloned repository
     opts = {
       -- Point to my local .gitlab.nvim path which is ignore by git to avoid expose token
       -- As of today need to have auth for rapiddweller gitlab
@@ -238,6 +239,7 @@ return {
   },
   {
     "ThePrimeagen/git-worktree.nvim",
+    enabled = false,
     lazy = true,
     opts = {},
     config = function(_, opts)

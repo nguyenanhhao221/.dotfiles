@@ -166,6 +166,9 @@ return {
         GruvboxOrangeSign = {
           bg = "#1d2021",
         },
+        IblScope = {
+          link = "GruvboxOrangeSign",
+        },
       },
       dim_inactive = false,
       transparent_mode = true,

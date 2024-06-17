@@ -17,16 +17,16 @@ return {
       },
     },
     opts = {
-      notify_on_error = true,
+      notify_on_error = false,
       formatters = {
-        -- ruff_format = {
-        --   -- Change where to find the command
-        --   command = "./venv/bin/ruff",
-        -- },
-        black = {
+        ruff_format = {
           -- Change where to find the command
-          command = "./venv/bin/black",
+          command = "./venv/bin/ruff",
         },
+        -- black = {
+        --   -- Change where to find the command
+        --   command = "./venv/bin/black",
+        -- },
         isort = {
           -- Change where to find the command
           command = "./venv/bin/isort",
@@ -37,8 +37,8 @@ return {
         -- Conform will run multiple formatters sequentially
         python = {
           "isort",
-          -- "ruff_format",
-          "black",
+          "ruff_format",
+          -- "black",
         },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },

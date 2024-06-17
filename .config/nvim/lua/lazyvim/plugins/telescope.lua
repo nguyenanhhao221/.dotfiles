@@ -138,12 +138,13 @@ return {
       -- See `:help telescope` and `:help telescope.setup()`
 
       -- Load telescope git signs
-      pcall(require("telescope").load_extension, "git_signs")
+      -- pcall(require("telescope").load_extension, "git_signs")
       require("telescope").setup(opts)
     end,
   },
   {
     "radyz/telescope-gitsigns",
+    enabled = false,
     lazy = true,
     dependencies = {
       "lewis6991/gitsigns.nvim",
