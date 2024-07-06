@@ -166,7 +166,7 @@ return {
         GruvboxOrangeSign = {
           bg = "#1d2021",
         },
-        IblScope = {
+        MiniIndentscopeSymbol = {
           link = "GruvboxOrangeSign",
         },
       },
