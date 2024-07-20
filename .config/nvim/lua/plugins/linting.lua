@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    event = "BufReadPost",
+    event = { "BufReadPre", "BufNewFile" },
     enabled = true,
     opts = {
       -- Event to trigger linters
