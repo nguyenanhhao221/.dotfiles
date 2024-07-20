@@ -60,10 +60,3 @@ vim.keymap.set("n", "<leader>il", function()
 end, { desc = "Toggle Inlay Hints", silent = false })
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
 vim.keymap.set("n", "<leader>x", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
--- Trouble Keymap
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
