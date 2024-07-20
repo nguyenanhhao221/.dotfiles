@@ -52,7 +52,6 @@ require("lazy").setup({
     patterns = {}, -- For example {"folke"}
     fallback = false, -- Fallback to git when local plugin doesn't exist
   },
-  install = { colorscheme = { "catppuccin" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
