@@ -1,4 +1,4 @@
-local Util = require("lazyvim.util")
+local Util = require("util")
 
 -- Telescope
 return {
@@ -129,16 +129,6 @@ return {
       require("telescope").setup(opts)
     end,
   },
-  {
-    "radyz/telescope-gitsigns",
-    enabled = false,
-    lazy = true,
-    dependencies = {
-      "lewis6991/gitsigns.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-
   {
     "nvim-telescope/telescope-dap.nvim",
     lazy = true,

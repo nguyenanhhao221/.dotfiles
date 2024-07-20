@@ -36,7 +36,7 @@ end
 --       end
 --       return client.name ~= "null-ls"
 --     end,
---   }, require("lazyvim.util").opts("nvim-lspconfig").format or {}))
+--   }, require("util").opts("nvim-lspconfig").format or {}))
 -- end
 --
 -- function M.on_attach(client, buf)

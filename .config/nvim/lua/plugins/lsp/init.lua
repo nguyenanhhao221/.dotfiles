@@ -151,17 +151,17 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
-      local Util = require("lazyvim.util")
+      local Util = require("util")
       --setup auto format
-      require("lazyvim.plugins.lsp.format").autoformat = opts.autoformat
+      require("plugins.lsp.format").autoformat = opts.autoformat
       -- setup formatting and keymaps
       Util.on_attach(function(client, buffer)
-        -- require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
-        require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
+        -- require("plugins.lsp.format").on_attach(client, buffer)
+        require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
       -- Change the Diagnostic symbols in the sign column (gutter)
-      local signs = require("lazyvim.config").icons.diagnostics
+      local signs = require("config").icons.diagnostics
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -170,7 +170,7 @@ return {
       if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
         opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
           or function(diagnostic)
-            local icons = require("lazyvim.config").icons.diagnostics
+            local icons = require("config").icons.diagnostics
             for d, icon in pairs(icons) do
               if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
                 return icon

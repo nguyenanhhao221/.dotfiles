@@ -81,7 +81,7 @@ return {
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Debug Widgets" },
   },
     config = function()
-      local Config = require("lazyvim.config")
+      local Config = require("config")
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
       for name, sign in pairs(Config.icons.dap) do

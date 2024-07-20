@@ -1,4 +1,4 @@
-local icons = require("lazyvim.config.init").icons
+local icons = require("config.init").icons
 
 return {
   -- indent guides for Neovim

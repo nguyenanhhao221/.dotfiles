@@ -1,4 +1,4 @@
-local Format = require("lazyvim.plugins.lsp.format")
+local Format = require("plugins.lsp.format")
 return {
   {
     "stevearc/conform.nvim",
