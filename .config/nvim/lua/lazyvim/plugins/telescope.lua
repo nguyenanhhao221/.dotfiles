@@ -3,19 +3,6 @@ local Util = require("lazyvim.util")
 -- Telescope
 return {
   {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      defaults = {
-        ["<leader>f"] = { name = "+find" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>h"] = { name = "+help" },
-        ["<leader>K"] = { name = "+keymap" },
-        ["<leader>u"] = { name = "+utils" },
-      },
-    },
-  },
-  {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.x",
     -- telescope did only one release, so use HEAD for now

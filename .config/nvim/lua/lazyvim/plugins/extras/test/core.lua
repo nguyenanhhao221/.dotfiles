@@ -1,13 +1,5 @@
 return {
   {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<leader>t"] = { name = "+test" },
-      },
-    },
-  },
-  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
