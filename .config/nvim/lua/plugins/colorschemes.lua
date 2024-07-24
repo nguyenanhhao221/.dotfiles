@@ -169,6 +169,9 @@ return {
         MiniIndentscopeSymbol = {
           link = "GruvboxOrangeSign",
         },
+        EndOfBuffer = {
+          link = "GruvboxBg0",
+        },
       },
       dim_inactive = false,
       transparent_mode = true,
