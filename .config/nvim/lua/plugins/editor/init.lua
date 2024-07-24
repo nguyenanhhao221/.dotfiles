@@ -74,6 +74,7 @@ return {
     "stevearc/oil.nvim",
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
     cmd = { "Oil" },
     keys = {
     -- stylua: ignore
@@ -89,7 +90,7 @@ return {
     opts = {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
       -- Set to false if you still want to use netrw.
-      default_file_explorer = false,
+      default_file_explorer = true,
       -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
       -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
       -- Additionally, if it is a string that matches "actions.<name>",
