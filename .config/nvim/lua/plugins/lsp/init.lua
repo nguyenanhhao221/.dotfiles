@@ -41,7 +41,9 @@ return {
         severity_sort = true,
       },
       -- add any global capabilities here
-      capabilities = {},
+      capabilities = {
+        semanticTokensProvider = nil,
+      },
       -- Automatically format on save
       autoformat = true,
       format = {
@@ -243,7 +245,7 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
-        "pyright", -- LSP for python
+        -- "pyright", -- LSP for python
         "ruff-lsp", -- linter for python (includes flake8, pep8, etc.)
         "debugpy", -- debugger
         "taplo", -- LSP for toml (for pyproject.toml files)

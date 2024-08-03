@@ -3,21 +3,22 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {
+        basedpyright = {
           settings = {
-            pyright = {
-              disableLanguageServices = false,
+            basedpyright = {
               disableOrganizeImports = true,
-            },
-            python = {
+              disableLanguageServices = false,
               analysis = {
                 autoImportCompletions = true,
                 autoSearchPaths = true,
-                diagnosticMode = "openFilesOnly",
+                -- diagnosticMode = "openFilesOnly",
                 useLibraryCodeForTypes = true,
               },
             },
           },
+          on_attach = function(client)
+            client.server_capabilities.semanticTokensProvider = nil
+          end,
         },
         -- {
         --   jedi_language_server = {},
