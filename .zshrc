@@ -102,10 +102,10 @@ source "$HOME/.openai_key.zsh"
 # JAVA
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 # export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # Activate ruby version when needed
 # chruby ruby-3.1.3
 
