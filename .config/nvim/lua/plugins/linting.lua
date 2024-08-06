@@ -28,6 +28,9 @@ return {
         -- },
         -- Custom mypy, use with virtual environment
         mypy = {
+          condition = function(ctx)
+            return vim.fs.find({ "mypy.ini" }, { path = ctx.filename, upward = true })[1]
+          end,
           cmd = function()
             local possibleLocaltions = { "./venv", "./.venv" }
             for _, value in pairs(possibleLocaltions) do

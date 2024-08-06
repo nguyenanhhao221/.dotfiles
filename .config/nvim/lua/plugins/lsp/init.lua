@@ -1,89 +1,32 @@
 -- LSP Configuration & Plugins
 return {
+
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      "williamboman/mason.nvim",
+      -- Automatically install LSPs and related tools to stdpath for Neovim
+      { "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
       "williamboman/mason-lspconfig.nvim",
-      -- Additional lua configuration, makes nvim stuff amazing
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      {
-        "folke/neodev.nvim",
-        opts = {
-          experimental = { pathStrict = true },
-          library = { plugins = { "nvim-dap-ui", "neotest" }, types = true },
-        },
-      },
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+
       -- Add vscode like icon
       "onsails/lspkind.nvim",
-      {
-        "b0o/SchemaStore.nvim",
-        version = false, -- last release is way too old
-        lazy = true,
-      },
+
+      "hrsh7th/cmp-nvim-lsp",
     },
-    ---@class PluginLspOpts
     opts = {
-      ---@class vim.diagnostic.Opts
       diagnostics = {
         underline = true,
         update_in_insert = true,
         virtual_text = {
           spacing = 4,
           source = "if_many",
-          -- prefix = "●",
-          -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-          -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-          -- prefix = "icons",
         },
         severity_sort = true,
       },
-      -- add any global capabilities here
-      capabilities = {
-        semanticTokensProvider = nil,
-      },
-      -- Automatically format on save
-      autoformat = true,
-      format = {
-        formatting_options = nil,
-        timeout_ms = nil,
-      },
-      -- LSP Server Settings
-      --  Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-      --  Add any additional override configuration in the following tables. They will be passed to
-      ---@type lspconfig.options
       servers = {
         -- clangd = {},
-        gopls = {
-          settings = {
-            gopls = {
-              gofumpt = true,
-              codelenses = {
-                gc_details = false,
-                generate = true,
-                regenerate_cgo = true,
-                run_govulncheck = true,
-                test = true,
-                tidy = true,
-                upgrade_dependency = true,
-                vendor = true,
-              },
-              hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-              },
-            },
-          },
-        },
-        golangci_lint_ls = {},
         jsonls = {
           -- lazy-load schemastore when needed
           on_new_config = function(new_config)
@@ -119,9 +62,6 @@ return {
             },
           },
         },
-        -- efm = {
-        --   filetypes = { "python", "cpp", "lua" },
-        -- },
         html = {},
         cssls = {},
         tailwindcss = {},
@@ -138,27 +78,10 @@ return {
           },
         },
       },
-      -- you can do any additional lsp server setup here
-      -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-      setup = {
-        -- example to setup with typescript.nvim
-        -- tsserver = function(_, opts)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
-        -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
-      },
     },
-    ---@param opts PluginLspOpts
     config = function(_, opts)
       local Util = require("util")
-      --setup auto format
-      require("plugins.lsp.format").autoformat = opts.autoformat
-      -- setup formatting and keymaps
       Util.on_attach(function(client, buffer)
-        -- require("plugins.lsp.format").on_attach(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
@@ -169,106 +92,41 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
-        opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
-          or function(diagnostic)
-            local icons = require("config").icons.diagnostics
-            for d, icon in pairs(icons) do
-              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-                return icon
-              end
-            end
-          end
-      end
-
+      -- Set up diagnostics config
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
+      -- LSP servers and clients are able to communicate to each other what features they support.
+      --  By default, Neovim doesn't support everything that is in the LSP specification.
+      --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+      --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      --
+      --  You can press `g?` for help in this menu.
+      require("mason").setup()
+
+      -- You can add other tools here that you want Mason to install
+      -- for you, so that they are available from within Neovim.
       local servers = opts.servers
-      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        require("cmp_nvim_lsp").default_capabilities(),
-        opts.capabilities or {}
-      )
+      local ensure_installed = vim.tbl_keys(opts.servers or {})
+      vim.list_extend(ensure_installed, {
+        "stylua", -- Used to format Lua code
+      })
 
-      local function setup(server)
-        local server_opts = vim.tbl_deep_extend("force", {
-          capabilities = vim.deepcopy(capabilities),
-        }, servers[server] or {})
+      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-        if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then
-            return
-          end
-        elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then
-            return
-          end
-        end
-        require("lspconfig")[server].setup(server_opts)
-      end
-
-      -- get all the servers that are available though mason-lspconfig
-      local have_mason, mlsp = pcall(require, "mason-lspconfig")
-      local all_mslp_servers = {}
-      if have_mason then
-        all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
-      end
-
-      local ensure_installed = {} ---@type string[]
-      for server, server_opts in pairs(servers) do
-        if server_opts then
-          server_opts = server_opts == true and {} or server_opts
-          -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
-            setup(server)
-          else
-            ensure_installed[#ensure_installed + 1] = server
-          end
-        end
-      end
-
-      if have_mason then
-        mlsp.setup({ ensure_installed = ensure_installed })
-        mlsp.setup_handlers({ setup })
-      end
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-    build = ":MasonUpdate",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shfmt",
-        -- "pyright", -- LSP for python
-        "ruff-lsp", -- linter for python (includes flake8, pep8, etc.)
-        "debugpy", -- debugger
-        "taplo", -- LSP for toml (for pyproject.toml files)
-        "codelldb",
-      },
-    },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
-    config = function(_, opts)
-      require("mason").setup(opts)
-      local mr = require("mason-registry")
-      local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
-          local p = mr.get_package(tool)
-          if not p:is_installed() then
-            p:install()
-          end
-        end
-      end
-      if mr.refresh then
-        mr.refresh(ensure_installed)
-      else
-        ensure_installed()
-      end
+      require("mason-lspconfig").setup({
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            require("lspconfig")[server_name].setup(server)
+          end,
+        },
+      })
     end,
   },
 
@@ -295,4 +153,22 @@ return {
       },
     },
   },
+  {
+    "b0o/SchemaStore.nvim",
+    version = false, -- last release is way too old
+    lazy = true,
+  },
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { "Bilal2453/luvit-meta", lazy = true },
 }
