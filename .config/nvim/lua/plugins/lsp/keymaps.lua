@@ -47,7 +47,7 @@ M.on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
 
-  vim.keymap.set("i", "<c-i>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+  vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 end
 
 return M
