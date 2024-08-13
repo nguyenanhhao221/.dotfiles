@@ -9,12 +9,51 @@ return {
         dependencies = {
           "nvim-neotest/nvim-nio",
         },
-      -- stylua: ignore
-      keys = {
-        { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-        { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
-      },
-        opts = {},
+				-- stylua: ignore
+				keys = {
+					{ "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
+					{ "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+				},
+        opts = {
+          layouts = {
+            {
+              elements = {
+                {
+                  id = "breakpoints",
+                  size = 0.25,
+                },
+                {
+                  id = "stacks",
+                  size = 0.25,
+                },
+                {
+                  id = "watches",
+                  size = 0.25,
+                },
+                {
+                  id = "scopes",
+                  size = 0.25,
+                },
+              },
+              position = "left",
+              size = 40,
+            },
+            {
+              elements = {
+                {
+                  id = "repl",
+                  size = 0.5,
+                },
+                {
+                  id = "console",
+                  size = 0.5,
+                },
+              },
+              position = "bottom",
+              size = 10,
+            },
+          },
+        },
         config = function(_, opts)
           local dap = require("dap")
           local dapui = require("dapui")
@@ -80,6 +119,7 @@ return {
     { "<leader>dt", function() require("dap").terminate() end, desc = "Debug Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Debug Widgets" },
   },
+
     config = function()
       local Config = require("config")
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
