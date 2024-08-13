@@ -118,7 +118,9 @@ export CC="clang"
 export CFLAGS="-ferror-limit=1 -gdwarf-4 -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-gnu-folding-constant -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-variable -Wshadow"
 export LDLIBS="-lcs50 -lm"
 # fzf options
-export FZF_DEFAULT_OPTS="--layout=default"
+# export FZF_DEFAULT_OPTS="--layout=default"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # https://starship.rs/
 # starship prompts
