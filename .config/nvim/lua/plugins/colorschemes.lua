@@ -33,16 +33,18 @@ return {
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
     opts = {
-      compile = false, -- enable compiling the colorscheme
+      compile = true, -- enable compiling the colorscheme
       undercurl = true, -- enable undercurls
-      commentStyle = { italic = true },
-      functionStyle = {},
-      keywordStyle = { italic = true },
-      statementStyle = { bold = true },
-      typeStyle = {},
-      transparent = true, -- do not set background color
-      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
       terminalColors = false, -- define vim.g.terminal_color_{0,17}
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
     },
     config = function(_, opts)
       -- load the colorscheme here
@@ -164,8 +166,6 @@ return {
           link = "GruvboxBg0",
         },
       },
-      dim_inactive = false,
-      transparent_mode = false,
     },
     config = function(_, opts)
       require("gruvbox").setup(opts)
