@@ -176,13 +176,13 @@ return {
     event = { "BufReadPre" },
     -- dependencies = { "nvim-scrollbar" },
     opts = {
-      -- signs = {
-      --   add = { text = "▎" },
-      --   change = { text = "▎" },
-      --   delete = { text = "" },
-      --   topdelete = { text = "" },
-      --   changedelete = { text = "▎" },
-      -- },
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
       attach_to_untracked = true,
       current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {
