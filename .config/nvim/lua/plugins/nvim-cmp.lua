@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     {
       "L3MON4D3/LuaSnip",
       build = (function()
@@ -42,9 +43,19 @@ return {
     vim.completeopt = "menu,menuone,noselect"
 
     cmp.setup({
+      -- Add border to completion menu, custom highlight group to adjust the bg color of the pop up and border, maybe change when colorscheme is updated
+      window = {
+        completion = {
+          border = "rounded",
+          winhighlight = "NormalFloat:Normal,CursorLine:TelescopeSelection,FloatBorder:Comment",
+          scrollbar = false,
+        },
+        documentation = { border = "rounded", winhighlight = "NormalFloat:Normal,FloatBorder:Comment" },
+      },
       snippet = {
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          -- luasnip.lsp_expand(args.body)
+          vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -86,54 +97,28 @@ return {
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "cmp-git" },
+        { name = "nvim_lsp_signature_help" },
         { name = "luasnip", option = { use_show_condition = false } },
       }, {
         { name = "buffer" },
       }),
 
-      sorting = {
-        -- TODO: Would be cool to add stuff like "See variable names before method names" in rust, or something like that.
-        comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.score,
-
-          -- copied from cmp-under, but I don't think I need the plugin for this.
-          -- I might add some more of my own.
-          function(entry1, entry2)
-            local _, entry1_under = entry1.completion_item.label:find("^_+")
-            local _, entry2_under = entry2.completion_item.label:find("^_+")
-            entry1_under = entry1_under or 0
-            entry2_under = entry2_under or 0
-            if entry1_under > entry2_under then
-              return false
-            elseif entry1_under < entry2_under then
-              return true
-            end
-          end,
-
-          cmp.config.compare.kind,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
-        },
-      },
-
       formatting = {
         format = lspkind.cmp_format({
           mode = "symbol_text",
+          show_labelDetails = true,
           maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-          menu = {
-            buffer = "[buf]",
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[api]",
-            path = "[path]",
-            luasnip = "[snip]",
-            gh_issues = "[issues]",
-            tn = "[TabNine]",
-            eruby = "[erb]",
-          },
           ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          -- menu = {
+          --   buffer = "[buf]",
+          --   nvim_lsp = "[LSP]",
+          --   nvim_lua = "[api]",
+          --   path = "[path]",
+          --   luasnip = "[snip]",
+          --   gh_issues = "[issues]",
+          --   tn = "[TabNine]",
+          --   eruby = "[erb]",
+          -- },
         }),
       },
     })
