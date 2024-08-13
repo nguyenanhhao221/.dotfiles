@@ -118,10 +118,6 @@ return {
     priority = 1000,
     name = "gruvbox",
     opts = {
-      terminal_colors = true, -- add neovim terminal colors
-      undercurl = true,
-      underline = true,
-      bold = true,
       italic = {
         strings = false,
         emphasis = false,
@@ -129,40 +125,35 @@ return {
         operators = false,
         folds = true,
       },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true, -- invert background for search, diffs, statuslines and errors
       contrast = "hard", -- can be "hard", "soft" or empty string
       palette_overrides = {},
+      transparent_mode = true,
       overrides = {
         TelescopeSelection = {
           bg = "#665c54",
         },
         TelescopeMatching = { link = "GruvboxOrange" },
-        SignColumn = {
-          bg = "#1d2021",
-        },
-        GruvboxRedSign = {
-          bg = "#1d2021",
-        },
-        GruvboxGreenSign = {
-          bg = "#1d2021",
-        },
-        GruvboxYellowSign = {
-          bg = "#1d2021",
-        },
-        GruvboxBlueSign = {
-          bg = "#1d2021",
-        },
-        GruvboxPurpleSign = {
-          bg = "#1d2021",
-        },
-        GruvboxAquaSign = {
-          bg = "#1d2021",
-        },
+        -- SignColumn = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxRedSign = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxGreenSign = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxYellowSign = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxBlueSign = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxPurpleSign = {
+        --   bg = "#1d2021",
+        -- },
+        -- GruvboxAquaSign = {
+        --   bg = "#1d2021",
+        -- },
         GruvboxOrangeSign = {
           bg = "#1d2021",
         },
