@@ -24,14 +24,14 @@ return {
   --     },
   --   },
   -- },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --       marksman = {},
-  --     },
-  --   },
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        marksman = {},
+      },
+    },
+  },
 
   -- Markdown preview
   {
