@@ -34,12 +34,11 @@ return {
       },
       formatters_by_ft = {
         lua = { "stylua" },
-        -- Conform will run multiple formatters sequentially
-        python = {
-          "isort",
-          "ruff_format",
-          -- "black",
-        },
+        -- Run the first available formatter followed by more formatters
+        -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#run-the-first-available-formatter-followed-by-more-formatters
+        python = function(bufnr)
+          return { "isort", first(bufnr, "ruff_format", "black") }
+        end,
         -- Use a sub-list to run only the first available formatter
         javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
