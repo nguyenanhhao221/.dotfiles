@@ -1,3 +1,5 @@
+local PythonUtil = require("util.python")
+
 return {
   {
     "mfussenegger/nvim-lint",
@@ -32,19 +34,7 @@ return {
             return vim.fs.find({ "mypy.ini" }, { path = ctx.filename, upward = true })[1]
           end,
           cmd = function()
-            local possibleLocaltions = { "./venv", "./.venv" }
-            for _, value in pairs(possibleLocaltions) do
-              local local_mypy = vim.fn.fnamemodify(value .. "/bin/mypy", ":p")
-              if local_mypy == nil then
-                break
-              end
-
-              local stat = vim.uv.fs_stat(local_mypy)
-              if stat then
-                return local_mypy
-              end
-              return "mypy"
-            end
+            return PythonUtil.get_venv_command("mypy")
           end,
           stdin = false,
           ignore_exitcode = true,

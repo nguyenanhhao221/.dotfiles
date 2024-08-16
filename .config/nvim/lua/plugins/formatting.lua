@@ -1,5 +1,21 @@
 local Format = require("plugins.lsp.format")
+local PythonUtil = require("util.python")
+
+---@param bufnr integer
+---@param ... string
+---@return string
+local function first(bufnr, ...)
+  local conform = require("conform")
+  for i = 1, select("#", ...) do
+    local formatter = select(i, ...)
+    if conform.get_formatter_info(formatter, bufnr).available then
+      return formatter
+    end
+  end
+  return select(1, ...)
+end
 return {
+
   {
     "stevearc/conform.nvim",
     enabled = true,
@@ -20,16 +36,13 @@ return {
       notify_on_error = false,
       formatters = {
         ruff_format = {
-          -- Change where to find the command
-          command = "./venv/bin/ruff",
+          command = PythonUtil.get_venv_command("ruff"),
         },
-        -- black = {
-        --   -- Change where to find the command
-        --   command = "./venv/bin/black",
-        -- },
+        black = {
+          command = PythonUtil.get_venv_command("black"),
+        },
         isort = {
-          -- Change where to find the command
-          command = "./venv/bin/isort",
+          command = PythonUtil.get_venv_command("isort"),
         },
       },
       formatters_by_ft = {
@@ -46,6 +59,7 @@ return {
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         go = { "goimports", "gofmt" },
         c = { "clang_format" },
+        rust = { "rustfmt" },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
