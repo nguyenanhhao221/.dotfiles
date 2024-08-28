@@ -35,7 +35,7 @@ return {
         end,
         -- function to run on closing the terminal
         on_close = function(term)
-          vim.cmd("startinsert!")
+          vim.cmd("edit")
         end,
       })
       local lazydocker = Terminal:new({
@@ -84,7 +84,7 @@ return {
     keys = {
       { "<leader>gs", "<cmd>0Git<CR>", desc = "git status" },
       { "<leader>cc", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
-      { "<leader>gP", "<cmd>Git push<CR>", desc = "git push", silent = false },
+      { "<leader>gP", "<cmd>Git push --verbose<CR>", desc = "git push", silent = false },
       {
         "ga",
         "<cmd>diffget //2<CR>",
