@@ -24,6 +24,9 @@ return {
           source = "if_many",
         },
         severity_sort = true,
+        float = {
+          border = "rounded",
+        },
       },
       servers = {
         -- clangd = {},
@@ -84,6 +87,11 @@ return {
       Util.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
+
+      -- Set up border when hover
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+      vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       local signs = require("config").icons.diagnostics
