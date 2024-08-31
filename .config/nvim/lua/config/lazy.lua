@@ -29,7 +29,6 @@ require("lazy").setup({
     { import = "plugins.extras.lang.markdown" },
     { import = "plugins.extras.lang.c" },
     { import = "plugins.extras.lang.ansible" },
-    { import = "plugins.dap.golang" },
     { import = "plugins.dap.nlua" },
     { import = "plugins.dap.python" },
     { import = "plugins.dap.jsdebug" },
