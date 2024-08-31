@@ -5,6 +5,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
+    enabled = false,
     opts = {
       indent = {
         char = "│",
@@ -98,7 +99,7 @@ return {
   {
     "echasnovski/mini.indentscope",
     event = { "BufReadPre", "BufNewFile" },
-    enabled = true,
+    enabled = false,
     opts = {
       draw = {
         animation = function()
