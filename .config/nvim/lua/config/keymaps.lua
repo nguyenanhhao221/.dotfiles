@@ -34,7 +34,7 @@ vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "decrements number" }) -- dec
 vim.keymap.set({ "n", "v", "s" }, "<C-s>", ":w<cr>", { desc = "[s]ave files", noremap = true })
 vim.keymap.set({ "i" }, "<C-s>", "<Esc>:w<cr>", { desc = "[s]ave files", noremap = true })
 -- quit
-vim.keymap.set("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save all and Quit" })
+-- vim.keymap.set("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save all and Quit" })
 
 -- Window management
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "[s]plit window [v]ertically" }) --
