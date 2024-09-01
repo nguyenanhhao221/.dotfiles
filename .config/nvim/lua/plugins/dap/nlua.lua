@@ -3,6 +3,7 @@ return {
   dependencies = {
     {
       "jbyuki/one-small-step-for-vimkind",
+      ft = "lua",
       -- stylua: ignore
       config = function()
         local dap = require("dap")
