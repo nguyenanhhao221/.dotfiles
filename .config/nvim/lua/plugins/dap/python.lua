@@ -10,6 +10,7 @@ return {
         { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
         { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
       },
+      ft = { "python" },
       config = function()
         local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
         local dap = require("dap")
