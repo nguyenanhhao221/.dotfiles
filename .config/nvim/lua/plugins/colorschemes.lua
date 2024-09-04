@@ -126,8 +126,11 @@ return {
         folds = true,
       },
       contrast = "hard", -- can be "hard", "soft" or empty string
-      palette_overrides = {},
       transparent_mode = true,
+      -- palette_overrides = {
+      --   dark0_hard = "#09090B",
+      --   dark0 = "#09090B",
+      -- },
       overrides = {
         TelescopeSelection = {
           bg = "#665c54",
@@ -157,11 +160,18 @@ return {
         GruvboxOrangeSign = {
           bg = "#1d2021",
         },
-        MiniIndentscopeSymbol = {
-          link = "GruvboxOrangeSign",
+        CursorLineNr = {
+          bg = "#1d2021",
         },
+        -- MiniIndentscopeSymbol = {
+        --   link = "GruvboxOrangeSign",
+        -- },
         EndOfBuffer = {
-          link = "GruvboxBg0",
+          bg = "#1d2021",
+          fg = "#1d2021",
+        },
+        FloatBorder = {
+          link = "Comment",
         },
       },
     },
@@ -198,7 +208,7 @@ return {
         dark = "mocha",
       },
       show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-      transparent_background = true,
+      transparent_background = false,
       term_colors = true,
     },
 
