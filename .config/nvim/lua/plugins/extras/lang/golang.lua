@@ -41,6 +41,16 @@ return {
               -- semanticTokens = true,
             },
           },
+          -- on_attach = function(client)
+          --   if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
+          --     local semantic = client.config.capabilities.textDocument.semanticTokens
+          --     client.server_capabilities.semanticTokensProvider = {
+          --       full = true,
+          --       legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+          --       range = true,
+          --     }
+          --   end
+          -- end,
         },
       },
     },
@@ -90,7 +100,7 @@ return {
       adapters = {
         ["neotest-golang"] = {
           -- Here we can set options for neotest-golang, e.g.
-          -- go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
+          go_test_args = { "-v" },
           dap_go_enabled = true, -- requires leoluz/nvim-dap-go
         },
       },
