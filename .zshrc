@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -16,9 +9,6 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-
-# Add in Powerlevel10k
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -32,23 +22,14 @@ alias lg="lazygit"
 alias lzd="lazydocker"
 # open neovim aliases
 alias v="nvim"
-# use pnpm to replace npm
-# alias npm="pnpm"
 
-# # Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-# Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::command-not-found
-## Load completions
-autoload -Uz compinit && compinit
-
-zinit cdreplay -q
+  autoload -Uz compinit
+  compinit
+fi
 
 #History
 HISTSIZE=5000
@@ -77,13 +58,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
 
 # pnpm
 export PNPM_HOME="/Users/haonguyen/Library/pnpm"
@@ -95,15 +69,14 @@ esac
 
 # GO LANG
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
+# export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 # ChatGPT Key
 source "$HOME/.openai_key.zsh"
 # JAVA
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # Activate ruby version when needed
@@ -125,5 +98,17 @@ source <(fzf --zsh)
 # https://starship.rs/
 # starship prompts
 eval "$(starship init zsh)"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# # Add in zsh plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::command-not-found
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit cdreplay -q
+autoload -U compinit; compinit
