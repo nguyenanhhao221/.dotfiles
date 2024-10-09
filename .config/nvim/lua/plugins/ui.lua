@@ -32,6 +32,7 @@ return {
   -- dashboard
   {
     "nvimdev/dashboard-nvim",
+    enabled = false,
     event = "VimEnter",
     opts = function()
       -- https://patorjk.com/software/taag/#p=testall&f=Graffiti&t=Hao%20Nguyen
