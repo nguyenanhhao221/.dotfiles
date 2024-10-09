@@ -54,8 +54,8 @@ return {
       },
       snippet = {
         expand = function(args)
-          -- luasnip.lsp_expand(args.body)
-          vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+          luasnip.lsp_expand(args.body)
+          -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -123,6 +123,13 @@ return {
       },
     })
 
+    -- sql set up
+    cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+      sources = {
+        { name = "buffer" },
+        { name = "vim-dadbod-completion" },
+      },
+    })
     -- `/` cmdline setup.
     cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
