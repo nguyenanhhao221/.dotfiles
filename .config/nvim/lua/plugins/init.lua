@@ -183,7 +183,7 @@ return {
   -- Screenshot code
   {
     "mistricky/codesnap.nvim",
-    cmd = "CodeSnap",
+    cmd = { "CodeSnap", "CodeSnapHighlight", "CodeSnapSave", "CodeSnapASCII" },
     build = "make",
     opts = {
       code_font_family = "JetBrainsMono NFM",
