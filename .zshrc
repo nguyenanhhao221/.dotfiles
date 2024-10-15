@@ -111,4 +111,5 @@ zinit snippet OMZP::command-not-found
 zinit light zsh-users/zsh-syntax-highlighting
 
 zinit cdreplay -q
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit; compinit
