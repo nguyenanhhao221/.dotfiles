@@ -46,7 +46,6 @@ return {
           },
         },
         dockerls = {},
-        rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
