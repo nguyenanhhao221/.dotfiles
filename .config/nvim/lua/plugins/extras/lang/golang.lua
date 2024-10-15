@@ -1,4 +1,8 @@
 return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "go", "gomod", "gowork", "gosum" } },
+  },
   -- Go Lsp
   {
     "neovim/nvim-lspconfig",
@@ -28,7 +32,7 @@ return {
                 rangeVariableTypes = true,
               },
               analyses = {
-                fieldalignment = true,
+                fieldalignment = false,
                 nilness = true,
                 unusedparams = true,
                 unusedwrite = true,
@@ -38,20 +42,31 @@ return {
               completeUnimported = true,
               staticcheck = true,
               directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-              -- semanticTokens = true,
+              semanticTokens = false,
             },
           },
-          -- on_attach = function(client)
-          --   if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
-          --     local semantic = client.config.capabilities.textDocument.semanticTokens
-          --     client.server_capabilities.semanticTokensProvider = {
-          --       full = true,
-          --       legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
-          --       range = true,
-          --     }
-          --   end
-          -- end,
         },
+      },
+      setup = {
+        gopls = function(_, opts)
+          -- workaround for gopls not supporting semanticTokensProvider
+          -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
+          local Util = require("util")
+          Util.on_attach(function(client, _)
+            if not client.server_capabilities.semanticTokensProvider then
+              local semantic = client.config.capabilities.textDocument.semanticTokens
+              client.server_capabilities.semanticTokensProvider = {
+                full = true,
+                legend = {
+                  tokenTypes = semantic.tokenTypes,
+                  tokenModifiers = semantic.tokenModifiers,
+                },
+                range = true,
+              }
+            end
+          end)
+          -- end workaround
+        end,
       },
     },
   },
@@ -88,6 +103,10 @@ return {
       }
       require("dap-go").setup()
     end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "gomodifytags", "impl" } },
   },
   -- For Go test
   {
