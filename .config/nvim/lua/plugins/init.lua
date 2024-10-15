@@ -58,12 +58,11 @@ return {
     end,
   },
 
-  --Use `gc` to comment
   {
-    "numToStr/Comment.nvim",
+    "folke/ts-comments.nvim",
+    opts = {},
     event = "VeryLazy",
-    enabled = false,
-    config = true,
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
   },
   -- TODO comments
   {
