@@ -80,6 +80,9 @@ status_c({
     right = 1,
   },
 })
+status_c({
+  "mode",
+})
 
 status_c({
   "filename",
@@ -149,6 +152,16 @@ status_x({
 
   "branch",
   icon = icons.git.branch,
+})
+
+status_x({
+  "encoding",
+})
+status_x({
+  "fileformat",
+})
+status_x({
+  "location",
 })
 
 -- ~  --------------------------------------------------------------------------------  ~ --
