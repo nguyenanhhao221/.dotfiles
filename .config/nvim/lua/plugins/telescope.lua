@@ -4,9 +4,7 @@ local Util = require("util")
 return {
   {
     "nvim-telescope/telescope.nvim",
-    -- tag = "0.1.x",
-    -- telescope did only one release, so use HEAD for now
-    -- version = false,
+    branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-ui-select.nvim" },
@@ -117,8 +115,6 @@ return {
     config = function(_, opts)
       --- Enable telescope fzf native, if installed
       pcall(require("telescope").load_extension, "fzf")
-      -- Load telescope dap extension
-      pcall(require("telescope").load_extension, "dap")
       -- pcall(require("telescope").load_extension, "gh")
       pcall(require("telescope").load_extension, "ui-select")
       -- [[ Configure Telescope ]]
@@ -128,9 +124,5 @@ return {
       -- pcall(require("telescope").load_extension, "git_signs")
       require("telescope").setup(opts)
     end,
-  },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-    lazy = true,
   },
 }
