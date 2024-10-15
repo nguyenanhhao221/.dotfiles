@@ -135,41 +135,18 @@ return {
         TelescopeSelection = {
           bg = "#665c54",
         },
-        TelescopeMatching = { link = "GruvboxOrange" },
-        -- SignColumn = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxRedSign = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxGreenSign = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxYellowSign = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxBlueSign = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxPurpleSign = {
-        --   bg = "#1d2021",
-        -- },
-        -- GruvboxAquaSign = {
-        --   bg = "#1d2021",
-        -- },
-        GruvboxOrangeSign = {
-          bg = "#1d2021",
+        TelescopeMatching = {
+          link = "GruvboxOrange",
+        },
+        SignColumn = {
+          link = "GruvboxBg0",
         },
         CursorLineNr = {
-          bg = "#1d2021",
+          link = "GruvboxYellow",
         },
-        -- MiniIndentscopeSymbol = {
-        --   link = "GruvboxOrangeSign",
+        -- NormalFloat = {
+        --   link = "GruvboxBg0",
         -- },
-        EndOfBuffer = {
-          bg = "#1d2021",
-          fg = "#1d2021",
-        },
         FloatBorder = {
           link = "Comment",
         },
@@ -185,12 +162,19 @@ return {
   {
     "sainnhe/gruvbox-material",
     enabled = false,
-    lazy = true,
     -- priority = 1000,
     config = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
-      vim.g.gruvbox_material_enable_italic = true
+      vim.g.gruvbox_material_transparent_background = 0
+      vim.g.gruvbox_material_foreground = "mix"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_ui_contrast = "high"
+      vim.g.gruvbox_material_float_style = "bright"
+      vim.g.gruvbox_material_statusline_style = "material"
+      vim.g.gruvbox_material_cursor = "auto"
+
+      -- vim.g.gruvbox_material_colors_override = { bg0 = '#191B1D' } -- #0e1010
+      -- vim.g.gruvbox_material_better_performance = 1
+
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
