@@ -14,6 +14,11 @@ return {
       "onsails/lspkind.nvim",
 
       "hrsh7th/cmp-nvim-lsp",
+      {
+        "folke/neoconf.nvim",
+        cmd = "Neoconf",
+        opts = {},
+      },
     },
     opts = {
       diagnostics = {
