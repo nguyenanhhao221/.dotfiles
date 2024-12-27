@@ -57,7 +57,7 @@ return {
         typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
         vue = { "prettierd", "prettier", stop_after_first = true },
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-        go = { "goimports", "gofmt" },
+        go = { "gofumpt", "goimports" },
         html = { "prettierd", "prettier", stop_after_first = true },
         c = { "clang_format" },
         rust = { "rustfmt" },
