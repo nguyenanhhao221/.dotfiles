@@ -31,22 +31,15 @@ return {
         -- Custom mypy, use with virtual environment
         mypy = {
           condition = function(ctx)
-            return vim.fs.find({ "mypy.ini" }, { path = ctx.filename, upward = true })[1]
+            local mypy_path = PythonUtil.get_venv_command("mypy")
+            -- Check if mypy exists and is executable
+            return mypy_path and vim.fn.executable(mypy_path) == 1
           end,
           cmd = function()
             return PythonUtil.get_venv_command("mypy")
           end,
           stdin = false,
           ignore_exitcode = true,
-          args = {
-            "--show-column-numbers",
-            "--show-error-end",
-            "--hide-error-codes",
-            "--hide-error-context",
-            "--no-color-output",
-            "--no-error-summary",
-            "--no-pretty",
-          },
         },
       },
     },
