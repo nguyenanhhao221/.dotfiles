@@ -109,6 +109,9 @@ return {
             ["<C-u>"] = false,
             ["<C-d>"] = false,
           },
+          n = {
+            ["<C-b>"] = "git_create_branch",
+          },
         },
       },
     },
