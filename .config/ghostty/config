@@ -1,18 +1,19 @@
 font-family = "GoMono Nerd Font Mono"
 font-family-bold = "GoMono Nerd Font Mono Bold"
 font-thicken = true
-adjust-font-baseline = 1
 font-size = 11
 adjust-cell-height = 4
 
 theme = GruvBoxDark
 
 window-decoration = false
-window-padding-x = 4
+window-padding-x = 6
 window-padding-y = 6
 
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
+window-height = 100
+window-width = 10000
 
 cursor-style-blink = true
 bold-is-bright = true
