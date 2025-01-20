@@ -23,7 +23,7 @@ return {
         -- {
         --   jedi_language_server = {},
         -- },
-        ruff_lsp = {
+        ruff = {
           -- disable ruff as hover provider to avoid conflicts with pyright
           on_attach = function(client)
             client.server_capabilities.hoverProvider = false
