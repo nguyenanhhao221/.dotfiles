@@ -32,6 +32,9 @@ return {
           settings = {
             redhat = { telemetry = { enabled = false } },
             yaml = {
+              schemas = {
+                ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.1-standalone-strict/all.json"] = "/*.k8s.yaml",
+              },
               customTags = { "!reference sequence" },
               keyOrdering = false,
               format = {
