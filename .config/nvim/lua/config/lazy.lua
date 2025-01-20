@@ -36,12 +36,10 @@ require("lazy").setup({
     { import = "plugins.dap.jsdebug" },
     { import = "plugins" },
   },
-}, {
-  defaults = {
-    -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-    -- have outdated releases, which may break your Neovim install.
-    -- version = false, -- always use the latest git commit
-    version = "*", -- try installing the latest stable version for plugins that support semver
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = false,
+    notify = false, -- get a notification when changes are found
   },
   dev = {
     -- directory where you store your local plugin projects
