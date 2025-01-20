@@ -59,4 +59,8 @@ vim.keymap.set("n", "<leader>il", function()
   Util.info("Toggle Inlay Hints")
 end, { desc = "Toggle Inlay Hints", silent = false })
 --Paste over and still keep the current pasted item in the buffer instead of the item that got pasted over
-vim.keymap.set("n", "<leader>x", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
+
+-- Nvim development helper keymaps
+vim.keymap.set("n", "<leader>X", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
+vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "source current line" })
+vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "source current selected lines" })
