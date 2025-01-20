@@ -19,6 +19,10 @@ return {
     },
     opts = {
       adapters = {},
+      -- discovery = {
+      --   concurrent = 3, -- Adjust to performance issue with test discovery with pytest pytest
+      --   enabled = true,
+      -- },
       status = { virtual_text = true },
       output = { open_on_run = true },
       icons = {
