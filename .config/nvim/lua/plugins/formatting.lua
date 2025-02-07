@@ -26,7 +26,7 @@ return {
         -- Customize or remove this keymap to your liking
         "<C-f>",
         function()
-          require("conform").format({ async = true, lsp_fallback = true })
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end,
         mode = "",
         desc = "Format buffer",
@@ -62,10 +62,10 @@ return {
         c = { "clang_format" },
         rust = { "rustfmt" },
       },
-      format_on_save = function(bufnr)
+      format_after_save = function(bufnr)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
-          return { timeout_ms = 500, lsp_fallback = false }
+          return { async = true, lsp_format = "fallback" }
         end
       end,
     },
