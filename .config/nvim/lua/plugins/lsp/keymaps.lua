@@ -21,11 +21,11 @@ M.on_attach = function(_, bufnr)
   -- show  diagnostics for line
   -- nmap("<leader>D", ":Lspsaga show_line_diagnostics<CR>", "Show Line diagnostics")
   nmap("<leader>D", function()
-    vim.diagnostic.open_float({ scope = "line" })
+    vim.diagnostic.open_float({ scope = "line", source = true })
   end, "Show Line diagnostics")
   -- show diagnostics for cursor
   nmap("<leader>d", function()
-    vim.diagnostic.open_float({ scope = "cursor" })
+    vim.diagnostic.open_float({ scope = "cursor", source = true })
   end, "Show cursor diagnostics")
 	-- stylua: ignore
   -- nmap("<leader>d",vim.diagnostic.open_float({scope = "cursor"}),"Show cursor diagnostics")
