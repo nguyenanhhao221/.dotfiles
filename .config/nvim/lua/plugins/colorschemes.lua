@@ -126,11 +126,11 @@ return {
         folds = true,
       },
       contrast = "hard", -- can be "hard", "soft" or empty string
-      transparent_mode = true,
-      -- palette_overrides = {
-      --   dark0_hard = "#09090B",
-      --   dark0 = "#09090B",
-      -- },
+      transparent_mode = false,
+      palette_overrides = {
+        -- dark0_hard = "#09090B",
+        --   dark0 = "#09090B",
+      },
       overrides = {
         TelescopeSelection = {
           bg = "#665c54",
@@ -218,6 +218,33 @@ return {
         },
       })
       vim.cmd("colorscheme github_dark_default")
+    end,
+  },
+  -- Nightfox
+  {
+    "EdenEast/nightfox.nvim",
+    enabled = false,
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
+    -- priority = 1000,
+    config = function()
+      vim.cmd("colorscheme carbonfox")
+    end,
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    enabled = false,
+    lazy = true,
+    -- priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        transparent = false,
+        italic_comments = false,
+        hide_fillchars = false,
+        borderless_telescope = true,
+        terminal_colors = true,
+        cache = true,
+      })
+      vim.cmd("colorscheme cyberdream")
     end,
   },
 }
