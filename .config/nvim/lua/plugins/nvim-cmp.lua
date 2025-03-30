@@ -39,6 +39,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local defaults = require("cmp.config.default")()
 
     vim.completeopt = "menu,menuone,noselect"
 
@@ -102,7 +103,7 @@ return {
       }, {
         { name = "buffer" },
       }),
-
+      sorting = defaults.sorting,
       formatting = {
         format = lspkind.cmp_format({
           mode = "symbol_text",
