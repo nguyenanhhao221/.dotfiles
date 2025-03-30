@@ -10,9 +10,10 @@ M.on_attach = function(_, bufnr)
 
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
+	-- stylua: ignore
   -- Hover docs
   -- nmap("<leader>k", ":Lspsaga hover_doc<CR>", "Hover Docs")
-  nmap("<leader>k", vim.lsp.buf.hover, "Hover Docs")
+  nmap("<leader>k", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover Docs")
   -- Code action
   nmap("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction")
 
@@ -28,16 +29,8 @@ M.on_attach = function(_, bufnr)
     vim.diagnostic.open_float({ scope = "cursor", source = true })
   end, "Show cursor diagnostics")
 	-- stylua: ignore
-  -- nmap("<leader>d",vim.diagnostic.open_float({scope = "cursor"}),"Show cursor diagnostics")
-  -- jump to previous diagnostic in buffer
-  -- nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "jump to previous diagnostic in buffer")
-  nmap("[d", vim.diagnostic.goto_prev, "jump to previous diagnostic in buffer")
-  -- jump to next diagnostic in buffer
-  -- nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "jump to next diagnostic in buffer")
-  nmap("]d", vim.diagnostic.goto_next, "jump to next diagnostic in buffer")
-  nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-  nmap("<leader>sh", vim.lsp.buf.signature_help, "Signature Documentation")
-
+  -- nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame") -- now use grn by default in nvim 0.11
+  nmap("<leader>sh",function () vim.lsp.buf.signature_help({border="rounded"}) end , "Signature Documentation")
   nmap("<leader>uf", require("plugins.lsp.format").toggle, "Toggle format on Save")
   -- Lesser used LSP functionality
   nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
