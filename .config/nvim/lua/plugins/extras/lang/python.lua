@@ -32,10 +32,7 @@ return {
             settings = {
               -- Any extra CLI arguments for `ruff` go here.
               args = {},
-              -- organize imports disabled, since we are already using `isort` for that
-              -- alternative, this can be enabled to make `organize imports`
-              -- available as code action
-              organizeImports = false,
+              organizeImports = true,
             },
           },
         },
