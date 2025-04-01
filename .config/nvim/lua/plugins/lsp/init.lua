@@ -1,6 +1,5 @@
 -- LSP Configuration & Plugins
 return {
-
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -31,6 +30,14 @@ return {
         severity_sort = true,
         float = {
           border = "rounded",
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
+            [vim.diagnostic.severity.WARN] = require("config").icons.diagnostics.WARN,
+            [vim.diagnostic.severity.HINT] = require("config").icons.diagnostics.HINT,
+            [vim.diagnostic.severity.INFO] = require("config").icons.diagnostics.INFO,
+          },
         },
       },
       servers = {
@@ -91,13 +98,6 @@ return {
       Util.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
-
-      -- Change the Diagnostic symbols in the sign column (gutter)
-      local signs = require("config").icons.diagnostics
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-      end
 
       -- Set up diagnostics config
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
