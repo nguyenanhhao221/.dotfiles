@@ -38,6 +38,9 @@ return {
         ruff_format = {
           command = PythonUtil.get_venv_command("ruff"),
         },
+        ruff_organize_imports = {
+          command = PythonUtil.get_venv_command("ruff"),
+        },
         black = {
           command = PythonUtil.get_venv_command("black"),
         },
@@ -50,7 +53,7 @@ return {
         -- Run the first available formatter followed by more formatters
         -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#run-the-first-available-formatter-followed-by-more-formatters
         python = function(bufnr)
-          return { "isort", first(bufnr, "ruff_format", "black") }
+          return { first(bufnr, "ruff_organize_imports", "isort"), first(bufnr, "ruff_format", "black") }
         end,
         -- Use a sub-list to run only the first available formatter
         javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
@@ -62,7 +65,7 @@ return {
         c = { "clang_format" },
         rust = { "rustfmt" },
       },
-      format_after_save = function(bufnr)
+      format_after_save = function(_)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
           return { async = true, lsp_format = "fallback" }
