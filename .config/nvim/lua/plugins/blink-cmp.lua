@@ -3,8 +3,16 @@ return {
   -- optional: provides snippets for the snippet source
   event = "InsertEnter",
   dependencies = {
-    "rafamadriz/friendly-snippets",
-    { "L3MON4D3/LuaSnip", version = "v2.*" },
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+    },
     { "disrupted/blink-cmp-conventional-commits" },
   },
 
@@ -35,9 +43,25 @@ return {
       ["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
       ["<Tab>"] = { "select_next", "fallback" },
       ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<C-l>"] = { "snippet_forward", "fallback" },
+      ["<C-h>"] = { "snippet_backward", "fallback" },
+      ["<C-d>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
     },
 
-    signature = { enabled = false },
+    -- Config for cmdline
+    cmdline = {
+      keymap = {
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<CR>"] = { "accept_and_enter", "fallback" },
+      },
+    },
+
+    signature = {
+      enabled = false,
+      window = { border = "rounded" },
+    },
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
@@ -45,12 +69,26 @@ return {
     },
 
     completion = {
-      documentation = { auto_show = true, auto_show_delay_ms = 200, treesitter_highlighting = true },
+      accept = {
+        -- experimental auto-brackets support
+        auto_brackets = {
+          enabled = true,
+        },
+      },
+      documentation = {
+        window = {
+          border = "rounded",
+          winhighlight = "NormalFloat:Normal,FloatBorder:Comment,EndOfBuffer:BlinkCmpDoc",
+        },
+        auto_show = true,
+        auto_show_delay_ms = 200,
+        treesitter_highlighting = true,
+      },
       menu = {
         winhighlight = "NormalFloat:Normal,CursorLine:TelescopeSelection,FloatBorder:Comment",
+        border = "rounded",
         draw = {
           treesitter = { "lsp" },
-          columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
         },
       },
     },
