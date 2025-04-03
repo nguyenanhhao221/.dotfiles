@@ -4,7 +4,8 @@ local Util = require("util")
 return {
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    version = false, -- telescope did only one release, so use HEAD for now
+    -- branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-ui-select.nvim" },
