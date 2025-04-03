@@ -12,7 +12,7 @@ return {
       -- Add vscode like icon
       "onsails/lspkind.nvim",
 
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
       {
         "folke/neoconf.nvim",
         cmd = "Neoconf",
@@ -107,7 +107,15 @@ return {
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+      capabilities = vim.tbl_deep_extend("force", capabilities, {
+        textDocument = {
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      })
       --
       --  You can press `g?` for help in this menu.
       require("mason").setup()
