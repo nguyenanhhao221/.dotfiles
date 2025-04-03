@@ -28,9 +28,8 @@ M.on_attach = function(_, bufnr)
   nmap("<leader>d", function()
     vim.diagnostic.open_float({ scope = "cursor", source = true })
   end, "Show cursor diagnostics")
-	-- stylua: ignore
   -- nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame") -- now use grn by default in nvim 0.11
-  nmap("<leader>sh",function () vim.lsp.buf.signature_help({border="rounded"}) end , "Signature Documentation")
+	-- stylua: ignore
   nmap("<leader>uf", require("plugins.lsp.format").toggle, "Toggle format on Save")
   -- Lesser used LSP functionality
   nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -39,8 +38,10 @@ M.on_attach = function(_, bufnr)
   nmap("<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
-
-  vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+	-- stylua: ignore
+  nmap("<leader>sh", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, "Signature Documentation")
+	-- stylua: ignore
+  vim.keymap.set("i", "<c-k>", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, { desc = "Signature Help" })
 end
 
 return M
