@@ -42,4 +42,4 @@ vim.opt.guicursor = ""
 vim.opt.guicursor = "i:blinkon1"
 
 -- Set border for all floating window
-vim.o.winborder = "rounded"
+-- vim.o.winborder = "rounded"
