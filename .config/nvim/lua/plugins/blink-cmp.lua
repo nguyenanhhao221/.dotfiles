@@ -13,7 +13,6 @@ return {
         end,
       },
     },
-    { "disrupted/blink-cmp-conventional-commits" },
   },
 
   -- use a release tag to download pre-built binaries
@@ -98,7 +97,7 @@ return {
 
     snippets = { preset = "luasnip" },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "conventional_commits", "lazydev" },
+      default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 
       per_filetype = { sql = { "dadbod" } },
       providers = {
@@ -108,16 +107,6 @@ return {
           module = "lazydev.integrations.blink",
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
-        },
-        conventional_commits = {
-          name = "Conventional Commits",
-          module = "blink-cmp-conventional-commits",
-          enabled = function()
-            return vim.bo.filetype == "gitcommit"
-          end,
-          ---@module 'blink-cmp-conventional-commits'
-          ---@type blink-cmp-conventional-commits.Options
-          opts = {}, -- none so far
         },
       },
     },
