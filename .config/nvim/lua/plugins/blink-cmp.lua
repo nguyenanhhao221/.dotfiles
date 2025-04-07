@@ -74,6 +74,9 @@ return {
           enabled = true,
         },
       },
+      ghost_text = {
+        enabled = false,
+      },
       documentation = {
         window = {
           border = "rounded",
