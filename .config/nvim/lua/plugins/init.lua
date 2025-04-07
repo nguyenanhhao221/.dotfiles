@@ -1,19 +1,4 @@
 return {
-  {
-    --Auto closing tag and pairs
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    lazy = true,
-    opts = {
-      check_ts = true, -- enable treesitter
-      ts_config = {
-        lua = { "string" }, -- don't add pairs in lua string treesitter nodes
-        javascript = { "template_string" }, -- don't add pairs in javscript template_string treesitter nodes
-        java = false, -- don't check treesitter on java
-      },
-    },
-  },
-
   --Harpoon to navigate files by ThePrimeagen
   --TODO: Try new branch for harpoon 2.0
   {
