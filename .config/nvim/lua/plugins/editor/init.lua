@@ -87,6 +87,8 @@ return {
         desc = "Open Oil File explorer",
       },
     },
+    ---@module 'oil'
+    ---@type oil.SetupOpts
     opts = {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
       -- Set to false if you still want to use netrw.
