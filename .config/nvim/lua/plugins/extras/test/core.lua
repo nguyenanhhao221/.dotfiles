@@ -97,7 +97,7 @@ return {
   {
     "andythigpen/nvim-coverage",
     enabled = true,
-    event = "VeryLazy",
+    cmd = { "Coverage", "CoverageSummary" },
     config = function()
       require("coverage").setup({
         commands = true, -- create commands
