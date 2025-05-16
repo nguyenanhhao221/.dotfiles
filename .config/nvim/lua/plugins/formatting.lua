@@ -64,6 +64,7 @@ return {
         html = { "prettierd", "prettier", stop_after_first = true },
         c = { "clang_format" },
         rust = { "rustfmt" },
+        sql = { "sqlfluff" },
       },
       format_after_save = function(_)
         -- Disable with a global or buffer-local variable
