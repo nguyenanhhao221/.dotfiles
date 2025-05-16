@@ -46,6 +46,7 @@ return {
       { "nvim-neotest/neotest-python" },
     },
     lazy = true,
+    ft = { "python" },
     opts = {
       adapters = {
         ["neotest-python"] = {
