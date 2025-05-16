@@ -5,9 +5,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim", config = true, cmd = "Mason" }, -- NOTE: Must be loaded before dependants
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      { "mason-org/mason.nvim", config = true, cmd = "Mason" }, -- NOTE: Must be loaded before dependants
+      "mason-org/mason-lspconfig.nvim",
+      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Add vscode like icon
       "onsails/lspkind.nvim",
@@ -94,6 +94,7 @@ return {
       },
     },
     config = function(_, opts)
+      local lspconfig = require("lspconfig")
       local Util = require("util")
       Util.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
@@ -128,20 +129,23 @@ return {
         "stylua", -- Used to format Lua code
       })
 
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
       require("mason-lspconfig").setup({
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            require("lspconfig")[server_name].setup(server)
-          end,
+        automatic_enable = {
+          exclude = vim.tbl_keys(opts.servers),
         },
+        ensure_installed = vim.tbl_keys(opts.servers),
       })
+
+      -- Loop through all servers and set them up with their configurations
+      for server_name, server_settings in pairs(servers) do
+        local server = lspconfig[server_name]
+        -- Merge default capabilities with any server-specific settings
+        local final_settings = vim.tbl_deep_extend("force", {
+          capabilities = capabilities,
+        }, server_settings)
+        -- P(final_settings)
+        server.setup(final_settings)
+      end
     end,
   },
 
