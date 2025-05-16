@@ -31,14 +31,14 @@ return {
         float = {
           border = "rounded",
         },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
-            [vim.diagnostic.severity.WARN] = require("config").icons.diagnostics.WARN,
-            [vim.diagnostic.severity.HINT] = require("config").icons.diagnostics.HINT,
-            [vim.diagnostic.severity.INFO] = require("config").icons.diagnostics.INFO,
-          },
-        },
+        -- signs = {
+        --   text = {
+        --     [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
+        --     [vim.diagnostic.severity.WARN] = require("config").icons.diagnostics.WARN,
+        --     [vim.diagnostic.severity.HINT] = require("config").icons.diagnostics.HINT,
+        --     [vim.diagnostic.severity.INFO] = require("config").icons.diagnostics.INFO,
+        --   },
+        -- },
       },
       servers = {
         -- clangd = {},
