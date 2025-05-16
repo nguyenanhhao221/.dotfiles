@@ -101,10 +101,11 @@ return {
     snippets = { preset = "luasnip" },
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "lazydev" },
-
-      per_filetype = { sql = { "dadbod" } },
+      per_filetype = {
+        sql = { "snippets", "dadbod", "buffer" },
+      },
       providers = {
-        dadbod = { module = "vim_dadbod_completion.blink" },
+        dadbod = { name = "Dadbob", module = "vim_dadbod_completion.blink" },
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
