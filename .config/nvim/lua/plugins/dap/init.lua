@@ -117,6 +117,7 @@ return {
     { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Debug Toggle REPL" },
     { "<leader>ds", function() require("dap").session() end, desc = "Debug Session" },
     { "<leader>dt", function() require("dap").terminate() end, desc = "Debug Terminate" },
+    { "<leader>dT", function() require("dap").terminate({disconnect_args={terminateDebuggee=false}}) end, desc = "Debug Terminate (without killing target process), suitable for attach debug" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Debug Widgets" },
   },
 
