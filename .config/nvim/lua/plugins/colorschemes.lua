@@ -3,7 +3,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "tokyonight",
@@ -26,7 +26,7 @@ return {
   --Kanagawa Themes
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     name = "kanagawa",
@@ -53,7 +53,7 @@ return {
   --Rose pine
   {
     "rose-pine/neovim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     name = "rose-pine",
     opts = {
@@ -144,6 +144,9 @@ return {
         CursorLineNr = {
           link = "GruvboxYellow",
         },
+        StatusLine = {
+          link = "GruvboxGray",
+        },
         -- NormalFloat = {
         --   link = "GruvboxBg0",
         -- },
@@ -161,7 +164,8 @@ return {
   --Gruvbox material
   {
     "sainnhe/gruvbox-material",
-    enabled = false,
+    enabled = true,
+    lazy = true,
     -- priority = 1000,
     config = function()
       vim.g.gruvbox_material_transparent_background = 0
@@ -181,7 +185,7 @@ return {
   -- catppuccin
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     name = "catppuccin",
     lazy = true,
     -- priority = 1000,
@@ -205,7 +209,7 @@ return {
   -- Or with configuration
   {
     "projekt0n/github-nvim-theme",
-    enabled = false,
+    enabled = true,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -223,7 +227,7 @@ return {
   -- Nightfox
   {
     "EdenEast/nightfox.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true, -- make sure we load this during startup if it is your main colorscheme
     -- priority = 1000,
     config = function()
@@ -232,7 +236,7 @@ return {
   },
   {
     "scottmckendry/cyberdream.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     -- priority = 1000,
     config = function()
