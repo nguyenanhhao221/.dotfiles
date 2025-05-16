@@ -58,8 +58,8 @@ return {
     },
 
     signature = {
-      enabled = false,
-      window = { border = "rounded" },
+      enabled = true,
+      window = { border = "rounded", show_documentation = false },
     },
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
