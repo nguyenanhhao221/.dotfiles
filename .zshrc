@@ -17,6 +17,9 @@ else
   export EDITOR='nvim'
 fi
 
+# use Man page with nvim instead
+export MANPAGER='nvim +Man!'
+
 # lazygit aliases
 alias lg="lazygit"
 alias lzd="lazydocker"
