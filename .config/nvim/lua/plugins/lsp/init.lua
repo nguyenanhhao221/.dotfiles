@@ -139,13 +139,12 @@ return {
 
       -- Loop through all servers and set them up with their configurations
       for server_name, server_settings in pairs(servers) do
-        local server = lspconfig[server_name]
         -- Merge default capabilities with any server-specific settings
         local final_settings = vim.tbl_deep_extend("force", {
           capabilities = capabilities,
         }, server_settings)
-        -- P(final_settings)
-        server.setup(final_settings)
+        vim.lsp.config(server_name, final_settings)
+        vim.lsp.enable(server_name)
       end
     end,
   },
