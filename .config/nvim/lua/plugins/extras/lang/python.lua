@@ -20,8 +20,13 @@ return {
             client.server_capabilities.semanticTokensProvider = nil
           end,
         },
-        -- {
-        --   jedi_language_server = {},
+        -- pyrefly = {
+        -- cmd = { "pyrefly", "lsp" },
+        -- filetypes = { "python" },
+        -- root_dir = function(fname)
+        --   return require("nvim-lspconfig").util.find_git_ancestor(fname) or vim.loop.os_homedir()
+        -- end,
+        -- settings = {},
         -- },
         ruff = {
           -- disable ruff as hover provider to avoid conflicts with pyright
