@@ -12,7 +12,7 @@ return {
       local vue_path = util.path.join(project_root, "node_modules", "vue")
       local is_vue = vim.fn.isdirectory(vue_path) == 1
       if is_vue then
-        opts.servers.volar = {
+        opts.servers.vue_ls = {
           filetypes = {
             "vue",
             "javascript",
