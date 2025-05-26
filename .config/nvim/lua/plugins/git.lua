@@ -26,7 +26,7 @@ return {
           border = "double", -- like `size`, width and height can be a number or function which is passed the current terminal
           width = 1000,
           height = 1000,
-          winblend = 3,
+          winblend = 0,
         },
         -- function to run on opening the terminal
         on_open = function(term)
@@ -50,7 +50,7 @@ return {
           border = "double", -- like `size`, width and height can be a number or function which is passed the current terminal
           width = 1000,
           height = 1000,
-          winblend = 3,
+          winblend = 0,
         },
         -- function to run on opening the terminal
         on_open = function(term)
