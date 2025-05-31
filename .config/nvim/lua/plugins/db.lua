@@ -10,6 +10,7 @@ return {
     "DBUIAddConnection",
     "DBUIFindBuffer",
   },
+  keys = { { "gdb", "<cmd>DBUIToggle<cr>", desc = "toogle Vim Dad Bob UI for SQL" } },
   init = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
