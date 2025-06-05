@@ -11,28 +11,7 @@ return {
       { "<leader>tp", "<cmd>InspectTree<CR>", desc = "Treesitter Playground Toggle" },
     },
     dependencies = {
-      -- {
-      --   "nvim-treesitter/playground",
-      --   keys = {
-      --     { "<leader>tp", "<cmd>TSPlaygroundToggle<CR>", desc = "Treesitter Playground Toggle" },
-      --   },
-      -- },
       "nvim-treesitter/nvim-treesitter-textobjects",
-      {
-        "windwp/nvim-ts-autotag",
-        config = function()
-          vim.lsp.handlers["textDocument/publishDiagnostics"] =
-            vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-              underline = true,
-              virtual_text = {
-                spacing = 5,
-                severity = { min = vim.diagnostic.severity.WARN },
-              },
-              update_in_insert = true,
-            })
-          require("nvim-ts-autotag").setup()
-        end,
-      },
       --Treesitter context for sticky scroll
       {
         "nvim-treesitter/nvim-treesitter-context",
