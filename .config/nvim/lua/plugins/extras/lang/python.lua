@@ -11,7 +11,7 @@ return {
               analysis = {
                 autoImportCompletions = true,
                 autoSearchPaths = true,
-                -- diagnosticMode = "openFilesOnly",
+                diagnosticMode = "openFilesOnly",
                 useLibraryCodeForTypes = true,
               },
             },
