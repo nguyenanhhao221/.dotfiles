@@ -39,7 +39,7 @@ vim.opt.shiftwidth = 2
 
 -- Make cursor fat even in insert mode
 vim.opt.guicursor = ""
-vim.opt.guicursor = "i:blinkon1"
+vim.opt.guicursor = "i:blinkwait300-blinkon200-blinkoff150"
 
 -- Set border for all floating window
 -- vim.o.winborder = "rounded"
