@@ -138,12 +138,12 @@ return {
         --   dark0 = "#09090B",
       },
       overrides = {
-        TelescopeSelection = {
-          bg = "#665c54",
-        },
-        TelescopeMatching = {
-          link = "GruvboxOrange",
-        },
+        -- TelescopeSelection = {
+        --   bg = "#665c54",
+        -- },
+        -- TelescopeMatching = {
+        --   link = "GruvboxOrange",
+        -- },
         SignColumn = {
           link = "GruvboxBg0",
         },
