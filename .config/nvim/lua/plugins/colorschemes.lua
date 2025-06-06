@@ -43,6 +43,12 @@ return {
           },
         },
       },
+      overrides = function(colors)
+        return {
+          -- theme colors will update dynamically when you change theme!
+          StatusLine = { bg = "none" },
+        }
+      end,
     },
     config = function(_, opts)
       -- load the colorscheme here
@@ -65,45 +71,45 @@ return {
       dim_nc_background = false,
       disable_background = false,
       disable_float_background = false,
-      disable_italics = false,
+      disable_italics = true,
 
       --- @usage string hex value or named color from rosepinetheme.com/palette
-      groups = {
-        background = "base",
-        background_nc = "_experimental_nc",
-        panel = "surface",
-        panel_nc = "base",
-        border = "highlight_med",
-        comment = "muted",
-        link = "iris",
-        punctuation = "subtle",
-
-        error = "love",
-        hint = "iris",
-        info = "foam",
-        warn = "gold",
-
-        headings = {
-          h1 = "iris",
-          h2 = "foam",
-          h3 = "rose",
-          h4 = "gold",
-          h5 = "pine",
-          h6 = "foam",
-        },
-        -- or set all headings at once
-        -- headings = 'subtle'
-      },
-
-      -- Change specific vim highlight groups
-      -- https://github.com/rose-pine/neovim/wiki/Recipes
-      highlight_groups = {
-        ColorColumn = { bg = "rose" },
-
-        -- Blend colours against the "base" background
-        CursorLine = { bg = "foam", blend = 10 },
-        StatusLine = { fg = "love", bg = "love", blend = 10 },
-      },
+      --   groups = {
+      --     background = "base",
+      --     background_nc = "_experimental_nc",
+      --     panel = "surface",
+      --     panel_nc = "base",
+      --     border = "highlight_med",
+      --     comment = "muted",
+      --     link = "iris",
+      --     punctuation = "subtle",
+      --
+      --     error = "love",
+      --     hint = "iris",
+      --     info = "foam",
+      --     warn = "gold",
+      --
+      --     headings = {
+      --       h1 = "iris",
+      --       h2 = "foam",
+      --       h3 = "rose",
+      --       h4 = "gold",
+      --       h5 = "pine",
+      --       h6 = "foam",
+      --     },
+      --     -- or set all headings at once
+      --     -- headings = 'subtle'
+      --   },
+      --
+      --   -- Change specific vim highlight groups
+      --   -- https://github.com/rose-pine/neovim/wiki/Recipes
+      --   highlight_groups = {
+      --     ColorColumn = { bg = "rose" },
+      --
+      --     -- Blend colours against the "base" background
+      --     CursorLine = { bg = "foam", blend = 10 },
+      --     StatusLine = { fg = "love", bg = "love", blend = 10 },
+      --   },
     },
     config = function(_, opts)
       require("rose-pine").setup(opts)
@@ -153,6 +159,9 @@ return {
         FloatBorder = {
           link = "Comment",
         },
+        DiffText = {
+          link = "Question",
+        },
       },
     },
     config = function(_, opts)
@@ -168,17 +177,13 @@ return {
     lazy = true,
     -- priority = 1000,
     config = function()
-      vim.g.gruvbox_material_transparent_background = 0
+      vim.g.gruvbox_material_transparent_background = 1
       vim.g.gruvbox_material_foreground = "mix"
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_ui_contrast = "high"
       vim.g.gruvbox_material_float_style = "bright"
       vim.g.gruvbox_material_statusline_style = "material"
       vim.g.gruvbox_material_cursor = "auto"
-
-      -- vim.g.gruvbox_material_colors_override = { bg0 = '#191B1D' } -- #0e1010
-      -- vim.g.gruvbox_material_better_performance = 1
-
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
@@ -236,7 +241,7 @@ return {
   },
   {
     "scottmckendry/cyberdream.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,
     -- priority = 1000,
     config = function()
