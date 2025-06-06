@@ -42,6 +42,11 @@ vim.keymap.set("n", "<leader>sj", "<C-w>s", { desc = "[s]plit window horizontall
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "make [s]plit windows [e]qual" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>", { desc = "close current split window" }) -- close current split window
 
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Jump window to the left" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Jump window to the right" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Jump window down" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Jump window up" })
+--
 -- Disable for now
 -- vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 -- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
