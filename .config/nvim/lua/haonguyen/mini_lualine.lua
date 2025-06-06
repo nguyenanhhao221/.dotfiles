@@ -138,7 +138,7 @@ status_c({
     -- Delimiter inserted between LSP names:
     separator = " ",
   },
-  -- List of LSP names to ignore (e.g., `null-ls`):
+  color = (vim.g.colors_name == "gruvbox") and "GruvboxGreen" or nil,
 })
 
 -- ~  --------------------------------------------------------------------------------  ~ --
