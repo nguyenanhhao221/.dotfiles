@@ -7,8 +7,11 @@ font-size = 12
 
 adjust-cell-height = 4
 
-theme = GruvBoxDark
-background = #1d2021
+theme = GruvBoxDarkHard
+# background = #1d2021
+# theme = Kanagawa Wave
+# theme = kanagawabones
+# theme = gruvbox-material
 
 window-decoration = false
 window-padding-x = 6
