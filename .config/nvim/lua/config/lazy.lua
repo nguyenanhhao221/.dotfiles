@@ -34,6 +34,7 @@ require("lazy").setup({
     { import = "plugins.dap.nlua" },
     { import = "plugins.dap.python" },
     { import = "plugins.dap.jsdebug" },
+    { import = "plugins.editor" },
     { import = "plugins" },
   },
   change_detection = {

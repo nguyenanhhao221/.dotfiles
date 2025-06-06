@@ -35,3 +35,4 @@
 .config/glab-cli
 .config/alacritty/themes
 .config/btop
+.config/github-copilot/apps.json
