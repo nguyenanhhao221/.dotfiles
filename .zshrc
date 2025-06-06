@@ -24,7 +24,7 @@ export MANPAGER='nvim +Man!'
 alias lg="lazygit"
 alias lzd="lazydocker"
 # open neovim aliases
-alias v="nvim ."
+alias v="nvim"
 
 if type brew &>/dev/null
 then
