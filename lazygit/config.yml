@@ -12,3 +12,8 @@ git:
     pager: delta --dark --paging=never
 services:
   'gitlab.dwellerlab.com': 'gitlab:gitlab.dwellerlab.com'
+
+# Edit file from the same nvim instance https://github.com/LazyVim/LazyVim/discussions/543
+os:
+  editCommand: "nvim"
+  editCommandTemplate: "{{editor}} --server $NVIM --remote-tab {{filename}}"
