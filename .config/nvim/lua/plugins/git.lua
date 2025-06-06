@@ -23,9 +23,9 @@ return {
           -- see :h nvim_open_win for details on borders however
           -- the 'curved' border is a custom border type
           -- not natively supported but implemented in this plugin.
-          border = "double", -- like `size`, width and height can be a number or function which is passed the current terminal
           width = 1000,
           height = 1000,
+          border = "single", -- like `size`, width and height can be a number or function which is passed the current terminal
           winblend = 0,
         },
         -- function to run on opening the terminal
@@ -47,7 +47,7 @@ return {
           -- see :h nvim_open_win for details on borders however
           -- the 'curved' border is a custom border type
           -- not natively supported but implemented in this plugin.
-          border = "double", -- like `size`, width and height can be a number or function which is passed the current terminal
+          border = "single", -- like `size`, width and height can be a number or function which is passed the current terminal
           width = 1000,
           height = 1000,
           winblend = 0,

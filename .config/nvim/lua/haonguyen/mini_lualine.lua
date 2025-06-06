@@ -132,8 +132,9 @@ status_c({
   "lsp_status",
   icon = "", -- f013
   symbols = {
+    done = "",
     -- Standard unicode symbols to cycle through for LSP progress:
-    spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+    spinner = "",
     -- Delimiter inserted between LSP names:
     separator = " ",
   },
