@@ -162,6 +162,24 @@ return {
         DiffText = {
           link = "Question",
         },
+        EndOfBuffer = {
+          link = "GruvboxBg0",
+        },
+        DiagnosticSignOk = {
+          link = "DiagnosticOk",
+        },
+        DiagnosticSignError = {
+          link = "DiagnosticError",
+        },
+        DiagnosticSignWarn = {
+          link = "DiagnosticWarn",
+        },
+        DiagnosticSignInfo = {
+          link = "DiagnosticInfo",
+        },
+        DiagnosticSignHint = {
+          link = "DiagnosticHint",
+        },
       },
     },
     config = function(_, opts)
