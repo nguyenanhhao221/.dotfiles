@@ -48,14 +48,14 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # make completion case insensitive
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # add color output to completion
+zstyle ':completion:*' menu no # disable native zsh tab in favor of fzf tab
+zstyle ':fzf-tab:*' popup-min-size 80 10 # Set the minimum preview window size when using fzf-tab cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # fzf tab cd will show a preview of the directory
 # Keybindings
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey '^[[A' history-search-backward # remap show history search command to arrow up
+bindkey '^[[B' history-search-forward # remap show history search command to arrow down
 
 
 # pnpm
