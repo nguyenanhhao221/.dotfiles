@@ -25,6 +25,8 @@ alias lg="lazygit"
 alias lzd="lazydocker"
 # open neovim aliases
 alias v="nvim"
+# ls will always show color
+alias ls="ls --color"
 
 if type brew &>/dev/null
 then
