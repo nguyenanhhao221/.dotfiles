@@ -52,7 +52,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # fzf tab cd will show a preview of the directory
 # Keybindings
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
