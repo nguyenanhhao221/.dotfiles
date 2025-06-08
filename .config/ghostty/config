@@ -1,7 +1,9 @@
-font-family = "IosevkaTerm Nerd Font Mono"
+font-family = "IosevkaTerm Nerd Font"
+# font-family = "Iosevka Nerd Font Mono"
 # font-family = "Jetbrains Nerd Font Mono"
 # font-family = "FiraCode Nerd Font Mono"
 # font-family = "GoMono Nerd Font"
+# font-family = "Terminess Nerd Font Mono"
 # font-family-bold = "FiraCode Nerd Font Mono Bold"
 # font-family-italic = "GoMono Nerd Font Mono Italic"
 font-thicken = true
@@ -16,8 +18,8 @@ theme = GruvBoxDarkHard
 # theme = gruvbox-material
 
 window-decoration = false
-window-padding-x = 6
-window-padding-y = 6
+window-padding-x = 4
+window-padding-y = 6,0
 
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
