@@ -91,10 +91,6 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # export CC="clang"
 # export CFLAGS="-ferror-limit=1 -gdwarf-4 -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-gnu-folding-constant -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-but-set-variable -Wshadow"
 # export LDLIBS="-lcs50 -lm"
-# fzf options
-# export FZF_DEFAULT_OPTS="--layout=default"
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
 
 # https://starship.rs/
 # starship prompts
@@ -119,6 +115,14 @@ zinit light Aloxaf/fzf-tab
 ZVM_VI_SURROUND_BINDKEY=s-prefix
 # The prompt cursor in insert mode
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+# Append a command directly
+# Work around when using fzf (install from homebrew) and zvm, because the Ctrl-r key map for history search can cause conflict between the 2 plugins, we force to source fzf after zvm, this way Ctrl-r will prioritize Fzf
+zvm_after_init_commands+=('source <(fzf --zsh)') 
+
+# fzf options
+# export FZF_DEFAULT_OPTS="--layout=default"
+# Set up fzf key bindings and fuzzy completion, if zsh-vi-mode (zvm) is removed, this line need to be retriggerd to make fzf work well for zsh
+# source <(fzf --zsh) 
 
 # Add in snippets
 zinit snippet OMZP::git
