@@ -98,13 +98,27 @@ source <(fzf --zsh)
 
 # https://starship.rs/
 # starship prompts
+# https://github.com/starship/starship/issues/3418#issuecomment-2477375663
+# work around when starship issue with zsh-vi-mode
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 
 # # Add in zsh plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 zinit light Aloxaf/fzf-tab
+
+# Change surround mode to s-prefix rather than classic
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#surround
+ZVM_VI_SURROUND_BINDKEY=s-prefix
+# The prompt cursor in insert mode
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
 # Add in snippets
 zinit snippet OMZP::git
