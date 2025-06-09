@@ -40,3 +40,5 @@
 	colorMoved = default
 [init]
 	defaultBranch = main
+[rebase]
+	updateRefs = true
