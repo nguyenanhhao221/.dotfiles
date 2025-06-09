@@ -31,7 +31,9 @@
 	side-by-side = true
 
 [merge]
-	tool = nvimdiff
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [mergetool]
 	keepBackup = false
 	prompt = false
