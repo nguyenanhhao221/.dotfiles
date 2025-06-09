@@ -94,7 +94,6 @@ return {
       },
     },
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
       local Util = require("util")
       Util.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
