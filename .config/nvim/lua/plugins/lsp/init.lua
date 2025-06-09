@@ -26,6 +26,8 @@ return {
         virtual_text = {
           spacing = 4,
           source = "if_many",
+          -- Only show virtual_text minimum severity is WARN
+          severity = { min = vim.diagnostic.severity.WARN },
         },
         severity_sort = true,
         float = {
