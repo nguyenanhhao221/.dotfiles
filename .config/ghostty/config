@@ -10,6 +10,8 @@ font-thicken = true
 font-size = 13
 
 adjust-cell-height = 4
+# adjust-cell-width = -5%
+# adjust-font-baseline=10%
 
 theme = GruvBoxDarkHard
 # background = #1d2021
