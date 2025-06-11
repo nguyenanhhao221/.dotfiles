@@ -125,7 +125,7 @@ status_c({
 
 status_c({
   "lsp_status",
-  icon = "", -- f013
+  icon = "[LSP] ",
   symbols = {
     done = "",
     -- Standard unicode symbols to cycle through for LSP progress:
