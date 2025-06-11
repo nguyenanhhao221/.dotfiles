@@ -159,9 +159,9 @@ return {
         FloatBorder = {
           link = "Comment",
         },
-        DiffText = {
-          link = "Question",
-        },
+        -- DiffText = {
+        --   link = "Question",
+        -- },
         EndOfBuffer = {
           link = "GruvboxBg0",
         },
