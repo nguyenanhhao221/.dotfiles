@@ -120,12 +120,7 @@ status_c({
 status_c({
   "diagnostics",
   sources = { "nvim_lsp" },
-  symbols = {
-    error = icons.diagnostics.error,
-    warn = icons.diagnostics.warn,
-    info = icons.diagnostics.info,
-    hint = icons.diagnostics.hint,
-  },
+  symbols = { error = "E", warn = "W", info = "I", hint = "H" },
 })
 
 status_c({
