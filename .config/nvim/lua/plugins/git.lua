@@ -173,6 +173,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = true,
     event = { "BufReadPre" },
     -- dependencies = { "nvim-scrollbar" },
     opts = {
@@ -191,6 +192,9 @@ return {
         delay = 500,
         ignore_whitespace = false,
       },
+      preview_config = {
+        border = "rounded",
+      },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
@@ -202,18 +206,22 @@ return {
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-        map({ "n", "v" }, "<leader>bl", ":Gitsigns toggle_current_line_blame<CR>", "Toogle Current Line Blame")
-        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-        map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-        map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-
+        map("n", "<leader>hp", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>hi", gs.preview_hunk_inline, "Preview Hunk Inline")
+        -- Buffers actions
+        map("n", "<leader>hS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>hR", gs.reset_buffer, "Reset Buffer")
 			-- stylua: ignore
         map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
 			-- stylua: ignore
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+
+        -- Toggles
+        map("n", "<leader>tb", gs.toggle_current_line_blame, "Toogle Current Line Blame")
+        map("n", "<leader>tw", gs.toggle_word_diff, "Toggle word diff")
       end,
     },
   },
