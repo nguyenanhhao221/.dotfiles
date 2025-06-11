@@ -133,7 +133,7 @@ status_c({
     -- Delimiter inserted between LSP names:
     separator = " ",
   },
-  color = (vim.g.colors_name == "gruvbox") and "GruvboxGreen" or nil,
+  -- color = (vim.g.colors_name == "gruvbox") and "GruvboxGreen" or nil,
 })
 
 -- ~  --------------------------------------------------------------------------------  ~ --
