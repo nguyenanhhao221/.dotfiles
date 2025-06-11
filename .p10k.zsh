@@ -57,6 +57,7 @@
     goenv                   # go environment (https://github.com/syndbg/goenv)
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
+		# python_version          # Python system version withtout virtual environment. Currently using the custom prompt_python_version() segment
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     node_version            # node.js version
     go_version              # go version (https://golang.org)
@@ -1680,7 +1681,13 @@
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
+	function prompt_python_version() {
+		local venv=${VIRTUAL_ENV:t}
+		if [[ $venv == (virtualenv|venv|.venv|env) ]]; then
+			venv=${VIRTUAL_ENV:h:t}
+		fi
+		p10k segment -f 208 -i '🐍' -t "${${$(python3 -V)#* }//\%/%%}${venv:+ ${venv//\%/%%}}"
+	}
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
   # when accepting a command line. Supported values:
   #
