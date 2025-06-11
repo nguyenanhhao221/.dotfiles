@@ -44,8 +44,8 @@ return {
       ["<S-Tab>"] = { "select_prev", "fallback" },
       ["<C-l>"] = { "snippet_forward", "fallback" },
       ["<C-h>"] = { "snippet_backward", "fallback" },
-      ["<C-d>"] = { "scroll_documentation_up", "fallback" },
-      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-d>"] = { "scroll_documentation_down", "fallback" },
     },
 
     -- Config for cmdline
