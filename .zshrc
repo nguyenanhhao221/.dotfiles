@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -96,11 +103,11 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # starship prompts
 # https://github.com/starship/starship/issues/3418#issuecomment-2477375663
 # work around when starship issue with zsh-vi-mode
-if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
-      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
-    zle -N zle-keymap-select "";
-fi
-eval "$(starship init zsh)"
+# if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+#       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+#     zle -N zle-keymap-select "";
+# fi
+# eval "$(starship init zsh)"
 
 # # Add in zsh plugins
 zinit light zsh-users/zsh-completions
@@ -109,6 +116,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 zinit light Aloxaf/fzf-tab
+# Power level 10k
+zinit light romkatv/powerlevel10k
 
 # Change surround mode to s-prefix rather than classic
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#surround
@@ -133,3 +142,6 @@ eval "$(uv generate-shell-completion zsh)"
 zinit cdreplay -q
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit; compinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
