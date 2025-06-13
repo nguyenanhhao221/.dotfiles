@@ -123,7 +123,7 @@ zinit light romkatv/powerlevel10k
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#surround
 ZVM_VI_SURROUND_BINDKEY=s-prefix
 # The prompt cursor in insert mode
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+# ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 # Append a command directly
 # Work around when using fzf (install from homebrew) and zvm, because the Ctrl-r key map for history search can cause conflict between the 2 plugins, we force to source fzf after zvm, this way Ctrl-r will prioritize Fzf
 zvm_after_init_commands+=('source <(fzf --zsh)') 
