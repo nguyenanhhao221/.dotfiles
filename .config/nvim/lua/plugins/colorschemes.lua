@@ -124,6 +124,7 @@ return {
     priority = 1000,
     name = "gruvbox",
     opts = {
+      strikethrough = true,
       italic = {
         strings = false,
         emphasis = false,
@@ -179,6 +180,9 @@ return {
         },
         DiagnosticSignHint = {
           link = "DiagnosticHint",
+        },
+        DiffDelete = {
+          strikethrough = true,
         },
       },
     },
