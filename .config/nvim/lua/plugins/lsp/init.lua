@@ -5,96 +5,96 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "mason-org/mason.nvim", config = true, cmd = "Mason" }, -- NOTE: Must be loaded before dependants
-      "mason-org/mason-lspconfig.nvim",
-      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
-
-      -- Add vscode like icon
-      "onsails/lspkind.nvim",
-
-      -- "hrsh7th/cmp-nvim-lsp",
+      { "mason-org/mason.nvim", config = true, cmd = "Mason" }, -- NOTE: Must be loaded before dependents
+      { "mason-org/mason-lspconfig.nvim" },
       {
         "folke/neoconf.nvim",
         cmd = "Neoconf",
         opts = {},
       },
     },
-    opts = {
-      diagnostics = {
-        underline = true,
-        update_in_insert = true,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-          -- Only show virtual_text minimum severity is WARN
-          severity = { min = vim.diagnostic.severity.WARN },
-        },
-        severity_sort = true,
-        float = {
-          border = "rounded",
-        },
-        -- signs = {
-        --   text = {
-        --     [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
-        --     [vim.diagnostic.severity.WARN] = require("config").icons.diagnostics.WARN,
-        --     [vim.diagnostic.severity.HINT] = require("config").icons.diagnostics.HINT,
-        --     [vim.diagnostic.severity.INFO] = require("config").icons.diagnostics.INFO,
-        --   },
-        -- },
-      },
-      servers = {
-        -- clangd = {},
-        jsonls = {
-          -- lazy-load schemastore when needed
-          on_new_config = function(new_config)
-            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-          end,
-          settings = {
-            json = {
-              format = {
-                enable = true,
-              },
-              validate = { enable = true },
-            },
+    opts = function()
+      ---@class PluginLspOpts
+      local ret = {
+        ---@type vim.diagnostic.Opts
+        diagnostics = {
+          underline = true,
+          update_in_insert = true,
+          virtual_text = {
+            spacing = 4,
+            source = "if_many",
+            -- Only show virtual_text minimum severity is WARN
+            severity = { min = vim.diagnostic.severity.WARN },
           },
+          severity_sort = true,
+          float = {
+            border = "rounded",
+          },
+          -- signs = {
+          --   text = {
+          --     [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
+          --     [vim.diagnostic.severity.WARN] = require("config").icons.diagnostics.WARN,
+          --     [vim.diagnostic.severity.HINT] = require("config").icons.diagnostics.HINT,
+          --     [vim.diagnostic.severity.INFO] = require("config").icons.diagnostics.INFO,
+          --   },
+          -- },
         },
-        dockerls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              telemetry = { enable = false },
-              diagnostics = {
-                globals = { "vim" },
-                -- ignore Lua_LS's noisy `missing-fields` warnings
-                disable = { "missing-fields" },
-              },
-              hint = {
-                enable = true,
+        ---@type lspconfig.options
+        servers = {
+          -- clangd = {},
+          jsonls = {
+            -- lazy-load schemastore when needed
+            on_new_config = function(new_config)
+              new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+              vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+            end,
+            settings = {
+              json = {
+                format = {
+                  enable = true,
+                },
+                validate = { enable = true },
               },
             },
           },
-        },
-        html = {},
-        cssls = {},
-        tailwindcss = {},
-        emmet_ls = {
-          filetypes = {
-            "html",
-            "typescriptreact",
-            "javascriptreact",
-            "css",
-            "sass",
-            "scss",
-            "less",
-            "svelte",
+          dockerls = {},
+          lua_ls = {
+            settings = {
+              Lua = {
+                workspace = {
+                  checkThirdParty = false,
+                },
+                telemetry = { enable = false },
+                diagnostics = {
+                  globals = { "vim" },
+                  -- ignore Lua_LS's noisy `missing-fields` warnings
+                  disable = { "missing-fields" },
+                },
+                hint = {
+                  enable = true,
+                },
+              },
+            },
+          },
+          html = {},
+          cssls = {},
+          tailwindcss = {},
+          emmet_ls = {
+            filetypes = {
+              "html",
+              "typescriptreact",
+              "javascriptreact",
+              "css",
+              "sass",
+              "scss",
+              "less",
+              "svelte",
+            },
           },
         },
-      },
-    },
+      }
+      return ret
+    end,
     config = function(_, opts)
       local Util = require("util")
       Util.on_attach(function(client, buffer)

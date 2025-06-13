@@ -18,24 +18,20 @@ require("lazy").setup({
     -- { import = "plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     -- Add each config for each language here
-    { import = "plugins.extras.test.core" },
+    { import = "plugins" },
+    { import = "plugins.editor" },
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.lang.vue" },
     { import = "plugins.extras.lang.python" },
     { import = "plugins.extras.lang.golang" },
+    { import = "plugins.extras.lang.rust" },
     { import = "plugins.extras.lang.yaml" },
+    { import = "plugins.extras.lang.helm" },
     { import = "plugins.extras.lang.nlua" },
     { import = "plugins.extras.lang.xml" },
     { import = "plugins.extras.lang.markdown" },
     { import = "plugins.extras.lang.c" },
     { import = "plugins.extras.lang.ansible" },
-    { import = "plugins.extras.lang.rust" },
-    { import = "plugins.extras.lang.helm" },
-    { import = "plugins.dap.nlua" },
-    { import = "plugins.dap.python" },
-    { import = "plugins.dap.jsdebug" },
-    { import = "plugins.editor" },
-    { import = "plugins" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
