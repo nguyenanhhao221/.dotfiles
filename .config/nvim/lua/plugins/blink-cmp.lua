@@ -1,6 +1,7 @@
 return {
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
+
   event = "InsertEnter",
   dependencies = {
     {
@@ -13,6 +14,16 @@ return {
         end,
       },
     },
+    {
+      "huijiro/blink-cmp-supermaven",
+    },
+    -- {
+    --   "fang2hou/blink-copilot",
+    --   opts = {
+    --     max_completions = 1, -- Global default for max completions
+    --     max_attempts = 2, -- Global default for max attempts
+    --   },
+    -- },
   },
 
   -- use a release tag to download pre-built binaries
@@ -41,6 +52,21 @@ return {
       preset = "enter",
       ["<C-n>"] = { "show", "show_documentation", "hide_documentation" },
       ["<Tab>"] = { "select_next", "fallback" },
+      -- ["<Tab>"] = {
+      --   function(cmp)
+      --     if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+      --       cmp.hide()(
+      --         require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit()
+      --       )
+      --     end
+      --     if cmp.snippet_active() then
+      --       return cmp.accept()
+      --     else
+      --       return cmp.select_and_accept()
+      --     end
+      --   end,
+      --   "fallback",
+      -- },
       ["<S-Tab>"] = { "select_prev", "fallback" },
       ["<C-l>"] = { "snippet_forward", "fallback" },
       ["<C-h>"] = { "snippet_backward", "fallback" },
@@ -75,7 +101,7 @@ return {
         },
       },
       ghost_text = {
-        enabled = false,
+        enabled = vim.g.ai_cmp,
       },
       documentation = {
         window = {
@@ -105,7 +131,18 @@ return {
 
     snippets = { preset = "luasnip" },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+      default = function()
+        local default_sources = { "lsp", "path", "snippets", "buffer", "lazydev" }
+        local is_supermaven = package.loaded["supermaven-nvim"] ~= nil
+        if is_supermaven then
+          vim.list_extend(default_sources, { "supermaven" })
+        end
+        -- local is_copilot_loaded = package.loaded["copilot-lsp"] ~= nil
+        -- if is_copilot_loaded then
+        --   vim.list_extend(default_sources, { "copilot" })
+        -- end
+        return default_sources
+      end,
       per_filetype = {
         sql = { "snippets", "dadbod", "buffer" },
       },
@@ -116,6 +153,26 @@ return {
           module = "lazydev.integrations.blink",
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
+        },
+        supermaven = {
+          name = "supermaven",
+          module = "blink-cmp-supermaven",
+          async = true,
+        },
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+          opts = {
+            -- Local options override global ones
+            max_completions = 3, -- Override global max_completions
+
+            -- Final settings:
+            -- * max_completions = 3
+            -- * max_attempts = 2
+            -- * all other options are default
+          },
         },
       },
     },

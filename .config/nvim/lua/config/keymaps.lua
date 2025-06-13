@@ -69,3 +69,7 @@ end, { desc = "Toggle Inlay Hints", silent = false })
 vim.keymap.set("n", "<leader>X", ":w<cr>:source %<cr>", { desc = "quickly save and source current file" })
 vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "source current line" })
 vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "source current selected lines" })
+
+-- Toggle AI plugin and completion
+-- stylua: ignore
+vim.keymap.set("n", "<leader>ai", function() vim.g.ai_cmp = not vim.g.ai_cmp Util.info("Toggle AI Completion") end, { desc = "Toggle AI completion" })

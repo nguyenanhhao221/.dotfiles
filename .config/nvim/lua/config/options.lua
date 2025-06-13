@@ -43,3 +43,6 @@ vim.opt.shiftwidth = 2
 
 -- Set border for all floating window
 -- vim.o.winborder = "rounded"
+
+--  Option to toggle AI completion
+vim.g.ai_cmp = false
