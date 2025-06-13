@@ -139,13 +139,11 @@ return {
     end,
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function(_, opts)
-      local lualine = require("lualine")
+    opts = function()
       local has_mini_lualine, mini_lualine_config = pcall(require, "haonguyen.mini_lualine")
-      if not has_mini_lualine then
-        return lualine.setup(opts)
+      if has_mini_lualine then
+        return mini_lualine_config
       end
-      lualine.setup(mini_lualine_config)
     end,
   },
   -- staline
