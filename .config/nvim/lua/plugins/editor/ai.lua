@@ -16,4 +16,31 @@ return {
       end)
     end,
   },
+  {
+    "supermaven-inc/supermaven-nvim",
+    event = "InsertEnter",
+    cmd = {
+      "SupermavenUseFree",
+      "SupermavenUsePro",
+    },
+    opts = {
+      keymaps = {
+        accept_suggestion = nil, -- handled by nvim-cmp / blink.cmp
+        clear_suggestion = "<C-]>",
+        accept_word = "<C-j>",
+      },
+      color = {
+        suggestion_color = "#ffffff",
+        cterm = 244,
+      },
+      log_level = "info", -- set to "off" to disable logging completely
+      disable_inline_completion = vim.g.ai_cmp,
+      ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+      disable_keymaps = false, -- disables built in keymaps for more manual control
+      -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
+      condition = function()
+        return false
+      end,
+    },
+  },
 }
