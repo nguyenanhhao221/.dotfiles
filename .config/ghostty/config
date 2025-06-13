@@ -11,9 +11,9 @@ font-family = "IosevkaTerm Nerd Font"
 # font-family-bold = "FiraCode Nerd Font Mono Bold"
 # font-family-italic = "GoMono Nerd Font Mono Italic"
 font-thicken = true
-font-size = 13
+font-size = 14
 
-adjust-cell-height = 4
+# adjust-cell-height = 2
 # adjust-cell-width = -5%
 # adjust-font-baseline=10%
 
