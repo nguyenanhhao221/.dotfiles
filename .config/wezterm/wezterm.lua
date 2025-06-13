@@ -13,47 +13,36 @@ local helpers = require("utils.helpers")
 
 local config = {
 	-- Color Schemes
-	color_scheme = "Catppuccin Mocha",
+	-- https://wezterm.org/colorschemes/index.html
+	color_scheme = "Gruvbox dark, hard (base16)",
 	-- Window
 	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
 	window_padding = {
-		left = 5,
-		right = 5,
-		top = 7,
-		bottom = 5,
-	},
-	-- Background
-	background = {
-		{
-			source = { File = { path = "/Users/haonguyen/Pictures/Wallpaper/thCDG1i.jpeg" } },
-			height = "Cover",
-			width = "Cover",
-			horizontal_align = "Left",
-			repeat_x = "Repeat",
-			repeat_y = "Repeat",
-			opacity = 1,
-			-- speed = 200,
-		},
-		-- Add a black layer on top of the background so it easier to see the code
-		{
-			source = {
-				Gradient = {
-					colors = { helpers.is_dark() and "#000000" or "#ffffff" },
-				},
-			},
-			width = "100%",
-			height = "100%",
-			opacity = helpers.is_dark() and 0.95 or 0.7,
-		},
+		left = 4,
+		right = 4,
+		top = 4,
+		bottom = 0,
 	},
 
 	-- Tab Bar
 	enable_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	-- Font
-	font = wezterm.font("JetBrainsMono NFM"),
+	font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" }),
 	font_size = 13,
-	line_height = 1.1,
+	line_height = 1,
+	bold_brightens_ansi_colors = true,
+
+	-- Cursor
+	cursor_blink_rate = 0, --0 Disable blinking
+	-- Disable all keymap from Wezterm
+	disable_default_key_bindings = true,
 }
+-- maximize window on startup
+local mux = wezterm.mux
+wezterm.on("gui-startup", function(cmd)
+	local _, _, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
 return config
