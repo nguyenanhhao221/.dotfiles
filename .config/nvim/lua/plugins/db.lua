@@ -14,7 +14,7 @@ return {
   init = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
-    vim.g.db_ui_execute_on_save = 0 -- Execute by <Leader-S> avoid accidentally execute query on save
+    vim.g.db_ui_execute_on_save = 1 -- Execute by <Leader-S> avoid accidentally execute query on save
   end,
   config = function()
     vim.api.nvim_create_autocmd("FileType", {
