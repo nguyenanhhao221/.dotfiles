@@ -6,7 +6,6 @@ return {
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { "mason-org/mason.nvim", config = true, cmd = "Mason" }, -- NOTE: Must be loaded before dependents
-      { "mason-org/mason-lspconfig.nvim" },
       {
         "folke/neoconf.nvim",
         cmd = "Neoconf",
@@ -129,13 +128,6 @@ return {
       vim.list_extend(ensure_installed, {
         "stylua", -- Used to format Lua code
         "sqlfluff", -- Format sql
-      })
-
-      require("mason-lspconfig").setup({
-        automatic_enable = {
-          exclude = vim.tbl_keys(opts.servers),
-        },
-        ensure_installed = vim.tbl_keys(opts.servers),
       })
 
       -- Loop through all servers and set them up with their configurations
