@@ -33,6 +33,16 @@ return {
     },
   },
 
+  -- Format for markdown
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        markdown = { "markdownlint" },
+      },
+    },
+  },
+
   -- Markdown preview
   {
     "iamcco/markdown-preview.nvim",
