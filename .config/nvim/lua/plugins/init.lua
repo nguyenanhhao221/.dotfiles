@@ -152,12 +152,13 @@ return {
   {
     "mistricky/codesnap.nvim",
     cmd = { "CodeSnap", "CodeSnapHighlight", "CodeSnapSave", "CodeSnapASCII" },
-    build = "make",
+    build = "make build_generator",
     opts = {
-      code_font_family = "JetBrainsMono NFM",
+      code_font_family = "IosevkaTerm Nerd Font",
       mac_window_bar = false,
       has_breadcrumbs = true,
       watermark = "",
+      -- theme = "gruvbox",
     },
   },
   -- AI
