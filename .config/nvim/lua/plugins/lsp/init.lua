@@ -90,6 +90,8 @@ return {
               "svelte",
             },
           },
+          -- third party gitlab lsp
+          gitlab_ci_ls = {},
         },
       }
       return ret

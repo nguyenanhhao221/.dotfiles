@@ -35,6 +35,13 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     })
   end,
 })
+-- This is required for gitlab-ci-ls to work
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.gitlab-ci*.{yml,yaml}",
+  callback = function()
+    vim.bo.filetype = "yaml.gitlab"
+  end,
+})
 
 -- Handle annoying case where accidentally uppercase W
 vim.api.nvim_create_user_command("Wq", ":wq", { desc = "Save and quit" })
