@@ -18,7 +18,6 @@ return {
       { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
     },
     opts = {
-      adapters = {},
       discovery = {
         concurrent = 4, -- Adjust to performance issue with test discovery with pytest pytest
         enabled = true,
