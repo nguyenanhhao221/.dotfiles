@@ -2,16 +2,20 @@ gui:
   theme:
     selectedLineBgColor:
       - underline
-    # selectedRangeBgColor:
-    #   - underline
+      # selectedRangeBgColor:
+      #   - underline
   nerdFontsVersion: "3"
-
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
 services:
   'gitlab.dwellerlab.com': 'gitlab:gitlab.dwellerlab.com'
-
 os:
   editPreset: 'nvim-remote' #https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#configuring-file-editing
+customCommands:
+  - key: <c-r>
+    description: Pick AI commit
+    command: commit-gen
+    context: files
+    output: terminal
