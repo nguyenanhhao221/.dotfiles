@@ -1,8 +1,9 @@
 return {
   {
     -- Obsidian
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
@@ -15,6 +16,8 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
+    ---@module 'obsidian'
+    ---@type obsidian.config.ClientOpts
     opts = function()
       local path = vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianNote"
       return {
@@ -32,36 +35,37 @@ return {
           -- Trigger completion at 2 chars.
           min_chars = 2,
         },
+        legacy_commands = false,
       }
     end,
   },
-  {
-    "saghen/blink.cmp",
-    dependencies = {
-      -- For obsidian.nvim
-      { "saghen/blink.compat" },
-      { "hrsh7th/nvim-cmp" },
-    },
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      per_filetype = {
-        markdown = { "obsidian", "obsidian_new", "obsidian_tags" },
-      },
-      providers = {
-        obsidian = {
-          name = "obsidian",
-          module = "blink.compat.source",
-        },
-        obsidian_new = {
-          name = "obsidian_new",
-          module = "blink.compat.source",
-        },
-        obsidian_tags = {
-          name = "obsidian_tags",
-          module = "blink.compat.source",
-        },
-      },
-    },
-  },
+  -- {
+  --   "saghen/blink.cmp",
+  --   dependencies = {
+  --     -- For obsidian.nvim
+  --     { "saghen/blink.compat" },
+  --     { "hrsh7th/nvim-cmp" },
+  --   },
+  --   ---@module 'blink.cmp'
+  --   ---@type blink.cmp.Config
+  --   opts = {
+  --     per_filetype = {
+  --       markdown = { "obsidian", "obsidian_new", "obsidian_tags" },
+  --     },
+  --     providers = {
+  --       obsidian = {
+  --         name = "obsidian",
+  --         module = "blink.compat.source",
+  --       },
+  --       obsidian_new = {
+  --         name = "obsidian_new",
+  --         module = "blink.compat.source",
+  --       },
+  --       obsidian_tags = {
+  --         name = "obsidian_tags",
+  --         module = "blink.compat.source",
+  --       },
+  --     },
+  --   },
+  -- },
 }

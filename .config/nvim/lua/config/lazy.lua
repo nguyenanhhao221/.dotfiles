@@ -32,7 +32,7 @@ require("lazy").setup({
     { import = "plugins.extras.lang.markdown" },
     { import = "plugins.extras.lang.c" },
     { import = "plugins.extras.lang.ansible" },
-    -- { import = "plugins.extras.obsidian" },
+    { import = "plugins.extras.obsidian" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
