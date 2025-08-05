@@ -47,6 +47,7 @@ return {
         isort = {
           command = PythonUtil.get_venv_command("isort"),
         },
+        injected = {},
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -60,7 +61,7 @@ return {
         typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
         vue = { "prettierd", "prettier", stop_after_first = true },
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-        go = { "gofumpt", "goimports" },
+        go = { "gofumpt", "goimports", "injected" },
         html = { "prettierd", "prettier", stop_after_first = true },
         c = { "clang_format" },
         rust = { "rustfmt" },
