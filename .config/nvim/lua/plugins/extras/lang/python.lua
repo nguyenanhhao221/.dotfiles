@@ -65,7 +65,7 @@ return {
           -- args = { "--log-level", "DEBUG", "-s" },
           -- extra_args = { "--log-level", "DEBUG", "-s" },
           runner = "pytest",
-          pytest_discover_instances = true,
+          pytest_discover_instances = false,
         },
       },
     },
