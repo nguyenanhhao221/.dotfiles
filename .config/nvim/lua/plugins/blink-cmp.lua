@@ -154,26 +154,26 @@ return {
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
         },
-        supermaven = {
-          name = "supermaven",
-          module = "blink-cmp-supermaven",
-          async = true,
-        },
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
-          async = true,
-          opts = {
-            -- Local options override global ones
-            max_completions = 3, -- Override global max_completions
-
-            -- Final settings:
-            -- * max_completions = 3
-            -- * max_attempts = 2
-            -- * all other options are default
-          },
-        },
+        -- supermaven = {
+        --   name = "supermaven",
+        --   module = "blink-cmp-supermaven",
+        --   async = true,
+        -- },
+        -- copilot = {
+        --   name = "copilot",
+        --   module = "blink-copilot",
+        --   score_offset = 100,
+        --   async = true,
+        --   opts = {
+        --     -- Local options override global ones
+        --     max_completions = 3, -- Override global max_completions
+        --
+        --     -- Final settings:
+        --     -- * max_completions = 3
+        --     -- * max_attempts = 2
+        --     -- * all other options are default
+        --   },
+        -- },
       },
     },
 
