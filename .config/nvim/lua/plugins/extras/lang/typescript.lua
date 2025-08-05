@@ -49,8 +49,12 @@ return {
     dependencies = {
       "marilari88/neotest-vitest",
     },
-    opts = function(_, opts)
-      table.insert(opts.adapters, require("neotest-vitest")({}))
-    end,
+    lazy = true,
+    ft = { "typescript", "javascript" },
+    opts = {
+      adapters = {
+        ["neotest-vitest"] = {},
+      },
+    },
   },
 }
