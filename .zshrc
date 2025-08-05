@@ -81,6 +81,8 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 # ChatGPT Key
 source "$HOME/.openai_key.zsh"
+# Google Gemini AI key
+source "$HOME/.google_ai_key.zsh"
 # JAVA
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 
