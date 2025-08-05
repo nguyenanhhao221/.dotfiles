@@ -110,7 +110,7 @@ return {
     { "<leader>di", function() require("dap").step_into() end, desc = "Debug Step Into" },
     { "<leader>dj", function() require("dap").down() end, desc = "Debug Down" },
     { "<leader>dk", function() require("dap").up() end, desc = "Debug Up" },
-    { "<leader>dl", function() require("dap").run_last() end, desc = "Debug Run Last" },
+    { "<leader>dl", function() require("dap").run_last() end, desc = "Debug re run last" },
     { "<leader>do", function() require("dap").step_out() end, desc = "Debug Step Out" },
     { "<leader>dO", function() require("dap").step_over() end, desc = "Debug Step Over" },
     { "<leader>dp", function() require("dap").pause() end, desc = "Debug Pause" },
