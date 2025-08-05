@@ -66,6 +66,8 @@ return {
   {
     "nvim-neotest/neotest",
     optional = true,
+    lazy = true,
+    ft = { "rust" },
     opts = {
       adapters = {
         ["rustaceanvim.neotest"] = {},
