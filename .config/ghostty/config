@@ -17,7 +17,7 @@ font-size = 13
 # adjust-cell-width = -5%
 # adjust-font-baseline=10%
 
-theme = GruvBoxDarkHard
+theme = Gruvbox Dark Hard
 # background = #1d2021
 # theme = Kanagawa Wave
 # theme = kanagawabones
