@@ -15,7 +15,8 @@ os:
   editPreset: 'nvim-remote' #https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#configuring-file-editing
 customCommands:
   - key: <c-r>
-    description: Pick AI commit
-    command: commit-gen
-    context: files
+    description: AI commit
+    context: "files"
+    command: 'commit-gen > .git/COMMIT_EDITMSG && cat .git/COMMIT_EDITMSG && ${EDITOR} .git/COMMIT_EDITMSG && [ -s .git/COMMIT_EDITMSG ] && git commit -F .git/COMMIT_EDITMSG || echo "Commit message is empty, commit aborted."'
+    loadingText: "Generating Commit"
     output: terminal
