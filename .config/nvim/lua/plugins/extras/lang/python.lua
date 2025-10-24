@@ -3,31 +3,43 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              disableOrganizeImports = true,
-              disableLanguageServices = false,
-              analysis = {
-                autoImportCompletions = true,
-                autoSearchPaths = true,
-                diagnosticMode = "openFilesOnly",
-                useLibraryCodeForTypes = true,
-              },
-            },
-          },
+        -- basedpyright = {
+        --   settings = {
+        --     basedpyright = {
+        --       disableOrganizeImports = true,
+        --       disableLanguageServices = false,
+        --       analysis = {
+        --         autoImportCompletions = true,
+        --         autoSearchPaths = true,
+        --         diagnosticMode = "openFilesOnly",
+        --         useLibraryCodeForTypes = true,
+        --       },
+        --     },
+        --   },
+        --   on_attach = function(client)
+        --     client.server_capabilities.semanticTokensProvider = nil
+        --   end,
+        -- },
+        -- pyrefly = {
+        --   settings = {},
+        --   on_attach = function(client)
+        --     client.server_capabilities.semanticTokensProvider = nil
+        --   end,
+        -- },
+        -- Ty, fast rust LSP. Disable for now as it still lack auto import like basedpyright
+        ty = {
           on_attach = function(client)
             client.server_capabilities.semanticTokensProvider = nil
           end,
+          settings = {
+            ty = {
+              experimental = {
+                autoImport = true,
+                rename = true,
+              },
+            },
+          },
         },
-        -- pyrefly = {
-        -- cmd = { "pyrefly", "lsp" },
-        -- filetypes = { "python" },
-        -- root_dir = function(fname)
-        --   return require("nvim-lspconfig").util.find_git_ancestor(fname) or vim.loop.os_homedir()
-        -- end,
-        -- settings = {},
-        -- },
         ruff = {
           -- disable ruff as hover provider to avoid conflicts with pyright
           on_attach = function(client)
@@ -76,6 +88,7 @@ return {
   -- - Select a virtual environment with `:VenvSelect`
   {
     "linux-cultist/venv-selector.nvim",
+    enabled = false,
     dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-telescope/telescope.nvim",
