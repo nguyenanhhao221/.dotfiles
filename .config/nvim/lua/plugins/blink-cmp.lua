@@ -16,6 +16,7 @@ return {
     },
     {
       "huijiro/blink-cmp-supermaven",
+      enabled = false,
     },
     -- {
     --   "fang2hou/blink-copilot",
