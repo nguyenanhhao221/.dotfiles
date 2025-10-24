@@ -21,7 +21,6 @@ local condition = {
 local auto_theme_custom = require("lualine.themes.auto")
 auto_theme_custom.normal.c.bg = "none"
 -- ~  --------------------------------------------------------------------------------  ~ --
-
 -- ~  Config
 local config = {
   options = {
@@ -131,9 +130,18 @@ status_c({
     -- Standard unicode symbols to cycle through for LSP progress:
     spinner = "",
     -- Delimiter inserted between LSP names:
-    separator = " ",
+    separator = " | ",
   },
   -- color = (vim.g.colors_name == "gruvbox") and "GruvboxGreen" or nil,
+})
+status_c({
+  function()
+    local linters = require("lint").linters_by_ft[vim.bo.filetype]
+    if #linters == 0 then
+      return "󰦕"
+    end
+    return "󱉶 " .. table.concat(linters, ", ")
+  end,
 })
 
 -- ~  --------------------------------------------------------------------------------  ~ --
