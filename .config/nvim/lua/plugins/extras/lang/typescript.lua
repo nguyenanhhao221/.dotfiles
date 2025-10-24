@@ -8,42 +8,74 @@ return {
       end
     end,
   },
-  {
-    "mason-org/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "eslint-lsp" })
-    end,
-  },
+  -- {
+  --   "mason-org/mason.nvim",
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = opts.ensure_installed or {}
+  --     vim.list_extend(opts.ensure_installed, { "eslint-lsp" })
+  --   end,
+  -- },
 
   -- correctly setup lspconfig
   -- Eslint
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --      eslint = {
+  --         settings = {
+  --           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+  --           workingDirectories = { mode = "auto" },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+  -- ts_ls
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        eslint = {
-          settings = {
-            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
-            workingDirectories = { mode = "auto" },
-          },
+        ts_ls = {
+          settings = {},
+          on_attach = function(client)
+            client.server_capabilities.semanticTokensProvider = nil
+          end,
         },
       },
     },
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    enabled = true,
-    ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
-    opts = {
-      settings = {
-        tsserver_file_preferences = {
-          includeInlayParameterNameHints = "all",
-        },
-      },
-    },
-  },
+  -- typescript-tool
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   enabled = true,
+  --   ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
+  --   opts = {
+  --     on_attach = function(client)
+  --       client.server_capabilities.semanticTokensProvider = nil
+  --     end,
+  --     settings = {
+  --       tsserver_file_preferences = {
+  --         includeInlayParameterNameHints = "all",
+  --       },
+  --     },
+  --   },
+  -- },
+  -- Lingting with eslint_d
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   optional = true,
+  --   opts = {
+  --     linters_by_ft = {
+  --       javascript = { "eslint_d" },
+  --       typescript = { "eslint_d" },
+  --       vue = { "eslint_d" },
+  --       typescriptreact = { "eslint_d" },
+  --       javascriptreact = { "eslint_d" },
+  --     },
+  --   },
+  -- },
   {
     "nvim-neotest/neotest",
     dependencies = {
