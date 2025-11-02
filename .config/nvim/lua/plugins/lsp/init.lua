@@ -92,6 +92,8 @@ return {
           },
           -- third party gitlab lsp
           gitlab_ci_ls = {},
+          -- taplo lsp for toml file
+          taplo = {},
         },
       }
       return ret
