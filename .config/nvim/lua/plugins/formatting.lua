@@ -33,6 +33,7 @@ return {
       },
     },
     opts = {
+      log_level = vim.log.levels.INFO, -- Can be switch to DEBUG for debugging Conform
       notify_on_error = false,
       formatters = {
         ruff_format = {
