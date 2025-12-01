@@ -20,26 +20,26 @@ return {
         --     client.server_capabilities.semanticTokensProvider = nil
         --   end,
         -- },
-        -- pyrefly = {
-        --   settings = {},
-        --   on_attach = function(client)
-        --     client.server_capabilities.semanticTokensProvider = nil
-        --   end,
-        -- },
-        -- Ty, fast rust LSP. Disable for now as it still lack auto import like basedpyright
-        ty = {
+        pyrefly = {
+          settings = {},
           on_attach = function(client)
             client.server_capabilities.semanticTokensProvider = nil
           end,
-          settings = {
-            ty = {
-              experimental = {
-                autoImport = true,
-                rename = true,
-              },
-            },
-          },
         },
+        -- Ty, fast rust LSP. Disable for now as it still lack auto import like basedpyright
+        -- ty = {
+        --   on_attach = function(client)
+        --     client.server_capabilities.semanticTokensProvider = nil
+        --   end,
+        --   settings = {
+        --     ty = {
+        --       experimental = {
+        --         autoImport = true,
+        --         rename = true,
+        --       },
+        --     },
+        --   },
+        -- },
         ruff = {
           -- disable ruff as hover provider to avoid conflicts with pyright
           on_attach = function(client)

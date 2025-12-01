@@ -134,15 +134,15 @@ status_c({
   },
   -- color = (vim.g.colors_name == "gruvbox") and "GruvboxGreen" or nil,
 })
-status_c({
-  function()
-    local linters = require("lint").linters_by_ft[vim.bo.filetype]
-    if #linters == 0 then
-      return "󰦕"
-    end
-    return "󱉶 " .. table.concat(linters, ", ")
-  end,
-})
+-- status_c({
+--   function()
+--     local linters = require("lint").linters_by_ft[vim.bo.filetype]
+--     if #linters == 0 then
+--       return "󰦕"
+--     end
+--     return "󱉶 " .. table.concat(linters, ", ")
+--   end,
+-- })
 
 -- ~  --------------------------------------------------------------------------------  ~ --
 -- ~  Right

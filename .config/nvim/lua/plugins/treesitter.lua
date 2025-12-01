@@ -3,7 +3,6 @@ return {
   {
     -- Highlight, edit, and navigate code "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/42fc28ba918343ebfd5565147a42a26580579482
     -- Use master branch for now, in the future Treesitter may switch to main branch as the default
     branch = "master",
@@ -107,6 +106,11 @@ return {
     ---@param opts TSConfig
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+      -- require("vim.treesitter.query").set(
+      --   "markdown",
+      --   "highlights",
+      --   "(fenced_code_block_delimiter) @punctuation.delimiter"
+      -- )
     end,
   },
 }
