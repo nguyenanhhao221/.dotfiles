@@ -11,6 +11,7 @@ git:
       pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 services:
   'gitlab.dwellerlab.com': 'gitlab:gitlab.dwellerlab.com'
+  'git.parcelperform.com': 'gitlab:git.parcelperform.com'
 os:
   editPreset: 'nvim-remote' #https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#configuring-file-editing
 customCommands:
