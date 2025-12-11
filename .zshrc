@@ -135,6 +135,9 @@ zvm_after_init_commands+=('source <(fzf --zsh)')
 # Set up fzf key bindings and fuzzy completion, if zsh-vi-mode (zvm) is removed, this line need to be retriggerd to make fzf work well for zsh
 # source <(fzf --zsh) 
 
+# tailscale alias
+alias ts="tailscale"
+
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::kubectl
