@@ -152,13 +152,53 @@ return {
   {
     "mistricky/codesnap.nvim",
     cmd = { "CodeSnap", "CodeSnapHighlight", "CodeSnapSave", "CodeSnapASCII" },
-    build = "make build_generator",
+    tag = "v2.0.0",
     opts = {
-      code_font_family = "IosevkaTerm Nerd Font",
-      mac_window_bar = false,
-      has_breadcrumbs = true,
-      watermark = "",
-      -- theme = "gruvbox",
+      show_line_number = true,
+      highlight_color = "#ffffff20",
+      show_workspace = true,
+      snapshot_config = {
+        theme = "candy",
+        window = {
+          mac_window_bar = true,
+          shadow = {
+            radius = 20,
+            color = "#00000040",
+          },
+          margin = {
+            x = 82,
+            y = 82,
+          },
+          border = {
+            width = 1,
+            color = "#ffffff30",
+          },
+          title_config = {
+            color = "#ffffff",
+            font_family = "Pacifico",
+          },
+        },
+        themes_folders = {},
+        fonts_folders = {},
+        line_number_color = "#495162",
+        command_output_config = {
+          prompt = "❯",
+          font_family = "IosevkaTerm Nerd Font",
+          prompt_color = "#F78FB3",
+          command_color = "#98C379",
+          string_arg_color = "#ff0000",
+        },
+        code_config = {
+          font_family = "IosevkaTerm Nerd Font",
+          breadcrumbs = {
+            enable = true,
+            separator = "/",
+            color = "#80848b",
+            font_family = "IosevkaTerm Nerd Font",
+          },
+        },
+        watermark = { content = "" },
+      },
     },
   },
   -- AI
