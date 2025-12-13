@@ -3,6 +3,24 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        pyright = {
+          on_attach = function(client)
+            client.server_capabilities.semanticTokensProvider = nil
+            client.server_capabilities.hoverProvider = false -- disable in favor of pyrefly
+          end,
+          settings = {
+            pyright = {
+              disableLanguageServices = true, -- handle by pyrefly
+              disableOrganizeImports = true, -- handle by ruff or isort instead
+            },
+            python = {
+              analysis = {
+                -- ["openFilesOnly", "workspace"]: Determines whether pyright analyzes (and reports errors for) all files in the workspace, as indicated by the config file. If this option is set to "openFilesOnly", pyright analyzes only open files.
+                diagnosticMode = "openFilesOnly",
+              },
+            },
+          },
+        },
         -- basedpyright = {
         --   settings = {
         --     basedpyright = {
@@ -21,7 +39,13 @@ return {
         --   end,
         -- },
         pyrefly = {
-          settings = {},
+          settings = {
+            python = {
+              analysis = {
+                showHoverGoToLinks = false,
+              },
+            },
+          },
           on_attach = function(client)
             client.server_capabilities.semanticTokensProvider = nil
           end,
