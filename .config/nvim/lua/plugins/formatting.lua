@@ -71,7 +71,7 @@ return {
       format_after_save = function(_)
         -- Disable with a global or buffer-local variable
         if Format.autoformat then
-          return { async = true, lsp_format = "fallback" }
+          return { async = true }
         end
       end,
     },
