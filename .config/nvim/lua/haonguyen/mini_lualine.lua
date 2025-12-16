@@ -119,6 +119,9 @@ status_c({
 status_c({
   "diagnostics",
   sources = { "nvim_lsp" },
+
+  -- Displays diagnostics for the defined severity types
+  sections = { "error", "warn", "info" }, -- don't show "hint" section
   symbols = { error = "E", warn = "W", info = "I", hint = "H" },
 })
 

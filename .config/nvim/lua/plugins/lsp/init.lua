@@ -58,6 +58,9 @@ return {
           float = {
             border = "rounded",
           },
+          signs = {
+            severity = { min = vim.diagnostic.severity.ERROR },
+          },
           -- signs = {
           --   text = {
           --     [vim.diagnostic.severity.ERROR] = require("config").icons.diagnostics.ERROR,
