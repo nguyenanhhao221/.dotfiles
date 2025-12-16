@@ -105,32 +105,6 @@ status_c({
   icon_only = true, -- Display only an icon for filetype
 })
 
-status_c({
-  function()
-    local python_util = require("util.python")
-    local venv_name = python_util.get_venv_name()
-
-    -- Get Python version
-    local python_cmd = python_util.get_venv_command("python")
-    local version_output = vim.fn.system(python_cmd .. " --version")
-    local py_version = vim.trim(version_output)
-    -- Split by whitespace
-    local parts = vim.split(py_version, "%s+")
-    local version = parts[#parts]
-
-    if venv_name and version and version ~= "" then
-      return "(" .. venv_name .. " " .. version .. ")"
-    elseif venv_name then
-      return "(" .. venv_name .. ")"
-    end
-    return ""
-  end,
-  cond = function()
-    return vim.bo.filetype == "python" and require("util.python").get_venv_name() ~= nil
-  end,
-  color = { fg = "#fabd2f" },
-})
-
 -- ~  --------------------------------------------------------------------------------  ~ --
 -- ~  Mid
 
