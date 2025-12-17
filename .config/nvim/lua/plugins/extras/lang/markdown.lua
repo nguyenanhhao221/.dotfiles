@@ -68,7 +68,10 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      -- Whether markdown should be rendered by default. Must be trigger by command
+      enabled = false,
+    },
   },
 
   -- {
