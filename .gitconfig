@@ -25,6 +25,9 @@
 [interactive]
 	diffFilter = delta --color-only
 
+[includeIf "gitdir:~/Code/parcel-perform/"]
+    path = /Users/haonguyen/.dotfiles/.gitconfig-parcelperform
+
 [pager]
   blame  = delta
   diff   = delta
