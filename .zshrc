@@ -124,6 +124,8 @@ zinit light romkatv/powerlevel10k
 # Change surround mode to s-prefix rather than classic
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#surround
 ZVM_VI_SURROUND_BINDKEY=s-prefix
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#system-clipboard
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 # The prompt cursor in insert mode
 # ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 # Append a command directly
