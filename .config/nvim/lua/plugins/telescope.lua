@@ -22,20 +22,18 @@ return {
     },
     cmd = "Telescope",
     -- stylua: ignore
-    keys = function ()
-			local tb = require("telescope.builtin")
-    return {
+    keys = {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>sg", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "gd",function() tb.lsp_definitions({ reuse_win = true }) end, desc = "[G]o [D]efinition" },
-      { "gr",function() tb.lsp_references({ reuse_win = true }) end, desc = "References" },
-      { "gi",function() tb.lsp_implementations({ reuse_win = true }) end, desc = "Lsp Implementations" },
-      { "gt", function() tb.lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
+      { "gd",function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "[G]o [D]efinition" },
+      { "gr",function() require("telescope.builtin").lsp_references({ reuse_win = true }) end, desc = "References" },
+      { "gi",function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Lsp Implementations" },
+      { "gt", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
       { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>ff", function() tb.find_files({ no_ignore = true , hidden=true}) end, desc = "Find All Files (root dir, no hidden)" },
+      { "<leader>ff", function() require("telescope.builtin").find_files({ no_ignore = true , hidden=true}) end, desc = "Find All Files (root dir, no hidden)" },
       { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       -- git
@@ -49,7 +47,7 @@ return {
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
       { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-      { "<leader>sd",function() tb.diagnostics({severity_limit=vim.diagnostic.severity.WARN}) end, desc = "Diagnostics (limit: WARNING)" },
+      { "<leader>sd", "<cmd>Telescope diagnostics severity_bound=ERROR<cr>", desc = "Diagnostics" },
       { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
       { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
       { "<leader>ht", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
@@ -102,8 +100,7 @@ return {
         }),
         desc = "Goto Symbol (Workspace)",
       },
-    }	
-    end,
+    },
     opts = {
       defaults = {
         prompt_prefix = " ",
