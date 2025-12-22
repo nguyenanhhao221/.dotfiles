@@ -182,6 +182,16 @@ return {
         vim.lsp.config(server_name, final_settings)
         vim.lsp.enable(server_name)
       end
+
+      -- Turn of Lsp semanticTokensProvider in favor of Treesitter
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client then
+            client.server_capabilities.semanticTokensProvider = nil
+          end
+        end,
+      })
     end,
   },
 
