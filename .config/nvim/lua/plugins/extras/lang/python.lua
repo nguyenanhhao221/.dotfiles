@@ -51,10 +51,8 @@ return {
           end,
         },
         -- Ty, fast rust LSP. Disable for now as it still lack auto import like basedpyright
+        -- Note: still missing support for pydantic
         -- ty = {
-        --   on_attach = function(client)
-        --     client.server_capabilities.semanticTokensProvider = nil
-        --   end,
         --   settings = {
         --     ty = {
         --       experimental = {
