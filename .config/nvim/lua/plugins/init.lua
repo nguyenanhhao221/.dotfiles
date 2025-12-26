@@ -70,6 +70,7 @@ return {
   --Navigate between window easier, work with tmux and nvim
   {
     "christoomey/vim-tmux-navigator",
+    enabled = false,
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
