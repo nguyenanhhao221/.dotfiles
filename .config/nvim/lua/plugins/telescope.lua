@@ -101,22 +101,7 @@ return {
         desc = "Goto Symbol (Workspace)",
       },
     },
-    opts = {
-      defaults = require("telescope.themes").get_ivy({
-        prompt_prefix = " ",
-        selection_caret = " ",
-        mappings = {
-          i = {
-            ["<C-u>"] = false,
-            ["<C-d>"] = false,
-          },
-          n = {
-            ["<C-b>"] = "git_create_branch",
-          },
-        },
-      }),
-    },
-    config = function(_, opts)
+    config = function()
       --- Enable telescope fzf native, if installed
       pcall(require("telescope").load_extension, "fzf")
       -- pcall(require("telescope").load_extension, "gh")
@@ -126,6 +111,21 @@ return {
 
       -- Load telescope git signs
       -- pcall(require("telescope").load_extension, "git_signs")
+
+      -- Have to opts this way because work around for telescope doesn't have a builtin way to set default picker theme
+      -- If follow normal lazy pattern, require("telescope.themes") will break Telescope lazy loading
+      local opts = {
+        -- Set default theme telescope picker to ivy
+        defaults = require("telescope.themes").get_ivy({
+          prompt_prefix = " ",
+          selection_caret = " ",
+          mappings = {
+            n = {
+              ["<C-b>"] = "git_create_branch",
+            },
+          },
+        }),
+      }
       require("telescope").setup(opts)
     end,
   },
