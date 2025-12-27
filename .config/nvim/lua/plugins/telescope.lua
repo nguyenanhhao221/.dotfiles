@@ -102,7 +102,7 @@ return {
       },
     },
     opts = {
-      defaults = {
+      defaults = require("telescope.themes").get_ivy({
         prompt_prefix = " ",
         selection_caret = " ",
         mappings = {
@@ -114,7 +114,7 @@ return {
             ["<C-b>"] = "git_create_branch",
           },
         },
-      },
+      }),
     },
     config = function(_, opts)
       --- Enable telescope fzf native, if installed
