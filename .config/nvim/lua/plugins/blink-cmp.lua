@@ -77,13 +77,24 @@ return {
 
     -- Config for cmdline
     cmdline = {
+      enabled = true,
+      completion = {
+        list = { selection = { preselect = false } },
+        menu = {
+          auto_show = function(ctx)
+            return vim.fn.getcmdtype() == ":"
+          end,
+        },
+        ghost_text = { enabled = true },
+      },
       keymap = {
+        preset = "cmdline",
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
         ["<CR>"] = { "accept_and_enter", "fallback" },
+        ["<C-n>"] = { "show", "fallback" },
       },
     },
-
     signature = {
       enabled = true,
       window = { border = "rounded", show_documentation = false },
