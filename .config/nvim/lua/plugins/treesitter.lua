@@ -2,8 +2,7 @@ return {
   --Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    -- lazy = false,
-    event = "VeryLazy",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
       local ts = require("nvim-treesitter")
@@ -47,9 +46,9 @@ return {
       end
 
       -- Enable fold
-      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      vim.wo[0][0].foldmethod = "expr"
-      vim.api.nvim_command("set nofoldenable")
+      -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      -- vim.wo[0][0].foldmethod = "expr"
+      -- vim.api.nvim_command("set nofoldenable")
 
       -- Enable indentation only
       if vim.bo.filetype ~= "python" then
@@ -58,7 +57,7 @@ return {
 
       -- Run treesitter base on the FileType
       vim.api.nvim_create_autocmd("FileType", {
-        -- pattern = "*",
+        pattern = { "<filetype>" },
         callback = function()
           -- vim.treesitter.start()
           pcall(vim.treesitter.start)
