@@ -133,7 +133,8 @@ ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 zvm_after_init_commands+=('source <(fzf --zsh)') 
 
 # fzf options
-# export FZF_DEFAULT_OPTS="--layout=default"
+export FZF_DEFAULT_OPTS="--layout=reverse"
+export FZF_TMUX_OPTS="--layout=reverse"
 # Set up fzf key bindings and fuzzy completion, if zsh-vi-mode (zvm) is removed, this line need to be retriggerd to make fzf work well for zsh
 # source <(fzf --zsh) 
 
