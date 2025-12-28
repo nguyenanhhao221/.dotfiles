@@ -1,13 +1,13 @@
 return {
   -- schema for autocomplete
-  {
-    "b0o/SchemaStore.nvim",
-    version = false, -- last release is way too old
-    lazy = true,
-  },
   -- set up lsp for yaml
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "b0o/SchemaStore.nvim",
+      version = false, -- last release is way too old
+      -- lazy = true,
+    },
     opts = {
       -- make sure mason installs the server
       servers = {
@@ -22,7 +22,8 @@ return {
             },
           },
           -- lazy-load schemastore when needed
-          on_new_config = function(new_config)
+          before_init = function(_, new_config)
+            print("on_new_config is called, ", new_config)
             new_config.settings.yaml.schemas = vim.tbl_deep_extend(
               "force",
               new_config.settings.yaml.schemas or {},
