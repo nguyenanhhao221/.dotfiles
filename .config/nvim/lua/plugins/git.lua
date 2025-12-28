@@ -78,9 +78,9 @@ return {
   {
     "tpope/vim-fugitive",
     event = { "BufReadPre", "BufNewFile" },
-    -- dependencies = {
-    --   "tpope/vim-rhubarb",
-    -- },
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
     keys = {
       { "<leader>gs", "<cmd>0Git<CR>", desc = "git status" },
       { "<leader>cc", "<cmd>Git commit<CR>", desc = "git commit", silent = false },
