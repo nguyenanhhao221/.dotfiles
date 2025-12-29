@@ -98,7 +98,8 @@ return {
           },
           -- args = { "--log-level", "DEBUG", "-s" },
           -- extra_args = { "--log-level", "DEBUG", "-s" },
-          runner = "pytest",
+          ---@type "django" | "pytest" |"unittest"
+          runner = "unittest",
           pytest_discover_instances = false,
         },
       },
