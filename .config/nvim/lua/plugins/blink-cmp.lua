@@ -166,6 +166,9 @@ return {
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
         },
+        lsp = {
+          async = true,
+        },
         -- supermaven = {
         --   name = "supermaven",
         --   module = "blink-cmp-supermaven",
