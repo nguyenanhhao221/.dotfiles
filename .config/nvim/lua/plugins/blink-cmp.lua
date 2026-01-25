@@ -18,6 +18,14 @@ return {
       "huijiro/blink-cmp-supermaven",
       enabled = false,
     },
+    {
+      "newtoallofthis123/blink-cmp-fuzzy-path",
+      opts = {
+        filetypes = { "markdown", "json" },
+        trigger_char = "@",
+        max_results = 10,
+      },
+    },
     -- {
     --   "fang2hou/blink-copilot",
     --   opts = {
@@ -144,7 +152,7 @@ return {
     snippets = { preset = "luasnip" },
     sources = {
       default = function()
-        local default_sources = { "lsp", "path", "snippets", "buffer", "lazydev" }
+        local default_sources = { "lsp", "path", "snippets", "buffer", "lazydev", "fuzzy-path" }
         local is_supermaven = package.loaded["supermaven-nvim"] ~= nil
         if is_supermaven then
           vim.list_extend(default_sources, { "supermaven" })
@@ -168,6 +176,11 @@ return {
         },
         lsp = {
           async = true,
+        },
+        ["fuzzy-path"] = {
+          name = "Fuzzy Path",
+          module = "blink-cmp-fuzzy-path",
+          score_offset = 0,
         },
         -- supermaven = {
         --   name = "supermaven",
