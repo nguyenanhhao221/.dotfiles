@@ -1,79 +1,4 @@
 return {
-  -- Toggle Term to be used with lazygit, lazydockek
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    cmd = "ToggleTerm",
-    keys = {
-      { "<leader>lg", "<cmd>lua Lazygit_toggle()<CR>", desc = "Toggle Lazy Git" },
-      { "<leader>ld", "<cmd>lua Lazydocker_toggle()<CR>", desc = "Toggle Lazy Docker" },
-    },
-    opts = {
-      shade_terminals = false,
-    },
-    config = function(_, opts)
-      require("toggleterm").setup(opts)
-      local Terminal = require("toggleterm.terminal").Terminal
-      local lazygit = Terminal:new({
-        cmd = "lazygit",
-        dir = "git_dir",
-        direction = "float",
-        float_opts = {
-          -- The border key is *almost* the same as 'nvim_open_win'
-          -- see :h nvim_open_win for details on borders however
-          -- the 'curved' border is a custom border type
-          -- not natively supported but implemented in this plugin.
-          width = 1000,
-          height = 1000,
-          border = "single", -- like `size`, width and height can be a number or function which is passed the current terminal
-          winblend = 0,
-        },
-        -- function to run on opening the terminal
-        on_open = function(term)
-          vim.cmd("startinsert!")
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-        end,
-        -- function to run on closing the terminal
-        on_close = function(term)
-          vim.cmd("edit")
-        end,
-      })
-      local lazydocker = Terminal:new({
-        cmd = "lazydocker",
-        dir = "git_dir",
-        direction = "float",
-        float_opts = {
-          -- The border key is *almost* the same as 'nvim_open_win'
-          -- see :h nvim_open_win for details on borders however
-          -- the 'curved' border is a custom border type
-          -- not natively supported but implemented in this plugin.
-          border = "single", -- like `size`, width and height can be a number or function which is passed the current terminal
-          width = 1000,
-          height = 1000,
-          winblend = 0,
-        },
-        -- function to run on opening the terminal
-        on_open = function(term)
-          vim.cmd("startinsert!")
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-        end,
-        -- function to run on closing the terminal
-        on_close = function(term)
-          vim.cmd("startinsert!")
-        end,
-      })
-
-      function Lazygit_toggle()
-        lazygit:toggle()
-      end
-
-      function Lazydocker_toggle()
-        lazydocker:toggle()
-      end
-      vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua Lazygit_toggle()<CR>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>ld", "<cmd>lua Lazydocker_toggle()<CR>", { noremap = true, silent = true })
-    end,
-  },
   -- Git related plugins
   {
     "tpope/vim-fugitive",
@@ -177,13 +102,13 @@ return {
     event = { "BufReadPre" },
     -- dependencies = { "nvim-scrollbar" },
     opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
+      -- signs = {
+      --   add = { text = "+" },
+      --   change = { text = "~" },
+      --   delete = { text = "_" },
+      --   topdelete = { text = "‾" },
+      --   changedelete = { text = "~" },
+      -- },
       attach_to_untracked = false,
       current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
       current_line_blame_opts = {

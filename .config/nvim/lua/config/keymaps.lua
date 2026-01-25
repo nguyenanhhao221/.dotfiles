@@ -73,3 +73,9 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>", { desc = "source current selected l
 -- Toggle AI plugin and completion
 -- stylua: ignore
 vim.keymap.set("n", "<leader>ai", function() vim.g.ai_cmp = not vim.g.ai_cmp Util.info("Toggle AI Completion") end, { desc = "Toggle AI completion" })
+
+-- Custom keymap for tmux pop up (lazygit, lazydocker, k9s)
+-- stylua: ignore
+vim.keymap.set("n", "<leader>lg", function() vim.fn.system('tmux popup -w 90% -h 90% -E -T "tmux popup" lazygit') end, { desc = "Lazy git" })
+-- stylua: ignore
+vim.keymap.set("n", "<leader>ld", function() vim.fn.system('tmux popup -w 90% -h 90% -E -T "tmux popup" lazydocker') end, { desc = "Lazy docker" })
