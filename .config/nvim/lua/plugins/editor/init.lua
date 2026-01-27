@@ -59,6 +59,8 @@ return {
           return false
         end,
       },
+      -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
+      delete_to_trash = true,
     },
   },
   -- surround
