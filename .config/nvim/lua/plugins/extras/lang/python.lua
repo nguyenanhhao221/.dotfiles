@@ -4,13 +4,27 @@ return {
     opts = {
       servers = {
         pyright = {
+          cmd = (function()
+            local PythonUtil = require("util.python")
+            local venv_cmd = PythonUtil.get_venv_command("pyright-langserver")
+            if venv_cmd and vim.fn.executable(venv_cmd) == 1 then
+              return { venv_cmd, "--stdio" }
+            end
+            -- Fall back to default lspconfig cmd
+            local ok, default_config = pcall(require, "lspconfig.lsp.pyright")
+            if ok and default_config.cmd then
+              return default_config.cmd
+            end
+            -- Ultimate fallback if lspconfig structure changes
+            return { "pyright-langserver", "--stdio" }
+          end)(),
           on_attach = function(client)
             client.server_capabilities.semanticTokensProvider = nil
-            client.server_capabilities.hoverProvider = false -- disable in favor of pyrefly
+            client.server_capabilities.hoverProvider = true -- disable in favor of pyrefly
           end,
           settings = {
             pyright = {
-              disableLanguageServices = true, -- handle by pyrefly
+              disableLanguageServices = false, -- handle by pyrefly
               disableOrganizeImports = true, -- handle by ruff or isort instead
             },
             python = {
@@ -38,18 +52,18 @@ return {
         --     client.server_capabilities.semanticTokensProvider = nil
         --   end,
         -- },
-        pyrefly = {
-          settings = {
-            python = {
-              analysis = {
-                showHoverGoToLinks = false,
-              },
-            },
-          },
-          on_attach = function(client)
-            client.server_capabilities.semanticTokensProvider = nil
-          end,
-        },
+        -- pyrefly = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         showHoverGoToLinks = false,
+        --       },
+        --     },
+        --   },
+        --   on_attach = function(client)
+        --     client.server_capabilities.semanticTokensProvider = nil
+        --   end,
+        -- },
         -- Ty, fast rust LSP. Disable for now as it still lack auto import like basedpyright
         -- Note: still missing support for pydantic
         -- ty = {
@@ -96,10 +110,10 @@ return {
             justMyCode = true,
             console = "integratedTerminal",
           },
-          -- args = { "--log-level", "DEBUG", "-s" },
+          args = { "--keepdb" },
           -- extra_args = { "--log-level", "DEBUG", "-s" },
           ---@type "django" | "pytest" |"unittest"
-          runner = "unittest",
+          runner = "django",
           pytest_discover_instances = false,
         },
       },
