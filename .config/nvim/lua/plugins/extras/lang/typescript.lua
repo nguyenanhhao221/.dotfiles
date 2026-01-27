@@ -36,32 +36,32 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ts_ls = {
-          settings = {},
-          on_attach = function(client)
-            client.server_capabilities.semanticTokensProvider = nil
-          end,
-        },
+        -- ts_ls = {
+        --   settings = {},
+        --   on_attach = function(client)
+        --     client.server_capabilities.semanticTokensProvider = nil
+        --   end,
+        -- },
       },
     },
   },
   -- typescript-tool
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  --   enabled = true,
-  --   ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
-  --   opts = {
-  --     on_attach = function(client)
-  --       client.server_capabilities.semanticTokensProvider = nil
-  --     end,
-  --     settings = {
-  --       tsserver_file_preferences = {
-  --         includeInlayParameterNameHints = "all",
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    enabled = true,
+    ft = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
+    opts = {
+      on_attach = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
+      settings = {
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+        },
+      },
+    },
+  },
   -- Lingting with eslint_d
   -- {
   --   "mfussenegger/nvim-lint",

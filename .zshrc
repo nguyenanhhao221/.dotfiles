@@ -35,14 +35,6 @@ alias v="nvim"
 # ls will always show color
 alias ls="ls --color"
 
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 #History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -145,6 +137,15 @@ alias ts="tailscale"
 zinit snippet OMZP::git
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+
+  autoload -Uz compinit
+  compinit
+fi
 
 eval "$(uv generate-shell-completion zsh)"
 zinit cdreplay -q

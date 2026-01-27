@@ -11,9 +11,7 @@ return {
         "dockerfile",
         "cpp",
         "go",
-        "gitconfig",
         "gitcommit",
-        "gitrebase",
         "gitignore",
         "diff",
         "lua",
@@ -33,12 +31,10 @@ return {
         "gitignore",
         "javascript",
         "json",
-        "jsonc",
         "css",
         "html",
         "yaml",
         "make",
-        "tmux",
       }
 
       for _, parser in ipairs(parsers) do
@@ -82,12 +78,12 @@ return {
           -- Automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
           -- You can choose the select mode (default is charwise 'v')
-
-          selection_modes = {
-            ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
-            ["@class.outer"] = "<c-v>", -- blockwise
-          },
+          --
+          -- selection_modes = {
+          --   ["@parameter.outer"] = "v", -- charwise
+          --   ["@function.outer"] = "V", -- linewise
+          --   ["@class.outer"] = "<c-v>", -- blockwise
+          -- },
           include_surrounding_whitespace = false,
         },
         move = {
