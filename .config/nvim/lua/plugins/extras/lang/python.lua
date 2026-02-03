@@ -20,11 +20,11 @@ return {
           end)(),
           on_attach = function(client)
             client.server_capabilities.semanticTokensProvider = nil
-            client.server_capabilities.hoverProvider = true -- disable in favor of pyrefly
+            client.server_capabilities.hoverProvider = false -- disable in favor of pyrefly
           end,
           settings = {
             pyright = {
-              disableLanguageServices = false, -- handle by pyrefly
+              disableLanguageServices = true, -- handle by pyrefly
               disableOrganizeImports = true, -- handle by ruff or isort instead
             },
             python = {
@@ -35,23 +35,23 @@ return {
             },
           },
         },
-        -- basedpyright = {
-        --   settings = {
-        --     basedpyright = {
-        --       disableOrganizeImports = true,
-        --       disableLanguageServices = false,
-        --       analysis = {
-        --         autoImportCompletions = true,
-        --         autoSearchPaths = true,
-        --         diagnosticMode = "openFilesOnly",
-        --         useLibraryCodeForTypes = true,
-        --       },
-        --     },
-        --   },
-        --   on_attach = function(client)
-        --     client.server_capabilities.semanticTokensProvider = nil
-        --   end,
-        -- },
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              disableOrganizeImports = true,
+              disableLanguageServices = false,
+              analysis = {
+                -- autoImportCompletions = true,
+                -- autoSearchPaths = true,
+                -- diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+          on_attach = function(client)
+            client.server_capabilities.semanticTokensProvider = nil
+          end,
+        },
         -- pyrefly = {
         --   settings = {
         --     python = {
