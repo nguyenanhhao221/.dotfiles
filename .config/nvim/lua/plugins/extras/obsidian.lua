@@ -27,6 +27,9 @@ return {
             path = path,
           },
         },
+        templates = {
+          folder = "Templates",
+        },
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
         completion = {
           nvim_cmp = false,
